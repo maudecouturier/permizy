@@ -4,4 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :bookings, class_name: 'Booking', foreign_key: 'student_id'
+  has_many :bookings, class_name: 'Booking', foreign_key: 'teacher_id'
 end
