@@ -1,5 +1,5 @@
 {
-  "name": "permizy",
+  "name": "car-de-tour",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
