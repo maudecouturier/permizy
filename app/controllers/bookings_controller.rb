@@ -1,11 +1,12 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i(show edit update destroy)
+
   def index
     @bookings = policy_scope(Booking)
     authorize @bookings
   end
 
   def show
-    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
@@ -28,12 +29,10 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
   def update
-    @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       redirect_to bookings_path
     else
@@ -42,11 +41,21 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def destroy
+    @booking.destroy
+    authorize @booking
+    redirect_to bookings_path
+  end
+
 
   private
 
   def booking_params
     params.require(:booking).permit(:teacher_id, :slot)
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
 end
