@@ -8,8 +8,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-console.log('yay')
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -23,3 +21,9 @@ console.log('yay')
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
+
+import { initFlatpickr } from "../plugins/init_flatpickr";
+
+document.addEventListener('turbolinks:load', () => {
+  initFlatpickr();
+})
