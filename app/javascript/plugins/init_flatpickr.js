@@ -11,7 +11,10 @@ const initFlatpickr = () => {
     altInput: true,
     minDate: "today",
     inline: true,
-    dateFormat: "Y-m-d"
+    dateFormat: "Y-m-d",
+    enableTime: true,
+    minTime: "9:00",
+    maxTime: "21:00"
   })
 }
 
