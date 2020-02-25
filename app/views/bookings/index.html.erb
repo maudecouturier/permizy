@@ -1,4 +1,7 @@
 <h1>My bookings</h1>
 <% @bookings.each do |booking| %>
-  <p><%= booking.student.last_name %></p>
+  <p>Student: <%= link_to booking.student.first_name, booking_path(booking) %></p>
+  <p>Slot: <%= booking.slot %></p>
+  <p>Teacher: <%= booking.teacher.first_name %></p>
+  <p><%= link_to 'Edit', edit_booking_path(booking) %></p>
 <% end %>
