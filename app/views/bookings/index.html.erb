@@ -3,5 +3,12 @@
   <p>Student: <%= link_to booking.student.first_name, booking_path(booking) %></p>
   <p>Slot: <%= booking.slot %></p>
   <p>Teacher: <%= booking.teacher.first_name %></p>
-  <p><%= link_to 'Edit', edit_booking_path(booking) %></p>
+
+  <% if (booking.slot - DateTime.now()) > 86_400 %>
+    <p><%= link_to 'Edit', edit_booking_path(booking) %></p>
+    <p><%= link_to "Delete",
+            booking_path(booking),
+            method: :delete,
+            data: { confirm: "Are you sure?" }%></p>
+  <% end %>
 <% end %>
