@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_171803) do
+ActiveRecord::Schema.define(version: 2020_02_26_163531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.datetime "slot"
     t.text "review_content"
     t.text "review_evaluation"
     t.text "review_to_improve"
@@ -26,12 +25,21 @@ ActiveRecord::Schema.define(version: 2020_02_25_171803) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "student_id"
-    t.bigint "teacher_id"
     t.string "address", default: "16 villa Gaudelet 75011 Paris"
     t.float "latitude"
     t.float "longitude"
     t.index ["student_id"], name: "index_bookings_on_student_id"
-    t.index ["teacher_id"], name: "index_bookings_on_teacher_id"
+  end
+
+  create_table "slots", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "teacher_id"
+    t.index ["booking_id"], name: "index_slots_on_booking_id"
+    t.index ["teacher_id"], name: "index_slots_on_teacher_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,5 +58,6 @@ ActiveRecord::Schema.define(version: 2020_02_25_171803) do
   end
 
   add_foreign_key "bookings", "users", column: "student_id"
-  add_foreign_key "bookings", "users", column: "teacher_id"
+  add_foreign_key "slots", "bookings"
+  add_foreign_key "slots", "users", column: "teacher_id"
 end
