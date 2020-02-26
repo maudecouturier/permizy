@@ -3,10 +3,13 @@
   margin-top: 66px;
   position: relative;
   padding: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
-.card-cours h4{
-  font-size: 20px;
+.card-cours h3{
+  font-size: 18px;
+  color: $blue;
 }
 
 .card-cours h2{
