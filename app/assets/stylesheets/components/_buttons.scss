@@ -8,13 +8,10 @@
   margin: 0px;
   font-family: Comfortaa;
   font-weight: bold;
-  :hover {
-    color: $orange !important;
-  }
 }
 
 .btn-card-add {
-  background-color: $orange;
+  background-color: $orange;;
   color: white;
   font-size: 30px;
   width: 30px;
@@ -27,3 +24,16 @@
   padding: 0px;
   font-size: 20px;
 }
+
+.btn-cardetour{
+  background-color: $orange !important;
+  color: white;
+  font-family: Comfortaa;
+  font-weight: bold;
+  border-radius: 200px;
+  font-size: 10px;
+  margin: 8px;
+  padding: 8px;
+
+}
+
