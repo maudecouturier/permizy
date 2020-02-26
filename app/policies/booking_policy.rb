@@ -13,6 +13,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def dashboard?
+    true
+  end
+
   def new?
     true
   end
