@@ -1,0 +1,47 @@
+<h1>Dashboard</h1>
+<h1>My ratings</h1>
+<% respect = [] %>
+<% share = [] %>
+<% control = [] %>
+<% @bookings.each do |booking| %>
+  <% respect << booking.respect_rating if !booking.respect_rating.nil? %>
+  <% share << booking.share_rating if !booking.share_rating.nil? %>
+  <% control << booking.control_rating if !booking.control_rating.nil? %>
+<% end %>
+<p>Respect Rating Average: <%= (respect.sum.to_f / respect.count) %></p>
+<p>Share Rating Average: <%= (share.sum.to_f / share.count) %></p>
+<p>Control Rating Average: <%= (control.sum.to_f / control.count) %></p>
+
+
+<h1>My hours</h1>
+
+
+<% validated_hours = 0 %>
+<% booked_hours = 0 %>
+<% hours_to_do = 20 %>
+
+<% @bookings.each do |booking| %>
+  <% validated_hours += 2 if (booking.slot - DateTime.now()) < 0 %>
+  <% booked_hours += 2 if (booking.slot - DateTime.now()) > 0 %>
+<% end %>
+<% hours_to_do = hours_to_do - booked_hours - validated_hours %>
+<% if hours_to_do >= 0 %>
+  <% hours_to_do = hours_to_do %>
+<% else %>
+  <% hours_to_do = 0 %>
+<% end %>
+<div class="d-flex" style="height:300px">
+  <div class="d-flex-inline" style="width:<%= ((validated_hours.to_f/20)*100).to_i%>%; position:relative">
+    <div style="height:25%; background-color: blue ; text-align: center; line-height: 70px">Validated</div>
+    <%= image_tag "logo.png", :style => "position:absolute; height:75px; top:-70px ; right:-35px" %>
+  </div>
+  <div style="width:<%= ((booked_hours.to_f/20)*100).to_i%>%">
+    <div style="height:25%; background-color: orange ; text-align: center; line-height: 70px;">Booked</div>
+  </div>
+  <div style="width:<%= ((hours_to_do.to_f/20)*100).to_i%>%">
+    <div style="height:25%; background-color: red ; text-align: center; line-height: 70px;">Hours to book</div>
+  </div>
+</div>
+
+
+
