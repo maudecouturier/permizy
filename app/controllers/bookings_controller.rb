@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
     authorize @bookings
+
   end
 
   def show
@@ -13,13 +14,20 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     authorize @booking
-
+    @booking.geocode
+    @marker = {
+        lat: @booking.latitude,
+        lng: @booking.longitude
+    }
+    @booking.address = nil
   end
 
   def create
     @booking = Booking.new(booking_params)
     @student = current_user
     @booking.student = @student
+    @booking.address = '16 villa Gaudelet 75011 Paris' if @booking.address == ""
+    # @booking.geocode
     if @booking.save
       redirect_to bookings_path
     else
@@ -30,9 +38,14 @@ class BookingsController < ApplicationController
 
   def edit
     authorize @booking
+    @marker = {
+      lat: @booking.latitude,
+      lng: @booking.longitude
+    }
   end
 
   def update
+    @booking.update(booking_params)
     if @booking.update(booking_params)
       redirect_to bookings_path
     else
@@ -47,11 +60,10 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
-
   private
 
   def booking_params
-    params.require(:booking).permit(:teacher_id, :slot)
+    params.require(:booking).permit(:teacher_id, :slot, :address)
   end
 
   def set_booking

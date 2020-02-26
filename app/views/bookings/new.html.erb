@@ -1,5 +1,9 @@
-<%= simple_form_for(@booking) do |f| %>
-    <%= f.association :teacher %>
-    <%= f.input :slot, as: :string, input_html: { class: "datepicker"} %>
-    <%= f.submit %>
-<% end %>
+<h1>New booking</h1>
+<%= render partial: "form", locals: {booking: @booking}  %>
+
+
+
+
+
+
+
