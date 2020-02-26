@@ -13,6 +13,18 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
-    <%= yield %>
+
+    <div class="container container-cardetour">
+      <div class="row">
+        <div class="col-4">
+          <%= render 'shared/sidebar' %>
+        </div>
+        <div class="col-8">
+          <div class="content">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
