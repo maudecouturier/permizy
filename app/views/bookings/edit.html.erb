@@ -1,5 +1,2 @@
-<%= simple_form_for(@booking) do |f| %>
-    <%= f.association :teacher %>
-    <%= f.input :slot %>
-    <%= f.submit %>
-<% end %>
+<h1>Edit your booking</h1>
+<%= render partial: "form", locals: {booking: @booking}  %>

@@ -1,13 +1,9 @@
-<%= simple_form_for(@booking) do |f| %>
-    <%= f.association :teacher, collection: User.teacher %>
-    <%= f.input :slot, as: :string, input_html: { class: "datepicker"} %>
-    <%= f.submit %>
-<% end %>
+<h1>New booking</h1>
+<%= render partial: "form", locals: {booking: @booking}  %>
 
-<div id="map"
-     style="width: 50%;
-     height: 300px;"
-     data-marker="<%= @marker.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+
+
+
+
+
 

@@ -1,0 +1,13 @@
+<%= simple_form_for(booking) do |f| %>
+    <%= f.association :teacher, collection: User.teacher %>
+    <%= f.input :slot, as: :string, input_html: { class: "datepicker"} %>
+    <%= f.input :address, placeholder: '16 villa Gaudelet, Paris' %>
+    <%= f.submit %>
+<% end %>
+
+<div id="map"
+     style="width: 50%;
+     height: 300px;"
+     data-marker="<%= @marker.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
