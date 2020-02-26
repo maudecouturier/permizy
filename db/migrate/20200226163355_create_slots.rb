@@ -3,7 +3,7 @@ class CreateSlots < ActiveRecord::Migration[6.0]
     create_table :slots do |t|
       t.datetime :start
       t.datetime :end
-      t.references :booking, null: false, foreign_key: true
+      t.references :booking, foreign_key: true
 
       t.timestamps
     end
