@@ -13,12 +13,12 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     authorize @booking
-
     # @booking = Booking.geocoded # returns flats with coordinates
-    # @markers = {
-    #     lat: booking.latitude,
-    #     lng: booking.longitude
-    # }
+
+    @marker = {
+        lat: 48.864930,
+        lng: 2.380070
+    }
   end
 
   def create
@@ -50,16 +50,6 @@ class BookingsController < ApplicationController
     @booking.destroy
     authorize @booking
     redirect_to bookings_path
-  end
-
-  def address
-    @booking = Booking.geocoded # returns flats with coordinates
-    @markers = @flats.map do |flat|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude
-      }
-    end
   end
 
   private
