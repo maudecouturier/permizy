@@ -9,7 +9,7 @@ maude = User.create(first_name: 'Maude', last_name: 'Couturier', teacher: false,
 puts 'Done creating users'
 
 puts 'Creating bookings'
-Booking.create(student: ginette, teacher: michelin, review_evaluation: 'tres bien', review_content: 'tres bien', review_to_improve: 'ta conduite', respect_rating: 4, share_rating: 5, control_rating: 3)
-Booking.create(student: ginette, teacher: michelin, review_evaluation: 'tres bien', review_content: 'tres bien', review_to_improve: 'ta conduite', respect_rating: 5, share_rating: 4, control_rating: 4)
-Booking.create(student: maude, teacher: michelin, review_evaluation: 'tres bien', review_content: 'tres bien', review_to_improve: 'ta conduite', respect_rating: 3, share_rating: 3, control_rating: 5)
+Booking.create!(student: ginette, teacher: michelin, review_evaluation: 'tres bien', review_content: 'tres bien', review_to_improve: 'ta conduite', respect_rating: 4, share_rating: 5, control_rating: 3, slot:'2020-02-20 12:00')
+Booking.create!(student: ginette, teacher: michelin, review_evaluation: 'tres bien', review_content: 'tres bien', review_to_improve: 'ta conduite', respect_rating: 5, share_rating: 4, control_rating: 4, slot:'2020-02-19 12:00')
+Booking.create!(student: maude, teacher: michelin, review_evaluation: 'tres bien', review_content: 'tres bien', review_to_improve: 'ta conduite', respect_rating: 3, share_rating: 3, control_rating: 5, slot:'2020-02-28 12:00')
 puts 'Done creating bookings'
