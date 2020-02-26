@@ -14,18 +14,20 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     authorize @booking
-    # @booking = Booking.geocoded # returns flats with coordinates
-
+    @booking.geocode
     @marker = {
-        lat: 48.864930,
-        lng: 2.380070
+        lat: @booking.latitude,
+        lng: @booking.longitude
     }
+    @booking.address = nil
   end
 
   def create
     @booking = Booking.new(booking_params)
     @student = current_user
     @booking.student = @student
+    @booking.address = '16 villa Gaudelet 75011 Paris' if @booking.address == ""
+    # @booking.geocode
     if @booking.save
       redirect_to bookings_path
     else
@@ -36,9 +38,14 @@ class BookingsController < ApplicationController
 
   def edit
     authorize @booking
+    @marker = {
+      lat: @booking.latitude,
+      lng: @booking.longitude
+    }
   end
 
   def update
+    @booking.update(booking_params)
     if @booking.update(booking_params)
       redirect_to bookings_path
     else
@@ -56,7 +63,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:teacher_id, :slot)
+    params.require(:booking).permit(:teacher_id, :slot, :address)
   end
 
   def set_booking
