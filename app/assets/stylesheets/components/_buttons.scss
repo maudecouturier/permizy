@@ -1,12 +1,29 @@
 .btn-card-cardetour {
   background-color: none !important;
   color: $orange;
-  font-size: 10px;
+  font-size: 14px;
   padding: 5px;
   border : none;
   box-shadow: none;
   margin: 0px;
+  font-family: Comfortaa;
+  font-weight: bold;
   :hover {
     color: $orange !important;
   }
+}
+
+.btn-card-add {
+  background-color: $orange;
+  color: white;
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  padding: 0px;
+  font-size: 20px;
 }
