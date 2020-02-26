@@ -74,15 +74,6 @@ Booking.create(student: peach, teacher: luigi,
   control_rating: 5,
   slot: DateTime.new(2020,2,22,12,0,0))
 
-Booking.create(student: peach, teacher: luigi,
-  review_evaluation: 'Les évitements sont encore un peu juste, il faut davantage anticiper les trajectoires. Surtout si tu conduis avec l\'étoile.',
-  review_content: 'Evitement d\'arbres, conduite avec étoile, évitement de carapace, lancer de bombes',
-  review_to_improve: 'Ajustement de ta vitesse en fonction de la circulation.',
-  respect_rating: 3,
-  share_rating: 3,
-  control_rating: 2,
-  slot: DateTime.new(2020,2,25,16,0,0))
-
 puts 'Creating bookings to come'
 Booking.create(student: peach, teacher: mario,
   slot: DateTime.new(2020,3,10,16,0,0))
