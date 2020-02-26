@@ -28,6 +28,8 @@
 
 
 <h1>My hours</h1>
+
+
 <% validated_hours = 0 %>
 <% booked_hours = 0 %>
 <% hours_to_do = 20 %>
@@ -42,8 +44,19 @@
 <% else %>
   <% hours_to_do = 0 %>
 <% end %>
+<div class="d-flex" style="height:300px">
+  <div class="d-flex-inline" style="width:<%= ((validated_hours.to_f/20)*100).to_i%>%; position:relative">
+    <div style="height:25%; background-color: blue ; text-align: center; line-height: 70px">Validated</div>
+    <%= image_tag "logo.png", :style => "position:absolute; height:75px; top:-70px ; right:-35px" %>
+  </div>
+  <div style="width:<%= ((booked_hours.to_f/20)*100).to_i%>%">
+    <div style="height:25%; background-color: orange ; text-align: center; line-height: 70px;">Booked</div>
+  </div>
+  <div style="width:<%= ((hours_to_do.to_f/20)*100).to_i%>%">
+    <div style="height:25%; background-color: red ; text-align: center; line-height: 70px;">Hours to book</div>
+  </div>
+</div>
 
-<p>Validated hours: <%= validated_hours %></p>
-<p>Booked hours: <%= booked_hours %></p>
-<p>Hours to do: <%= hours_to_do %></p>
+
+
 
