@@ -9,6 +9,6 @@ class User < ApplicationRecord
   scope :teacher, -> { where(teacher: true) }
 
   def name
-    email
+    first_name
   end
 end
