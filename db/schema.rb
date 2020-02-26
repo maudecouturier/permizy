@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_163531) do
   create_table "slots", force: :cascade do |t|
     t.datetime "start"
     t.datetime "end"
-    t.bigint "booking_id", null: false
+    t.bigint "booking_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "teacher_id"
