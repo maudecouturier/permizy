@@ -21,8 +21,8 @@
 <% hours_to_do = 20 %>
 
 <% @bookings.each do |booking| %>
-  <% validated_hours += 2 if (booking.slot - DateTime.now()) < 0 %>
-  <% booked_hours += 2 if (booking.slot - DateTime.now()) > 0 %>
+  <% validated_hours += 2 if (booking.slot.start - DateTime.now()) < 0 %>
+  <% booked_hours += 2 if (booking.slot.start - DateTime.now()) > 0 %>
 <% end %>
 <% hours_to_do = hours_to_do - booked_hours - validated_hours %>
 <% if hours_to_do >= 0 %>

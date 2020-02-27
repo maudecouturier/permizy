@@ -1,7 +1,7 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(student: user).or(scope.where(teacher: user))
+      scope.where(student: user)
     end
   end
 

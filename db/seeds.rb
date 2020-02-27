@@ -56,20 +56,7 @@ booking6 = Booking.create(student: peach,
   respect_rating: 5,
   share_rating: 4,
   control_rating: 4)
-booking7 = Booking.create(student: peach,
-  review_evaluation: 'Cours sur la banquise arctique, bonne gestion de l\'adhérence. attention tout de même aux chutes dans l\'océan, l\'eau peut être froide',
-  review_content: 'Conduite sur glace, virage sur glace, freinage sur glace',
-  review_to_improve: 'Les virages sur glace doivent être retravaillés.',
-  respect_rating: 3,
-  share_rating: 3,
-  control_rating: 5)
-booking8 = Booking.create(student: peach,
-  review_evaluation: 'Les évitements sont encore un peu juste, il faut davantage anticiper les trajectoires. Surtout si tu conduis avec l\'étoile.',
-  review_content: 'Evitement d\'arbres, conduite avec étoile, évitement de carapace, lancer de bombes',
-  review_to_improve: 'Ajustement de ta vitesse en fonction de la circulation.',
-  respect_rating: 3,
-  share_rating: 3,
-  control_rating: 2)
+
 
 puts 'Creating bookings to come'
 booking9 = Booking.create(student: peach)
@@ -96,26 +83,20 @@ User.teacher.each do |teacher|
 end
 puts 'Done creating slots'
 
-slot = Slot.past.sample
-slot.booking = booking1
-slot = Slot.past.sample
-slot.booking = booking2
-slot = Slot.past.sample
-slot.booking = booking3
-slot = Slot.past.sample
-slot.booking = booking4
-slot = Slot.past.sample
-slot.booking = booking5
-slot = Slot.past.sample
-slot.booking = booking6
-slot = Slot.past.sample
-slot.booking = booking7
-slot = Slot.past.sample
-slot.booking = booking8
-slot = Slot.future.sample
-slot.booking = booking9
-slot = Slot.future.sample
-slot.booking = booking10
+past_bookings = [booking1, booking2, booking3, booking4, booking5, booking6]
+past_bookings.each do |book|
+  slot = Slot.past.sample
+  slot.booking = book
+  slot.save!
+end
 
+future_bookings = [booking9, booking10]
+future_bookings.each do |book|
+  slot = Slot.future.sample
+  slot.booking = book
+  slot.save!
+  puts slot
+end
+puts 'Done attributing bookings'
 
 
