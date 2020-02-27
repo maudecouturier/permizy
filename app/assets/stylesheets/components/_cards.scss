@@ -1,3 +1,5 @@
+//sidebar
+
 .card-cours {
   margin-bottom: 15px;
   padding: 5px;
@@ -5,6 +7,11 @@
   flex-direction: column;
   width: 100%;
 }
+
+.card-cours h2{
+  margin-bottom: 19.5px;
+}
+
 
 .card-booking{
   height: 125px;
@@ -41,3 +48,23 @@
   overflow : scroll;
 }
 
+//evaluation
+
+.card-evaluation {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.card-evaluation-content {
+  background-color: #F0EEEE;
+  padding: 10px;
+}
+
+.card-evaluation-content p{
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.card-jauge {
+  text-align: center;
+}
