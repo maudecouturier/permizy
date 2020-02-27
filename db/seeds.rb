@@ -11,6 +11,19 @@ luigi = User.create(first_name: 'Luigi', teacher: true, email: 'luigi@gmail.com'
 peach = User.create(first_name: 'Peach', teacher: false, email: 'peach@gmail.com', password: '123456')
 puts 'Done creating users'
 
+puts 'Attaching photos'
+file_mario = URI.open("https://img.favpng.com/16/1/8/mario-kart-7-super-mario-bros-mario-kart-wii-super-mario-kart-mario-kart-8-png-favpng-M314Pn3XcVv1VAYingNxsqzt0.jpg")
+mario.photo.attach(io: file_mario, filename: 'mario.jpg')
+file_yoshi = URI.open("https://vignette.wikia.nocookie.net/mario/images/2/21/MP10-Yoshi.png/revision/latest?cb=20190609104731&path-prefix=fr")
+yoshi.photo.attach(io: file_yoshi, filename: 'yoshi.jpg')
+file_wario = URI.open("https://www.pokebip.com/pages/jeuxvideo/ssb_wiiu_3ds/images/wario.png")
+wario.photo.attach(io: file_wario, filename: 'wario.jpg')
+file_luigi = URI.open("https://f0.pngfuel.com/png/797/305/luigi-mario-kart-illustration-png-clip-art.png")
+luigi.photo.attach(io: file_luigi, filename: 'luigi.jpg')
+file_peach = URI.open("https://f0.pngfuel.com/png/807/610/princess-pitch-png-clip-art.png")
+peach.photo.attach(io: file_peach, filename: 'peach.jpg')
+puts 'Done attaching photos'
+
 
 puts 'Creating past bookings'
 booking1 = Booking.create!(student: peach,
@@ -93,6 +106,5 @@ future_bookings.each do |book|
   slot = Slot.future.sample
   slot.booking = book
   slot.save!
-  puts slot
 end
 puts 'Done attributing bookings'

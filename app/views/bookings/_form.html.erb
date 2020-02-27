@@ -12,7 +12,9 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div>
-  <%= cl_image_tag("qglpmy7x7sut9bsklvgh",
-      class: "avatar-large") %>
+<div class='teacher-bar'>
+  <% User.teacher do |teacher| %>
+    <%= teacher.first_name %>
+    <%= cl_image_tag teacher.photo.key if teacher.photo.attached? %>
+  <% end %>
 </div>
