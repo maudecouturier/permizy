@@ -19,7 +19,7 @@
 
         <% unless params[:action] == 'home' || devise_controller? %>
           <div class="col-4">
-            <%= render 'shared/sidebar' %>
+            <%= render 'shared/sidebar', bookings: @bookings %>
           </div>
         <% end %>
 

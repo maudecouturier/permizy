@@ -1,18 +1,9 @@
 class Booking < ApplicationRecord
   belongs_to :student, class_name: 'User', foreign_key: 'student_id'
-  belongs_to :teacher, class_name: 'User', foreign_key: 'teacher_id'
-  validates :slot, :teacher, :student, presence: true
-  # validate :slot_validation
+  has_one :slot
+  belongs_to :teacher, foreign_key: :slot
+  validates  :student, presence: true
 
-
-  # def slot_validation
-  #   return if slot.blank?
-
-  #   if slot < DateTime.now() + 86_400
-  #     errors.add(:slot, "Chosen time cannot be before tomorrow")
-  #   end
-  # end
-  # geocoding
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
