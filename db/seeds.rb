@@ -57,13 +57,11 @@ booking6 = Booking.create(student: peach,
   share_rating: 4,
   control_rating: 4)
 
-
 puts 'Creating bookings to come'
 booking9 = Booking.create(student: peach)
 booking10 = Booking.create(student: peach)
 
 puts 'Done creating bookings'
-
 
 puts 'Creating slots'
 
@@ -98,5 +96,3 @@ future_bookings.each do |book|
   puts slot
 end
 puts 'Done attributing bookings'
-
-
