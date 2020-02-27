@@ -6,11 +6,11 @@
     </div>
 
     <% @bookings.each do |booking| %>
-      <% if booking.slot > DateTime.now()%>
+      <% if booking.slot.start > DateTime.now()%>
         <div class="card w-125">
           <div class="card-body">
-            <h3 class="card-title"><%= booking.slot.strftime("%d / %m / %y")%></h3>
-            <p class="card-text"> 🕐 <%= booking.slot.strftime("%H:%M")%></p>
+            <h3 class="card-title"><%= booking.slot.start.strftime("%d / %m / %y")%></h3>
+            <p class="card-text"> 🕐 <%= booking.slot.start.strftime("%H:%M")%></p>
             <p class="card-text"> lieu: <%=booking.address%></p>
             <a><%= link_to "Modifier", edit_booking_path(booking), class:"btn-outline btn-card-cardetour"%></a>
           </div>
@@ -28,11 +28,11 @@
     </div>
 
     <% @bookings.each do |booking| %>
-      <% if booking.slot < DateTime.now()%>
+      <% if booking.slot.start < DateTime.now()%>
         <div class="card w-125">
           <div class="card-body">
-            <h3 class="card-title"><%= booking.slot.strftime("%d / %m / %y")%></h3>
-            <p class="card-text"> 🕐 <%= booking.slot.strftime("%H:%M")%></p>
+            <h3 class="card-title"><%= booking.slot.start.strftime("%d / %m / %y")%></h3>
+            <p class="card-text"> 🕐 <%= booking.slot.start.strftime("%H:%M")%></p>
             <p class="card-text"> lieu: <%=booking.address%></p>
             <a><%= link_to "Voir mon écaluation",booking_path(booking), class:"btn-outline btn-card-cardetour"%></a>
           </div>
