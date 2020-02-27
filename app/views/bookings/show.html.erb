@@ -1,3 +1,53 @@
-<p>Eléments pratiqués en cours: <%= @booking.review_content %></p>
-<p>Evaluation: <%= @booking.review_evaluation %></p>
-<p>Points d'amélioration: <%= @booking.review_to_improve %></p>
+<h1>Ton évaluation du <%=@booking.slot.start.strftime("%d / %m / %y")%></h1>
+
+<div class="content-evaluation">
+  <div class="row-evaluation">
+    <div class="card-evaluation">
+      <h2>Le contenu du cours</h2>
+      <div class="card-evaluation-content">
+      <p><%= @booking.review_content %></p>
+      </div>
+    </div>
+  </div>
+  <div class="row-evaluation">
+    <div class="card-evaluation">
+      <h2>Bilan des manoeuvres</h2>
+      <div class="card-evaluation-content">
+      <p><%= @booking.review_evaluation%></p>
+      </div>
+    </div>
+  </div>
+  <div class="row-evaluation">
+    <div class="card-evaluation">
+      <h2>Points à travailler</h2>
+      <div class="card-evaluation-content">
+      <p><%= @booking.review_to_improve%></p>
+      </div>
+    </div>
+  </div>
+  <div class="row-evaluation">
+    <div class="card-evaluation">
+      <h2>Mon niveau</h2>
+      <div class="card-niveau d-flex">
+        <div class="col-4 card-jauge">
+          <h3>Maitrise du véhicule</h3>
+          <img src="" alt="">
+        </div >
+        <div class="col-4 card-jauge">
+          <h3>Appréhension de la route</h3>
+          <img src="" alt="">
+        </div>
+        <div class="col-4 card-jauge">
+          <h3>Partage de la route</h3>
+          <img src="" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
