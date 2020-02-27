@@ -5,7 +5,7 @@
      <button class="btn-outline btn-card-add justify-content-center">+</button>
     </div>
 
-    <% @bookings.each do |booking| %>
+    <% bookings.each do |booking| %>
       <% if booking.slot.start > DateTime.now()%>
         <div class="card w-125">
           <div class="card-body">
@@ -27,7 +27,7 @@
     <h2 class="card-title">Tes cours passés</h2>
     </div>
 
-    <% @bookings.each do |booking| %>
+    <% bookings.each do |booking| %>
       <% if booking.slot.start < DateTime.now()%>
         <div class="card w-125">
           <div class="card-body">
