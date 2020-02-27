@@ -1,13 +1,20 @@
 .card-cours {
   margin-bottom: 15px;
-  position: relative;
   padding: 5px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.card-booking{
+  height: 125px;
+  line-height: 15px;
+  position: relative;
+  margin-bottom: 5px;
 }
 
 .card-cours h3{
-  font-size: 18px;
+  font-size: 16px;
   color: $blue;
 }
 
@@ -16,15 +23,21 @@
   color: $blue;
 }
 
-.card-cours p{
+.card-cours p {
   font-size: 14px;
 }
 
 .card-avatar {
   position: absolute;
-  left: 81.28%;
+  left: 82.28%;
   right: 71.94%;
   top: 9.11%;
   bottom: 67.44%;
+}
+
+
+.card-scroll {
+  height : 255px;
+  overflow : scroll;
 }
 
