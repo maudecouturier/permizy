@@ -1,6 +1,6 @@
-<h1>Dashboard</h1>
+<h1>Ma conduite</h1>
 
-<h1>My hours</h1>
+<h3>Ma progression</h3>
 
 
 <% validated_hours = 0 %>
@@ -9,32 +9,37 @@
 
 <% @bookings.each do |booking| %>
   <% validated_hours += 2 if (booking.slot.start - DateTime.now()) < 0 %>
-  <% booked_hours += 2 if (booking.slot.start - DateTime.now()) > 0 %>
 <% end %>
-<% hours_to_do = hours_to_do - booked_hours - validated_hours %>
+<% hours_to_do = hours_to_do - validated_hours %>
 <% if hours_to_do >= 0 %>
   <% hours_to_do = hours_to_do %>
 <% else %>
   <% hours_to_do = 0 %>
 <% end %>
-<div class="timeline d-flex align-items-center">
-  <div class="d-flex-inline" style="width:<%= ((validated_hours.to_f/20)*100).to_i%>%; position:relative">
-    <div class="category cat-val">
-    <p>
-      Validated
-    </p>
+<div class="d-flex flex-column">
+  <div class="timeline d-flex align-items-end">
+    <div class="d-flex-inline" style="width:<%= ((validated_hours.to_f/20)*100).to_i%>%; position:relative">
+      <div class="category cat-val">
+      <i class="fas fa-car-side depart"></i>
+    </div>
+
+    </div>
+    <div style="width:<%= ((hours_to_do.to_f/20)*100).to_i%>%; position:relative">
+      <div class="category cat-tobook"></div>
+      <div class="d-flex flex-column pastille" style="background-image: url('<%= image_path 'marker.png' %>')">
+       <%= image_tag "peach .jpg", :class => "pastille-photo"%>
+       <div class="pastille-heure"><%= validated_hours %>h</div>
+      </div>
+       <i class="fas fa-flag-checkered arrivee"></i>
+    </div>
   </div>
-    <%= image_tag "peach .jpg", :class => "pastille"%>
-  </div>
-  <div style="width:<%= ((booked_hours.to_f/20)*100).to_i%>%">
-    <div class="category cat-book">Booked</div>
-  </div>
-  <div style="width:<%= ((hours_to_do.to_f/20)*100).to_i%>%">
-    <div class="category cat-tobook">To book</div>
+  <div class="ruler d-flex justify-content-between">
+  <p>0h</p>
+  <p>20h</p>
   </div>
 </div>
 
-<h1>My ratings</h1>
+<h3>Mon niveau</h3>
 <% respect = [] %>
 <% share = [] %>
 <% control = [] %>
