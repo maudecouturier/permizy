@@ -2,7 +2,6 @@
   <div class="card-cours">
     <div class="d-flex justify-content-between">
     <h2 class="card-title">Tes cours à venir</h2>
-     <button class="btn-outline btn-card-add justify-content-center">+</button>
     </div>
 
     <% bookings.each do |booking| %>
@@ -27,21 +26,23 @@
     <h2 class="card-title">Tes cours passés</h2>
     </div>
 
-    <% bookings.each do |booking| %>
-      <% if booking.slot.start < DateTime.now()%>
-        <div class="card w-125">
-          <div class="card-body">
-            <h3 class="card-title"><%= booking.slot.start.strftime("%d / %m / %y")%></h3>
-            <p class="card-text"> 🕐 <%= booking.slot.start.strftime("%H:%M")%></p>
-            <p class="card-text"> lieu: <%=booking.address%></p>
-            <a><%= link_to "Voir mon écaluation",booking_path(booking), class:"btn-outline btn-card-cardetour"%></a>
+    <div class="card-scroll">
+      <% bookings.each do |booking| %>
+        <% if booking.slot.start < DateTime.now()%>
+          <div class="card w-125">
+            <div class="card-body">
+              <h3 class="card-title"><%= booking.slot.start.strftime("%d / %m / %y")%></h3>
+              <p class="card-text"> 🕐 <%= booking.slot.start.strftime("%H:%M")%></p>
+              <p class="card-text"> lieu: <%=booking.address%></p>
+              <a><%= link_to "Voir mon écaluation",booking_path(booking), class:"btn-outline btn-card-cardetour"%></a>
+            </div>
+            <div class="card-avatar">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar"%>
+            </div>
           </div>
-          <div class="card-avatar">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar"%>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 
    </div>
  </div>
