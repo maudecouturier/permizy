@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :student, class_name: 'User', foreign_key: 'student_id'
   has_one :slot
-  belongs_to :teacher, foreign_key: :slot
+  belongs_to :teacher, optional: true, foreign_key: :slot
   validates  :student, presence: true
 
   geocoded_by :address
