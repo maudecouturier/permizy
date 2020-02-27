@@ -1,0 +1,36 @@
+.timeline {
+  height:200px;
+  margin:20px;
+}
+
+.category {
+  height:60px;
+  text-align: center;
+  font-size: 16px;
+  vertical-align: center;
+  line-height: 60px;
+  color: white;
+  font-style: bold;
+  border-radius:5px;
+}
+
+.cat-val {
+  background: linear-gradient(270deg, #F9B234 22.16%, #3ECB06 95.8%);
+}
+
+.cat-book {
+  background: linear-gradient(270deg, #BF1B1B 2.37%, #F9B234 59.17%);
+}
+
+.cat-tobook {
+  background: linear-gradient(0deg, #BF1B1B, #BF1B1B);
+}
+
+.pastille {
+  position:absolute;
+  height:75px;
+  top:-80px;
+  right:-37px;
+  border-radius: 50%;
+}
+

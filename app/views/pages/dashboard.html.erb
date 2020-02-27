@@ -1,17 +1,4 @@
 <h1>Dashboard</h1>
-<h1>My ratings</h1>
-<% respect = [] %>
-<% share = [] %>
-<% control = [] %>
-<% @bookings.each do |booking| %>
-  <% respect << booking.respect_rating if !booking.respect_rating.nil? %>
-  <% share << booking.share_rating if !booking.share_rating.nil? %>
-  <% control << booking.control_rating if !booking.control_rating.nil? %>
-<% end %>
-<p>Respect Rating Average: <%= (respect.sum.to_f / respect.count) %></p>
-<p>Share Rating Average: <%= (share.sum.to_f / share.count) %></p>
-<p>Control Rating Average: <%= (control.sum.to_f / control.count) %></p>
-
 
 <h1>My hours</h1>
 
@@ -30,18 +17,36 @@
 <% else %>
   <% hours_to_do = 0 %>
 <% end %>
-<div class="d-flex" style="height:300px">
+<div class="timeline d-flex align-items-center">
   <div class="d-flex-inline" style="width:<%= ((validated_hours.to_f/20)*100).to_i%>%; position:relative">
-    <div style="height:25%; background-color: blue ; text-align: center; line-height: 70px">Validated</div>
-    <%= image_tag "logo.png", :style => "position:absolute; height:75px; top:-70px ; right:-35px" %>
+    <div class="category cat-val">
+    <p>
+      Validated
+    </p>
+  </div>
+    <%= image_tag "peach .jpg", :class => "pastille"%>
   </div>
   <div style="width:<%= ((booked_hours.to_f/20)*100).to_i%>%">
-    <div style="height:25%; background-color: orange ; text-align: center; line-height: 70px;">Booked</div>
+    <div class="category cat-book">Booked</div>
   </div>
   <div style="width:<%= ((hours_to_do.to_f/20)*100).to_i%>%">
-    <div style="height:25%; background-color: red ; text-align: center; line-height: 70px;">Hours to book</div>
+    <div class="category cat-tobook">To book</div>
   </div>
 </div>
+
+<h1>My ratings</h1>
+<% respect = [] %>
+<% share = [] %>
+<% control = [] %>
+<% @bookings.each do |booking| %>
+  <% respect << booking.respect_rating if !booking.respect_rating.nil? %>
+  <% share << booking.share_rating if !booking.share_rating.nil? %>
+  <% control << booking.control_rating if !booking.control_rating.nil? %>
+<% end %>
+<p>Respect Rating Average: <%= (respect.sum.to_f / respect.count) %></p>
+<p>Share Rating Average: <%= (share.sum.to_f / share.count) %></p>
+<p>Control Rating Average: <%= (control.sum.to_f / control.count) %></p>
+
 
 
 
