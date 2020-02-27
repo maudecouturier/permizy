@@ -13,20 +13,8 @@
 </div>
 
 <div class='teacher-bar'>
-  <%= cl_image_tag("qglpmy7x7sut9bsklvgh",
-      class: "avatar-large") %>
-  <%= cl_image_tag("qglpmy7x7sut9bsklvgh",
-class: "avatar-large") %>
-  <%= cl_image_tag("qglpmy7x7sut9bsklvgh",
-class: "avatar-large") %>
-  <%= cl_image_tag("qglpmy7x7sut9bsklvgh",
-class: "avatar-large") %>
-  <%= cl_image_tag("qglpmy7x7sut9bsklvgh",
-class: "avatar-large") %>
-  <%= cl_image_tag("qglpmy7x7sut9bsklvgh",
-class: "avatar-large") %>
-  <%= cl_image_tag("qglpmy7x7sut9bsklvgh",
-class: "avatar-large") %>
-  <%= cl_image_tag("qglpmy7x7sut9bsklvgh",
-class: "avatar-large") %>
+  <% User.teacher do |teacher| %>
+    <%= teacher.first_name %>
+    <%= cl_image_tag teacher.photo.key if teacher.photo.attached? %>
+  <% end %>
 </div>
