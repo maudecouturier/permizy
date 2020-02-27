@@ -42,6 +42,7 @@
 </div>
 
 <h3>Mon niveau</h3>
+
 <% respect = [] %>
 <% share = [] %>
 <% control = [] %>
@@ -50,10 +51,24 @@
   <% share << booking.share_rating if !booking.share_rating.nil? %>
   <% control << booking.control_rating if !booking.control_rating.nil? %>
 <% end %>
-<p>Respect Rating Average: <%= (respect.sum.to_f / respect.count) %></p>
-<p>Share Rating Average: <%= (share.sum.to_f / share.count) %></p>
-<p>Control Rating Average: <%= (control.sum.to_f / control.count) %></p>
+<p>Respect Rating Average: <%= respect_average = (respect.sum.to_f / respect.count) %></p>
+<p>Share Rating Average: <%= share_average = (share.sum.to_f / share.count) %></p>
+<p>Control Rating Average: <%= control_average = (control.sum.to_f / control.count) %></p>
 
+<% axis_respect = (respect_average*36 - 90).to_i%>
+<% axis_share = (share_average*36 - 90).to_i%>
+<% axis_control = (control_average*36 - 90).to_i%>
+<div class="d-flex justify-content-around">
+  <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
+    <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_respect%>deg)"></div>
+  </div>
+  <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
+    <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_share%>deg)"></div>
+  </div>
+  <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
+    <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_control%>deg)"></div>
+  </div>
+</div>
 
 
 

@@ -34,11 +34,12 @@
 
 .pastille {
   position:absolute;
-  height:85px;
-  top:-88px;
-  left:-29px;
+  height:90px;
+  width:70px;
+  top:-94px;
+  left:-35px;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
   padding: 4px;
   align-items: center;
   justify-content: center;
@@ -46,6 +47,7 @@
 
 .pastille-photo {
   height:45px;
+  width:45px;
   border-radius: 50%;
   margin-bottom: 3px;
 }
@@ -82,4 +84,26 @@
 .ruler {
   padding-left: 20px;
   padding-right: 10px;
+}
+
+.jauge {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height:100px;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  position:relative
+}
+
+.curseur {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height:80px;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  position:absolute;
+  bottom:-35px;
+  left: 90px;
 }
