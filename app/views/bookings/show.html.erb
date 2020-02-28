@@ -27,25 +27,41 @@
   </div>
   <div class="row-evaluation">
     <div class="card-evaluation">
+
       <h2>Mon niveau</h2>
-      <div class="card-niveau d-flex">
-        <div class="col-4 card-jauge">
-          <h3>Maitrise du véhicule</h3>
-          <img src="" alt="">
-        </div >
-        <div class="col-4 card-jauge">
-          <h3>Appréhension de la route</h3>
-          <img src="" alt="">
+
+      <% respect = @booking.respect_rating if !@booking.respect_rating.nil? %>
+      <% share = @booking.share_rating if !@booking.share_rating.nil? %>
+      <% control = @booking.control_rating if !@booking.control_rating.nil? %>
+      <% axis_respect = (respect*36 - 90).to_i%>
+      <% axis_share = (share*36 - 90).to_i%>
+      <% axis_control = (control*36 - 90).to_i%>
+      <div class="d-flex justify-content-around">
+        <div class="card-jauge">
+          <h3>Respect</h3>
+          <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
+            <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_respect%>deg)"></div>
+          </div>
         </div>
-        <div class="col-4 card-jauge">
+        <div class="card-jauge">
           <h3>Partage de la route</h3>
-          <img src="" alt="">
+          <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
+          <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_share%>deg)"></div>
+          </div>
+        </div>
+        <div class="card-jauge">
+          <h3>Maitrise du véhicule</h3>
+          <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
+          <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_control%>deg)"></div>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
-
 </div>
+
+
 
 
 
