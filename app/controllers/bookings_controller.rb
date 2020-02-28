@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @booking.build_slot
     authorize @booking
     @booking.geocode
     @marker = {
@@ -24,16 +25,16 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @student = current_user
     @booking.student = @student
     @booking.address = '16 villa Gaudelet 75011 Paris' if @booking.address == ""
-    # @booking.geocode
     if @booking.save
+    raise
       redirect_to bookings_path
     else
       render :new
     end
-    authorize @booking
   end
 
   def edit
@@ -63,7 +64,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:slot, :address, :teacher_id, :student_id)
+    params.require(:booking).permit(:slot, :address, :student_id, slot_attributes: [:id, :start, :teacher_id,  :end])
   end
 
   def set_booking
