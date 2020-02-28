@@ -37,3 +37,21 @@
 
 }
 
+.btn-home {
+  background-color: $orange !important;
+  color: black;
+  font-family: Comfortaa;
+  font-weight: bold;
+  border-radius: 200px;
+  font-size: 10px;
+  margin: 8px;
+  padding: 10px 50px;
+  font-size: 16px;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  //width: 350px;
+  width: 20%;
+  transform: translate(-50%, -50%);
+}
+

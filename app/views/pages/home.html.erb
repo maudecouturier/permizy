@@ -1,6 +1,9 @@
-<div class="home-banner" style="background-image: url('<%= image_path 'home_banner3.jpg' %>');">
+<div class="home-banner" style="background-image: url('<%= image_path 'home_banner3.png' %>');">
+  <%= image_tag "logo.png", class:'logo-home' %>
   <h1 class = "typed">
     <span id="banner-typed-text"></span>
   </h1>
-  </p>
+  <% if user_signed_in? %>
+    <%= link_to "DÉMARRER", dashboard_path, class: "btn btn-warning btn-cardetour btn-home"%>
+  <% end %>
 </div>
