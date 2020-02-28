@@ -37,4 +37,8 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def refresh_calendar?
+    true
+  end
+
 end

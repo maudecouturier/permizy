@@ -24,10 +24,12 @@ import "bootstrap";
 
 import { initFlatpickr } from "../plugins/init_flatpickr";
 import { initMapbox, initAutocomplete } from '../plugins/init_mapbox';
+import { initCalendar } from '../plugins/init_refresh_calendar';
 
 
 document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
   initMapbox();
   initAutocomplete();
+  initCalendar();
 })

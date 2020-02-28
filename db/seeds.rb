@@ -68,7 +68,7 @@ puts 'Creating slots'
 User.teacher.each do |teacher|
   starting_date = DateTime.now() - 5
   day = DateTime.new(starting_date.year, starting_date.month, starting_date.day)
-  30.times do
+  6.times do
       time = 8
       6.times do
         start_time = DateTime.new(day.year, day.month, day.day, time)
