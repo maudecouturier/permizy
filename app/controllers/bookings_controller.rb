@@ -30,8 +30,7 @@ class BookingsController < ApplicationController
     @booking.student = @student
     @booking.address = '16 villa Gaudelet 75011 Paris' if @booking.address == ""
     if @booking.save
-    raise
-      redirect_to bookings_path
+      redirect_to dashboard_path
     else
       render :new
     end
