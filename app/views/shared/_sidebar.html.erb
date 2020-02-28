@@ -1,11 +1,45 @@
 <div class="sidebar">
   <div class="card-cours">
     <div class="d-flex justify-content-between">
+    <h2 class="card-title">Tes cours passés</h2>
+    </div>
+
+    <div class="card-scroll-passe">
+      <% bookings_sorted = bookings.sort_by { |booking| booking.slot.start } %>
+      <% bookings_s = bookings_sorted.reverse %>
+      <% bookings_s.each do |booking| %>
+        <% if booking.slot.start < DateTime.now()%>
+          <div class="card card-cours-passes">
+            <div class="d-flex ">
+              <div class="col-3 mt-2">
+                <%= cl_image_tag booking.slot.teacher.photo.key, class: "avatar-large"%>
+              </div>
+              <div class="col-9 mt-3">
+                <h3 class="card-title"> cours du <%= booking.slot.start.strftime("%d / %m / %y")%></h3>
+                <h3 class="card-title"> avec <%= booking.slot.teacher.first_name%></h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="text-justify text-truncate"><%=booking.review_evaluation%></p>
+              <%= link_to booking_path(booking), class: "btn-outline btn-card-cardetour" do%>
+                VOIR LE DETAIL DE TON EVALUATION
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card-cours">
+    <div class="d-flex justify-content-between">
       <h2 class="card-title">Tes cours à venir</h2>
     </div>
 
-    <div class="card-scroll">
-      <% bookings.each do |booking| %>
+    <div class="card-scroll-futur">
+    <% bookings_sorted = bookings.sort_by { |booking| booking.slot.start } %>
+    <% bookings_s = bookings_sorted.reverse %>
+      <% bookings_s.each do |booking| %>
         <% if booking.slot.start > DateTime.now()%>
           <div class="card card-booking">
             <div class="card-body">
@@ -25,30 +59,6 @@
     </div>
   </div>
 
-  <div class="card-cours">
-    <div class="d-flex justify-content-between">
-    <h2 class="card-title">Tes cours passés</h2>
-    </div>
 
-    <div class="card-scroll">
-      <% bookings.each do |booking| %>
-        <% if booking.slot.start < DateTime.now()%>
-          <div class="card card-booking">
-            <div class="card-body">
-              <div class= "d-flex" >
-                <h3 class="card-title"> 📅<%= booking.slot.start.strftime("%d / %m / %y")%></h3>
-                <h3 class="card-title ml-2"> 🕐<%= booking.slot.start.strftime("%H:%M")%></h3>
-              </div>
-              <p class="card-text"> 📍<%=booking.address%></p>
-              <a><%= link_to "VOIR MON EVALUATION",booking_path(booking), class:"btn-outline btn-card-cardetour"%></a>
-            </div>
-            <div class="card-avatar">
-              <%= cl_image_tag booking.slot.teacher.photo.key, class: "avatar"%>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
 
-   </div>
  </div>
