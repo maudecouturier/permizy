@@ -78,7 +78,7 @@ puts 'Done creating bookings'
 
 puts 'Creating slots'
 
-User.teacher.each do |teacher|
+User.teachers.each do |teacher|
   starting_date = DateTime.now() - 5
   day = DateTime.new(starting_date.year, starting_date.month, starting_date.day)
   30.times do

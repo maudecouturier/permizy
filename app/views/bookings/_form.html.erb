@@ -1,19 +1,21 @@
 <%= simple_form_for(booking) do |f| %>
-    <%= f.association :teacher, collection: User.teacher %>
-    <%= f.input :slot, as: :string, input_html: { class: "datepicker"} %>
-    <%= f.input :address, placeholder: '16 villa Gaudelet, Paris' %>
+    <%= f.simple_fields_for :slot do |p| %>
+      <%= p.association :teacher, collection: User.teachers %>
+      <%= p.input :start %>
+    <% end %>
+    <%= f.input :address %>
+    <div id="map"
+         style="width: 50%;
+         height: 300px;"
+         data-marker="<%= @marker.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
     <%= f.submit %>
 <% end %>
 
-<div id="map"
-     style="width: 50%;
-     height: 300px;"
-     data-marker="<%= @marker.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
 
 <div class='teacher-bar'>
-  <% User.teacher do |teacher| %>
+  <% User.teachers do |teacher| %>
     <%= teacher.first_name %>
     <%= cl_image_tag teacher.photo.key if teacher.photo.attached? %>
   <% end %>
