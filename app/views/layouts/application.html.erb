@@ -11,24 +11,34 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% if params[:action] == "home"%>
+      <%=  render 'shared/navbar-home' %>
+    <% else %>
+      <%= render 'shared/navbar'%>
+    <% end %>
+
     <%= render 'shared/flashes' %>
 
-
-    <div class="container container-cardetour">
-      <div class="row-cardetour">
-        <% unless params[:action] == 'home' || devise_controller? %>
-          <div class="col-4">
-            <%= render 'shared/sidebar', bookings: @bookings %>
-          </div>
-        <% end %>
-
-        <div class="col-8">
-          <div class="content">
-            <%= yield %>
+    <% if params[:action] == "home" %>
+      <div class="content-wrapper-home">
+        <%= yield %>
+      </div>
+    <% else %>
+      <div class="container container-cardetour">
+        <div class="row-cardetour">
+          <% unless params[:action] == 'home' || devise_controller? %>
+            <div class="col-4">
+              <%= render 'shared/sidebar', bookings: @bookings %>
+            </div>
+          <% end %>
+          <div class="col-8">
+            <div class="content">
+              <%= yield %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
+
   </body>
 </html>
