@@ -5,7 +5,9 @@
     </div>
 
     <div class="card-scroll-passe">
+      <% raise %>
       <% bookings.to_a.delete_if { |b| b.slot.nil? } %>
+
       <% bookings_sorted = bookings.sort_by { |booking| booking.slot.start } %>
       <% bookings_s = bookings_sorted.reverse %>
       <% bookings_s.each do |booking| %>
