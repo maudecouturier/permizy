@@ -20,6 +20,16 @@
   margin-bottom: 5px;
 }
 
+.card-cours-passes{
+  line-height: 15px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.card-cours-passes p{
+  font-size: 10px;
+}
+
 .card-cours h3{
   font-size: 16px;
   color: $blue;
@@ -41,10 +51,13 @@
   top: 9.11%;
   bottom: 67.44%;
 }
-
-
-.card-scroll {
+.card-scroll-futur {
   height : 255px;
+  overflow : scroll;
+}
+
+.card-scroll-passe {
+  height : 350px;
   overflow : scroll;
 }
 

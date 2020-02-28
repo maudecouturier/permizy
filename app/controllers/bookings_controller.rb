@@ -50,7 +50,6 @@ class BookingsController < ApplicationController
     authorize @booking
     if @booking.update(booking_params)
         # @booking.slot.end.update(@booking.slot.start + 2.hours)
-        raise
       redirect_to dashboard_path
     else
       render :edit
