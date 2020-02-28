@@ -22,7 +22,7 @@
             <div class="card-body">
               <p class="text-justify text-truncate"><%=booking.review_evaluation%></p>
               <%= link_to booking_path(booking), class: "btn-outline btn-card-cardetour" do%>
-                VOIR LE DETAIL DE TON EVALUATION
+                VOIR LE DÉTAIL
               <% end %>
             </div>
           </div>
@@ -38,14 +38,14 @@
 
     <div class="card-scroll-futur">
     <% bookings_sorted = bookings.sort_by { |booking| booking.slot.start } %>
-    <% bookings_s = bookings_sorted.reverse %>
+    <% bookings_s = bookings_sorted %>
       <% bookings_s.each do |booking| %>
         <% if booking.slot.start > DateTime.now()%>
           <div class="card card-booking">
             <div class="card-body">
               <div class= "d-flex">
-                <h3 class="card-title"> 📅<%=booking.slot.start.strftime("%d / %m / %y")%></h3>
-                <h3 class="card-title ml-2"> 🕐<%= booking.slot.start.strftime("%H:%M")%></h3>
+                <h3 class="card-title"> 📅 <%=booking.slot.start.strftime("%d / %m / %y")%></h3>
+                <h3 class="card-title ml-2"> 🕐 <%= booking.slot.start.strftime("%H:%M")%></h3>
               </div>
               <p class="card-text"> 📍<%=booking.address%></p>
               <a><%= link_to "MODIFIER", edit_booking_path(booking), class:"btn-outline btn-card-cardetour"%></a>
