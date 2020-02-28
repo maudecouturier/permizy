@@ -1,22 +1,24 @@
-<%= simple_form_for(booking) do |f| %>
-    <%= f.simple_fields_for :slot do |p| %>
-      <%= p.association :teacher, collection: User.teachers %>
-      <%= p.input :start %>
-    <% end %>
-    <%= f.input :address %>
-    <div id="map"
-         style="width: 50%;
-         height: 300px;"
-         data-marker="<%= @marker.to_json %>"
-         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <%= f.submit %>
-<% end %>
-
-
-<div class='teacher-bar'>
-  <% User.teachers do |teacher| %>
-    <%= teacher.first_name %>
-    <%= cl_image_tag teacher.photo.key if teacher.photo.attached? %>
+<div class='content-evaluation', style='padding: 8px 200px'>
+  <%= simple_form_for(booking) do |f| %>
+      <%= f.simple_fields_for :slot do |p| %>
+        <%= p.association :teacher, collection: User.teachers, class: "w-50" %>
+        <%= p.input :start %>
+      <% end %>
+      <%= f.input :address, class: "w-50" %>
+      <div id="map"
+           style="width: 50%;
+           height: 300px;"
+           data-marker="<%= @marker.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <%= f.submit %>
   <% end %>
+
+
+  <div class='teacher-bar'>
+    <% User.teachers do |teacher| %>
+      <%= teacher.first_name %>
+      <%= cl_image_tag teacher.photo.key if teacher.photo.attached? %>
+    <% end %>
+  </div>
 </div>
