@@ -1,10 +1,16 @@
 class Booking < ApplicationRecord
-  belongs_to :student, class_name: 'User', foreign_key: 'student_id'
+  geocoded_by :address
+
   has_one :slot
-  belongs_to :teacher, optional: true, foreign_key: :slot
+  has_one :teacher, through: :slot, as: :teacher
+  belongs_to :student, class_name: 'User', foreign_key: 'student_id'
+
+  accepts_nested_attributes_for :slot
+
   validates  :student, presence: true
 
-  geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+
 
 end
