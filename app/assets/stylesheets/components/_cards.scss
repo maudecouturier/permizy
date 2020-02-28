@@ -20,6 +20,10 @@
   margin-bottom: 5px;
 }
 
+.card-booking .card-title {
+  font-weight: bold !important;
+}
+
 .card-cours-passes{
   line-height: 15px;
   position: relative;
@@ -37,6 +41,8 @@
 
 .card-cours h2{
   font-size: 24px;
+  margin-bottom: 8px;
+  margin-top: 11.5px;
   color: $blue;
 }
 
@@ -57,7 +63,7 @@
 }
 
 .card-scroll-passe {
-  height : 350px;
+  height : 338px;
   overflow : scroll;
 }
 
@@ -71,6 +77,7 @@
 .card-evaluation-content {
   background-color: #F0EEEE;
   padding: 10px;
+  height: 60px;
 }
 
 .card-evaluation-content p{
