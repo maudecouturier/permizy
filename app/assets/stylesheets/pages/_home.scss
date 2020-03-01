@@ -29,3 +29,18 @@
   width: 25%
 }
 
+.home-card-banner {
+  height: 80vh;
+  padding-top: 25vh;
+  background-color: $blue;
+}
+
+.home-card-container {
+  width: 80%;
+  height: 50vh;
+  // background-color: white;
+  margin: auto;
+  display: flex;
+  padding: 8px;
+}
+

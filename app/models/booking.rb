@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   geocoded_by :address
 
-  has_one :slot
+  has_one :slot, dependent: :destroy
   has_one :teacher, through: :slot, as: :teacher
   belongs_to :student, class_name: 'User', foreign_key: 'student_id'
 

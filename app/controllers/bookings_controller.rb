@@ -49,11 +49,10 @@ class BookingsController < ApplicationController
   end
 
   def update
-    # @booking.update(booking_params)
-    # @booking.save
+    @booking.update(booking_params)
+    @booking.slot.end = @booking.slot.start + 2.hours
     authorize @booking
-    if @booking.update(booking_params)
-        # @booking.slot.end.update(@booking.slot.start + 2.hours)
+    if @booking.save
       redirect_to dashboard_path
     else
       render :edit
@@ -72,6 +71,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    raise
     @booking.destroy
     authorize @booking
     redirect_to bookings_path
@@ -80,7 +80,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:slot, :address, :student_id, slot_attributes: [:id, :start, :teacher_id])
+    params.require(:booking).permit(:address, :student_id, slot_attributes: [:id, :start, :teacher_id])
   end
 
   def set_booking

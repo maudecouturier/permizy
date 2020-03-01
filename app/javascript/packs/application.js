@@ -23,14 +23,14 @@ require("channels")
 import "bootstrap";
 
 import { loadDynamicBannerText } from '../plugins/banner';
-import { initFlatpickr } from "../plugins/init_flatpickr";
+// import { initFlatpickr } from "../plugins/init_flatpickr";
 import { initMapbox, initAutocomplete } from '../plugins/init_mapbox';
 import { initCalendar } from '../plugins/init_refresh_calendar';
 
 
 document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
-  initFlatpickr();
+  // initFlatpickr();
   initMapbox();
   initAutocomplete();
   initCalendar();
