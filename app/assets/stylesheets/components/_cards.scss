@@ -1,30 +1,90 @@
+//sidebar
+
 .card-cours {
   margin-bottom: 15px;
-  position: relative;
   padding: 5px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.card-cours h2{
+  margin-bottom: 19.5px;
+}
+
+
+.card-booking{
+  height: 125px;
+  line-height: 15px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.card-booking .card-title {
+  font-weight: bold !important;
+}
+
+.card-cours-passes{
+  line-height: 15px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.card-cours-passes p{
+  font-size: 10px;
 }
 
 .card-cours h3{
-  font-size: 18px;
+  font-size: 16px;
   color: $blue;
 }
 
 .card-cours h2{
   font-size: 24px;
+  margin-bottom: 8px;
+  margin-top: 11.5px;
   color: $blue;
 }
 
-.card-cours p{
+.card-cours p {
   font-size: 14px;
 }
 
 .card-avatar {
   position: absolute;
-  left: 81.28%;
+  left: 82.28%;
   right: 71.94%;
   top: 9.11%;
   bottom: 67.44%;
 }
+.card-scroll-futur {
+  height : 255px;
+  overflow : scroll;
+}
 
+.card-scroll-passe {
+  height : 338px;
+  overflow : scroll;
+}
+
+//evaluation
+
+.card-evaluation {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.card-evaluation-content {
+  background-color: #F0EEEE;
+  padding: 10px;
+  height: 60px;
+}
+
+.card-evaluation-content p{
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.card-jauge {
+  text-align: center;
+}
