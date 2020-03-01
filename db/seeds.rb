@@ -4,12 +4,22 @@ User.destroy_all
 
 
 puts 'Creating users'
-mario = User.create(first_name: 'Mario', teacher: true, email: 'mario@hotmail.com', password: '123456' )
-yoshi = User.create(first_name: 'Yoshi', teacher: true, email: 'yoshi@gmail.com', password: '123456')
-wario = User.create(first_name: 'Wario', teacher: true, email: 'wario@gmail.com', password: '123456')
-luigi = User.create(first_name: 'Luigi', teacher: true, email: 'luigi@gmail.com', password: '123456')
+julien = User.create(first_name: 'Julien', teacher: true, email: 'julien@gmail.com', password: '123456')
+thomas = User.create(first_name: 'Thomas', teacher: true, email: 'thomas@gmail.com', password: '123456')
+cecile = User.create(first_name: 'Cecile', teacher: true, email: 'cecile@gmail.com', password: '123456')
 peach = User.create(first_name: 'Peach', teacher: false, email: 'peach@gmail.com', password: '123456')
 puts 'Done creating users'
+
+puts 'Attaching photos'
+file_julien = URI.open("https://avatars3.githubusercontent.com/u/11377783?v=4")
+julien.photo.attach(io: file_julien, filename: 'julien.jpg')
+file_thomas = URI.open("https://avatars3.githubusercontent.com/u/16384238?v=4")
+thomas.photo.attach(io: file_thomas, filename: 'thomas.jpg')
+file_cecile = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1539599254/janttrofl6xagki5zk6g.jpg")
+cecile.photo.attach(io: file_cecile, filename: 'cecile.jpg')
+file_peach = URI.open("https://f0.pngfuel.com/png/807/610/princess-pitch-png-clip-art.png")
+peach.photo.attach(io: file_peach, filename: 'peach.jpg')
+puts 'Done attaching photos'
 
 
 puts 'Creating past bookings'
@@ -29,7 +39,7 @@ booking2 = Booking.create!(student: peach,
   share_rating: 4,
   control_rating: 4)
 booking3 = Booking.create!(student: peach,
-  review_evaluation: 'La lancer de carapace verte n\'est pas encore maitrisé, c\'est mieux sur le freinage, continue comme ça.' ,
+  review_evaluation: 'Le lancer de carapace verte n\'est pas encore maitrisé, c\'est mieux sur le freinage, continue comme ça.' ,
   review_content: 'Marche arrière, lancer de carapace verte, lancer arrière, freinage d\'urgence',
   review_to_improve: 'Anticipation des trajectoires pour lancer des carapaces.',
   respect_rating: 3,
@@ -65,7 +75,7 @@ puts 'Done creating bookings'
 
 puts 'Creating slots'
 
-User.teacher.each do |teacher|
+User.teachers.each do |teacher|
   starting_date = DateTime.now() - 5
   day = DateTime.new(starting_date.year, starting_date.month, starting_date.day)
   6.times do
@@ -93,6 +103,5 @@ future_bookings.each do |book|
   slot = Slot.future.sample
   slot.booking = book
   slot.save!
-  puts slot
 end
 puts 'Done attributing bookings'

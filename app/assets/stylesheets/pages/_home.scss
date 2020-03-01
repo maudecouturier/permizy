@@ -1,1 +1,31 @@
-// Specific CSS for your home-page
+.home-banner {
+  // background-image: url('home_banner2.jpg');
+  background-size: cover;
+  height: 100vh;
+  color: #eee;
+  //text-align: left;
+  padding-top: 40vh;
+  position: relative;
+}
+
+.typed {
+  width: 28%;
+  right: 4%;
+  position: absolute;
+  top: 13%;
+  color: #ECA400;
+  font-size: 40px;
+}
+
+.content-wrapper-home {
+  min-height: 100vh;
+}
+
+.logo-home {
+  position: absolute;
+  top: 11%;
+  left: 6%;
+  //width: 350px;
+  width: 25%
+}
+

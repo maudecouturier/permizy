@@ -1,6 +1,15 @@
+.heures {
+  margin:30px 0px 55px 0px;
+}
+
+.evaluation {
+  margin: 50px 0px 48px 0px;
+}
+
 .timeline {
-  height:200px;
-  margin:20px;
+  height:150px;
+  margin:10px 10px 0px 10px;
+  padding:10px;
 }
 
 .category {
@@ -11,26 +20,104 @@
   line-height: 60px;
   color: white;
   font-style: bold;
-  border-radius:5px;
 }
 
 .cat-val {
-  background: linear-gradient(270deg, #F9B234 22.16%, #3ECB06 95.8%);
-}
-
-.cat-book {
-  background: linear-gradient(270deg, #BF1B1B 2.37%, #F9B234 59.17%);
+  background-color: #139E10;
+  border-bottom-left-radius:2px;
+  border-top-left-radius:2px;
 }
 
 .cat-tobook {
-  background: linear-gradient(0deg, #BF1B1B, #BF1B1B);
+  border-bottom-right-radius:2px;
+  border-top-right-radius:2px;
+  background: repeating-linear-gradient(
+    116deg,
+    #139E10,
+    #139E10 2px,
+    white 2px,
+    white 4px
+  );
 }
 
 .pastille {
   position:absolute;
-  height:75px;
-  top:-80px;
-  right:-37px;
-  border-radius: 50%;
+  height:90px;
+  width:70px;
+  top:-94px;
+  left:-35px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4px;
+  align-items: center;
+  justify-content: center;
 }
 
+.pastille-photo {
+  height:45px;
+  width:45px;
+  border-radius: 50%;
+  margin-bottom: 3px;
+}
+
+.pastille-heure {
+  text-align:center;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 60%;
+  height:20px;
+  width:20px;
+  line-height:20px;
+
+}
+
+.arrivee {
+  font-size: 40px;
+  position:absolute;
+  height:75px;
+  top:-54px;
+  right:-30px;
+  color: #51646A;
+}
+
+.depart {
+  font-size: 40px;
+  position:absolute;
+  height:75px;
+  top:-48px;
+  left:-20px;
+  color: #51646A;
+}
+
+.ruler {
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.jauge {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height:100px;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  position:relative;
+  margin: 20px 0;
+}
+
+.jauge-title {
+  text-align: center;
+}
+
+.curseur {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height:80px;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  position:absolute;
+  bottom:-5px;
+  left: 90px;
+  transform-origin: bottom center;
+}
