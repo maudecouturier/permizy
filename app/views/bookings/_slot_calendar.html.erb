@@ -1,0 +1,44 @@
+
+<div class="position-relative">
+  <div class="calendar-container">
+    <div class="calendar-column_arrow">
+      <%= link_to refresh_calendar_path(:teacher_id => @teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => 'previous'),
+        remote: true,
+        class:'calendar-btn calendar-arrow' do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+
+    <% @hash.each do |day, value| %>
+      <div class='calendar-column'>
+        <div class='calendar-headers'>
+          <div class="text-lowercase font-weight-bold"><%= value.first.start.to_date.strftime('%a') %></div>
+          <div><%= value.first.start.to_date.strftime('%e %b') %></div>
+        </div>
+
+        <% value.each do |slot| %>
+          <% if slot.booked %>
+            <div class="card-slot-empty">-</div>
+          <% else %>
+            <div class="card-slot">
+              <%= slot.start.hour %>:00
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+
+
+    <div class="calendar-column_arrow">
+      <%= link_to refresh_calendar_path(:teacher_id => @teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => 'next'),
+      remote: true,
+      class:'calendar-btn calendar-arrow' do %>
+      <i class="fas fa-chevron-right"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+</div>
+

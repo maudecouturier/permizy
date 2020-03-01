@@ -1,0 +1,60 @@
+.calendar-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  padding: 20px;
+}
+
+.calendar-column {
+  margin: 0 10px;
+  flex: 1 0 0;
+}
+
+.calendar-column_arrow{
+ flex: 0 0 auto;
+}
+
+.calendar-arrow {
+  font-size: 30px;
+  color: #ECA400;
+}
+.card-slot {
+  background-color: rgba(174,203,211,0.22);
+  font-weight: bold;
+  color: #51646A;
+  border-radius: 5%;
+  padding: 8px;
+  margin: 10px 0;
+  text-align: center;
+  &:hover {
+    background-color: #ECA400;
+    color: white;
+    cursor: pointer;
+    transition: background-color 250ms, color 250ms;
+  }
+}
+
+.card-slot-empty {
+  background-color: rgb(240,240,240);
+  font-weight: bold;
+  color: rgba(81, 100, 106, 0.8);
+  border-radius: 5%;
+  padding: 8px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.calendar-headers {
+  color: #51646A;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.separator {
+  height: 1px;
+  background-color: #51646A;
+  position: absolute;
+  top: 75px;
+  left: 50px;
+  right: 50px;
+}
