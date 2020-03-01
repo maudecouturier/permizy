@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     @booking.address = nil
 
     # for planning display
-    @teacher = User.teacher.first
+    @teacher = User.teachers.first
     generate_slots(DateTime.now().beginning_of_day)
   end
 
