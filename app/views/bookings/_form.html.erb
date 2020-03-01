@@ -17,7 +17,8 @@
 
   <div class='teacher-bar'>
     <% User.teachers do |teacher| %>
-      <%= teacher.first_name %>
+    <p>test</p>
+      <p><%= teacher.first_name %></p>
       <%= cl_image_tag teacher.photo.key if teacher.photo.attached? %>
     <% end %>
   </div>
