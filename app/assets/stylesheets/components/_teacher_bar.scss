@@ -1,16 +1,36 @@
 .teacher-bar {
-  width: 360px;
-  height: 90px;
+  // width: 360px;
+  height: 100px;
   border-radius: 4px;
   overflow: scroll;
   display: flex;
   justify-content: start;
-  // background-color: rgba(255, 255, 255, 0.5);
-  background-color: black;
-  color: white;
+  background-color: rgba(174,203,211,0.22);
+  color: $blue;
   padding: 8px;
+  // margin-top: 20px;
 }
 
 .teacher-bar img {
   margin: 4px 8px;
+}
+
+#teacher-bar-title {
+  margin-top: 20px;
+}
+
+.column-teacher {
+  margin: 0 16px;
+}
+
+.mapbox-text {
+  color: $blue;
+}
+
+.mapbox-card {
+  background-color: rgba(174,203,211,0.22);
+  border-radius: 4px;
+  padding: 8px;
+  width: 50%;
+  margin: auto;
 }
