@@ -18,9 +18,9 @@
 
         <% value.each do |slot| %>
           <% if slot.booked %>
-            <div class="card-slot-empty">-</div>
+            <div class="card-slot-booked">-</div>
           <% else %>
-            <div class="card-slot">
+            <div class="card-slot-free" data-slot-year=<%= slot.start.year %> data-slot-month=<%= slot.start.month %> data-slot-day=<%= slot.start.day %> data-slot-hour=<%= slot.start.hour %>>
               <%= slot.start.hour %>:00
             </div>
           <% end %>
