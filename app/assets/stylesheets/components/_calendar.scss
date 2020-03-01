@@ -18,7 +18,18 @@
   font-size: 30px;
   color: #ECA400;
 }
-.card-slot {
+
+.card-slot-clicked {
+  background-color: #ECA400;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5%;
+  padding: 8px;
+  margin: 10px 0;
+  text-align: center;
+}
+.card-slot-free {
   background-color: rgba(174,203,211,0.22);
   font-weight: bold;
   color: #51646A;
@@ -34,7 +45,8 @@
   }
 }
 
-.card-slot-empty {
+
+.card-slot-booked {
   background-color: rgb(240,240,240);
   font-weight: bold;
   color: rgba(81, 100, 106, 0.8);
