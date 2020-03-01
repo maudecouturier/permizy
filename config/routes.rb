@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
   resources :bookings, except: :index
+  get 'refresh_calendar', to: 'bookings#refresh_calendar'
 
 end

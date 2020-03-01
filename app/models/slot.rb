@@ -4,4 +4,6 @@ class Slot < ApplicationRecord
 
   scope :future, -> { where('start > now()')}
   scope :past, -> { where('start < now()')}
+
+  attr_accessor :booked
 end
