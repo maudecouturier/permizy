@@ -65,7 +65,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:slot, :address, :student_id, slot_attributes: [:id, :start, :teacher_id])
+    params.require(:booking).permit(:address, :student_id, slot_attributes: [:id, :start, :teacher_id])
   end
 
   def set_booking
