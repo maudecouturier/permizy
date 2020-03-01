@@ -16,10 +16,10 @@
 
 
   <div class='teacher-bar'>
-    <% User.teachers do |teacher| %>
+    <% User.teachers.each do |teacher| %>
     <p>test</p>
       <p><%= teacher.first_name %></p>
-      <%= cl_image_tag teacher.photo.key if teacher.photo.attached? %>
+      <%= cl_image_tag teacher.photo.key if teacher.photo.attached?%>
     <% end %>
   </div>
 </div>
