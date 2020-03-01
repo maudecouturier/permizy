@@ -46,6 +46,8 @@ class BookingsController < ApplicationController
       lat: @booking.latitude,
       lng: @booking.longitude
     }
+    @teacher = @booking.slot.teacher
+    generate_slots(DateTime.now().beginning_of_day)
   end
 
   def update
