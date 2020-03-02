@@ -24,7 +24,7 @@
             <div class="card-body">
               <p class="text-justify text-truncate"><%= booking.review_evaluation %></p>
               <% if booking.review_evaluation.nil? %>
-                <%= link_to '#', class: "btn-outline btn-card-cardetour" do%>
+                <%= link_to '#', class: "btn-outline btn-card-cardetour btn-text-no-review" do%>
                   EN ATTENTE D'ÉVALUATION
                 <% end %>
               <% else %>
