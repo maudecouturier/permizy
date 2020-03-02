@@ -2,7 +2,7 @@
 <div class="position-relative">
   <div class="calendar-container">
     <div class="calendar-column_arrow">
-      <%= link_to refresh_calendar_path(:teacher_id => @teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => 'previous'),
+      <%= link_to refresh_calendar_path(:teacher_id => @teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => 'previous', :booking_id => @booking_id),
         remote: true,
         class:'calendar-btn calendar-arrow' do %>
         <i class="fas fa-chevron-left"></i>
@@ -17,12 +17,20 @@
         </div>
 
         <% value.each do |slot| %>
-          <% if slot.booked %>
+          <% if slot.start < DateTime.now() %>
             <div class="card-slot-booked">-</div>
           <% else %>
-            <div class="card-slot-free" data-slot-year=<%= slot.start.year %> data-slot-month=<%= slot.start.month %> data-slot-day=<%= slot.start.day %> data-slot-hour=<%= slot.start.hour %>>
-              <%= slot.start.hour %>:00
-            </div>
+            <% if (@slot && (@slot.start == slot.start)) %>
+              <div class='card-slot-clicked' data-slot-year=<%= slot.start.year %> data-slot-month=<%= slot.start.month %> data-slot-day=<%= slot.start.day %> data-slot-hour=<%= slot.start.strftime('%H') %>>
+                <%= slot.start.hour %>:00
+              </div>
+            <% elsif slot.booked %>
+                <div class="card-slot-booked">-</div>
+            <% else %>
+              <div class='card-slot-free' data-slot-year=<%= slot.start.year %> data-slot-month=<%= slot.start.month %> data-slot-day=<%= slot.start.day %> data-slot-hour=<%= slot.start.strftime('%H') %>>
+                <%= slot.start.hour %>:00
+              </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
@@ -31,7 +39,7 @@
 
 
     <div class="calendar-column_arrow">
-      <%= link_to refresh_calendar_path(:teacher_id => @teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => 'next'),
+      <%= link_to refresh_calendar_path(:teacher_id => @teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => 'next', :booking_id => @booking_id ),
       remote: true,
       class:'calendar-btn calendar-arrow' do %>
       <i class="fas fa-chevron-right"></i>
