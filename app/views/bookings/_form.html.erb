@@ -3,7 +3,10 @@
   <h2 id="teacher-bar-title">Choisis ton instructeur</h2>
   <div class='teacher-bar'>
     <% User.teachers.each do |teacher| %>
-      <div class='flex-column text-center column-teacher <%= @teacher.id == teacher.id ? 'teacher-selected' : 'teacher-free' %> js-initteacher' data-user-id=<%=teacher.id  %>>
+      <div
+        class='flex-column text-center column-teacher <%= @teacher.id == teacher.id ? 'teacher-selected' : 'teacher-free' %> js-initteacher'
+        data-user-id=<%=teacher.id  %>
+        data-path=<%= refresh_calendar_path(:teacher_id => teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => nil, :booking_id => @booking_id) %>>
         <%= cl_image_tag(teacher.photo.key, options = {class: 'avatar-large'}) if teacher.photo.attached? %>
         <p><%= teacher.first_name %></p>
       </div>
