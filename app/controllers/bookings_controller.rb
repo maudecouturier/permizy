@@ -73,10 +73,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    raise
     @booking.destroy
     authorize @booking
-    redirect_to bookings_path
+    redirect_to dashboard_path
   end
 
   private
