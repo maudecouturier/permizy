@@ -40,7 +40,6 @@ const initAutocomplete = () => {
 };
 
 const initMapbox = () => {
-  console.log(mapElement);
   if (mapElement) {
     const map = buildMap();
     const marker = JSON.parse(mapElement.dataset.marker);
