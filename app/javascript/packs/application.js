@@ -31,7 +31,6 @@ import { initSweetalert } from '../plugins/init_sweetalert';
 
 
 document.addEventListener('turbolinks:load', () => {
-  console.log('hello1');
   loadDynamicBannerText();
   // initFlatpickr();
   initMapbox();
