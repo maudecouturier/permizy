@@ -55,7 +55,14 @@
   transform: translate(-50%, -50%);
 }
 
+
 .btn-new-booking {
+  background-color: $orange;
+  color: white;
+  margin: auto;
+}
+
+.btn-plus {
   background-color: $orange;
   color: white;
   margin: auto;

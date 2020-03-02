@@ -29,8 +29,10 @@
     <div class="card-evaluation">
 
       <h2>Mon niveau</h2>
-
-
+      <div class='evaluation-map'>
+        <%= render partial: "evaluationmap", locals: {booking: @booking}  %>
+      </div>
+    </div>
     </div>
   </div>
 </div>
