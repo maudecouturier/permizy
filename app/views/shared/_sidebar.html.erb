@@ -17,7 +17,7 @@
                 <%= cl_image_tag booking.slot.teacher.photo.key, class: "avatar-large"%>
               </div>
               <div class="col-9 mt-3">
-                <h3 class="card-title"> <%= I18n.l(booking.slot.start, format: :date, locale: :fr).capitalize %></h3>
+                <h3 class="card-title mb-1"> <%= I18n.l(booking.slot.start, format: :date, locale: :fr).capitalize %></h3>
                 <h3 class="card-title"> avec <%= booking.slot.teacher.first_name%></h3>
               </div>
             </div>
