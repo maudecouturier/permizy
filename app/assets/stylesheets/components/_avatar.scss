@@ -22,8 +22,11 @@
 }
 
 .avatar-home {
-  width: 72px;
+  width: 136px;
   border-radius: 50%;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 

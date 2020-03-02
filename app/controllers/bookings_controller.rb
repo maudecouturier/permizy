@@ -4,11 +4,15 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
     authorize @bookings
-
   end
 
   def show
     authorize @booking
+    # @booking.geocode
+    # @marker = {
+    #     lat: @booking.latitude,
+    #     lng: @booking.longitude
+    # }
   end
 
   def new

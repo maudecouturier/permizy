@@ -27,8 +27,12 @@
   </div>
   <div class="row-evaluation">
     <div class="card-evaluation">
-
       <h2>Mon niveau</h2>
+      <div class='evaluation-map'>
+        <%= render partial: "evaluationmap", locals: {booking: @booking}  %>
+      </div>
+    </div>
+
         <div class="d-flex justify-content-around evaluation">
           <div class="d-flex flex-column">
             <h3 class="jauge-title">
