@@ -28,12 +28,18 @@
     }
   }
 
-  .teacher-selected {
-    border: 2px solid $orange;
+  &.teacher-selected {
+    .avatar-large {
+      border: 1px solid $orange;
+    }
     p {
-      font-weight: bold;
+      // font-weight: bold;
       color: $orange;
     }
+  }
+
+  &.teacher-free {
+    opacity: 0.5;
   }
 
   &:hover {
