@@ -1,4 +1,4 @@
-<h1>Ton évaluation du <%=@booking.slot.start.strftime("%d / %m / %y")%></h1>
+<h1>Ton évaluation du <%= I18n.l(@booking.slot.start, format: :date_evaluation, locale: :fr) %></h1>
 
 <div class="content-evaluation">
   <div class="row-evaluation">

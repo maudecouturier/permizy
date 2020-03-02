@@ -17,7 +17,7 @@
                 <%= cl_image_tag booking.slot.teacher.photo.key, class: "avatar-large"%>
               </div>
               <div class="col-9 mt-3">
-                <h3 class="card-title"> cours du <%= booking.slot.start.strftime("%d / %m / %y")%></h3>
+                <h3 class="card-title"> <%= I18n.l(booking.slot.start, format: :date, locale: :fr).capitalize %></h3>
                 <h3 class="card-title"> avec <%= booking.slot.teacher.first_name%></h3>
               </div>
             </div>
@@ -46,7 +46,7 @@
           <div class="card card-booking">
             <div class="card-body">
               <div class= "d-flex">
-                <h3 class="card-title"> 📅 <%=booking.slot.start.strftime("%d / %m / %y")%></h3>
+                <h3 class="card-title"> 📅 <%= I18n.l(booking.slot.start, format: :date_short, locale: :fr).capitalize %> </h3>
                 <h3 class="card-title ml-2"> 🕐 <%= booking.slot.start.strftime("%H:%M")%></h3>
               </div>
               <p class="card-text"> 📍<%=booking.address%></p>

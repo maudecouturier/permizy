@@ -12,8 +12,8 @@
     <% @hash.each do |day, value| %>
       <div class='calendar-column'>
         <div class='calendar-headers'>
-          <div class="text-lowercase font-weight-bold"><%= value.first.start.to_date.strftime('%a') %></div>
-          <div><%= value.first.start.to_date.strftime('%e %b') %></div>
+          <div class="text-lowercase font-weight-bold"><%= I18n.l(value.first.start.to_datetime, format: :planning_month, locale: :fr) %></div>
+          <div><%= I18n.l(value.first.start.to_datetime, format: :planning_day, locale: :fr) %></div>
         </div>
 
         <% value.each do |slot| %>
