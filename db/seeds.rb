@@ -8,6 +8,7 @@ julien = User.create(first_name: 'Julien', teacher: true, email: 'julien@gmail.c
 thomas = User.create(first_name: 'Thomas', teacher: true, email: 'thomas@gmail.com', password: '123456')
 cecile = User.create(first_name: 'Cecile', teacher: true, email: 'cecile@gmail.com', password: '123456')
 peach = User.create(first_name: 'Peach', teacher: false, email: 'peach@gmail.com', password: '123456')
+luigi = User.create(first_name: 'Luigi', teacher: false, email: 'luigi@gmail.com', password: '123456')
 puts 'Done creating users'
 
 puts 'Attaching photos'
@@ -19,6 +20,8 @@ file_cecile = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_f
 cecile.photo.attach(io: file_cecile, filename: 'cecile.jpg')
 file_peach = URI.open("https://f0.pngfuel.com/png/807/610/princess-pitch-png-clip-art.png")
 peach.photo.attach(io: file_peach, filename: 'peach.jpg')
+file_luigi = URI.open("https://static.wikia.nocookie.net/8f7a639f-6db3-4a43-a32b-5a680133b02b")
+luigi.photo.attach(io: file_luigi, filename: 'luigi.jpg')
 puts 'Done attaching photos'
 
 
@@ -70,6 +73,11 @@ booking6 = Booking.create!(student: peach,
 puts 'Creating bookings to come'
 booking9 = Booking.create(student: peach)
 booking10 = Booking.create(student: peach)
+booking11 = Booking.create(student: luigi)
+booking12 = Booking.create(student: luigi)
+booking13 = Booking.create(student: luigi)
+booking14 = Booking.create(student: luigi)
+booking15 = Booking.create(student: luigi)
 
 puts 'Done creating bookings'
 

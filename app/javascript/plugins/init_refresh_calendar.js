@@ -39,12 +39,17 @@ const selectSlot = () => {
           clicked_slot.classList.replace('card-slot-clicked','card-slot-free');
         }
 
-        // Add clicked classe to new clicked slot
+        // Add clicked class to new clicked slot
         slot.classList.replace('card-slot-free', 'card-slot-clicked');
 
         const date = new Date(slot.dataset.slotYear,slot.dataset.slotMonth,slot.dataset.slotDay, slot.dataset.slotHour);
-        //document.getElementById('booking_slot').value = date;
-        //console.log(date);
+
+        //Fill the form
+        document.getElementById('booking_slot_attributes_start_1i').value = slot.dataset.slotYear;
+        document.getElementById('booking_slot_attributes_start_2i').value = slot.dataset.slotMonth;
+        document.getElementById('booking_slot_attributes_start_3i').value = slot.dataset.slotDay;
+        document.getElementById('booking_slot_attributes_start_4i').value = slot.dataset.slotHour;
+        document.getElementById('booking_slot_attributes_start_5i').value = '00';
 
       })
     })

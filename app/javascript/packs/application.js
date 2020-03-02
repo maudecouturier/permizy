@@ -25,7 +25,9 @@ import "bootstrap";
 import { loadDynamicBannerText } from '../plugins/banner';
 // import { initFlatpickr } from "../plugins/init_flatpickr";
 import { initMapbox, initAutocomplete } from '../plugins/init_mapbox';
+import { initTeachers } from '../plugins/init_select_teacher';
 import { initCalendar } from '../plugins/init_refresh_calendar';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -33,5 +35,12 @@ document.addEventListener('turbolinks:load', () => {
   // initFlatpickr();
   initMapbox();
   initAutocomplete();
+  initTeachers();
   initCalendar();
-})
+});
+
+initSweetalert('#sweet-alert-demo', {
+  title: "Félicitations !",
+  text: "Ton cours est confirmé",
+  icon: "success"
+});
