@@ -37,10 +37,10 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initTeachers();
   initCalendar();
-})
+});
 
 initSweetalert('#sweet-alert-demo', {
-  title: "A nice alert",
-  text: "This is a great alert, isn't it?",
+  title: "Félicitations !",
+  text: "Ton cours est confirmé",
   icon: "success"
 });

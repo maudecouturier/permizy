@@ -20,8 +20,9 @@ class BookingsController < ApplicationController
         lat: @booking.latitude,
         lng: @booking.longitude
     }
-    @booking.address = nil
+    
     @booking_id = nil
+    # @booking.address = nil
 
     # for planning display
     @teacher = User.teachers.first
