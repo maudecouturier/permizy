@@ -27,6 +27,7 @@ import { loadDynamicBannerText } from '../plugins/banner';
 import { initMapbox, initAutocomplete } from '../plugins/init_mapbox';
 import { initTeachers } from '../plugins/init_select_teacher';
 import { initCalendar } from '../plugins/init_refresh_calendar';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -37,3 +38,9 @@ document.addEventListener('turbolinks:load', () => {
   initTeachers();
   initCalendar();
 })
+
+initSweetalert('#sweet-alert-demo', {
+  title: "A nice alert",
+  text: "This is a great alert, isn't it?",
+  icon: "success"
+});
