@@ -42,45 +42,47 @@
   </div>
 
   <h2>Ton niveau</h2>
-
-  <% respect = [] %>
-  <% share = [] %>
-  <% control = [] %>
-  <% @bookings.each do |booking| %>
-    <% respect << booking.respect_rating if !booking.respect_rating.nil? %>
-    <% share << booking.share_rating if !booking.share_rating.nil? %>
-    <% control << booking.control_rating if !booking.control_rating.nil? %>
-  <% end %>
-  <% respect_average = (respect.sum.to_f / respect.count) %>
-  <% share_average = (share.sum.to_f / share.count) %>
-  <% control_average = (control.sum.to_f / control.count) %>
-
-  <% axis_respect = (respect_average*36 - 90).to_i%>
-  <% axis_share = (share_average*36 - 90).to_i%>
-  <% axis_control = (control_average*36 - 90).to_i%>
   <div class="d-flex justify-content-around evaluation">
     <div class="d-flex flex-column">
       <h3 class="jauge-title">
       Appréhender la route
       </h3>
-      <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
-        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_respect%>deg)"></div>
+      <div class="jauge">
+        <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+          </path>
+           <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.respect)*50%> <%= 50 - Math.sin(current_user.respect)*50%> L 50 50 Z" fill="<%= current_user.respect_color%>">
+          </path>
+        </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.respect / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
       </div>
     </div>
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column align-items-center">
       <h3 class="jauge-title">
         Partager la route
       </h3>
-      <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
-        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_share%>deg)"></div>
+      <div class="jauge">
+        <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+          </path>
+           <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.share)*50%> <%= 50 - Math.sin(current_user.share)*50%> L 50 50 Z" fill="<%= current_user.share_color%>">
+          </path>
+        </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
       </div>
     </div>
     <div class="d-flex flex-column">
       <h3 class="jauge-title">
         Maitriser son véhicule
       </h3>
-      <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
-        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_control%>deg)"></div>
+      <div class="jauge">
+       <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+          </path>
+           <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.control)*50%> <%= 50 - Math.sin(current_user.control)*50%> L 50 50 Z" fill="<%= current_user.control_color%>">
+          </path>
+        </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
       </div>
     </div>
   </div>
