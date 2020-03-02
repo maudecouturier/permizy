@@ -54,6 +54,7 @@
            <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.respect)*50%> <%= 50 - Math.sin(current_user.respect)*50%> L 50 50 Z" fill="<%= current_user.respect_color%>">
           </path>
         </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.respect / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
       </div>
     </div>
     <div class="d-flex flex-column align-items-center">
@@ -67,6 +68,7 @@
            <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.share)*50%> <%= 50 - Math.sin(current_user.share)*50%> L 50 50 Z" fill="<%= current_user.share_color%>">
           </path>
         </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
       </div>
     </div>
     <div class="d-flex flex-column">
@@ -80,6 +82,7 @@
            <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.control)*50%> <%= 50 - Math.sin(current_user.control)*50%> L 50 50 Z" fill="<%= current_user.control_color%>">
           </path>
         </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
       </div>
     </div>
   </div>
