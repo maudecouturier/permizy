@@ -31,16 +31,17 @@ import { initSweetalert } from '../plugins/init_sweetalert';
 
 
 document.addEventListener('turbolinks:load', () => {
+  console.log('hello1');
   loadDynamicBannerText();
   // initFlatpickr();
   initMapbox();
   initAutocomplete();
   initTeachers();
   initCalendar();
-})
+});
 
 initSweetalert('#sweet-alert-demo', {
-  title: "A nice alert",
-  text: "This is a great alert, isn't it?",
+  title: "Félicitations !",
+  text: "Ton cours est confirmé",
   icon: "success"
 });
