@@ -6,9 +6,7 @@ const mapElement = document.getElementById('map');
 // document.getElementById('booking_address').value = ''
 
 const buildMap = () => {
-  console.log('hello2');
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-  // debugger
   return new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10'
