@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :slots, foreign_key: 'teacher_id'
   has_many :lessons, through: :slots, source: :booking
 
+  has_many :chatrooms, class_name: 'Chatroom', foreign_key: 'student_id'
+
   scope :teachers, -> { where(teacher: true)}
 
   def name
