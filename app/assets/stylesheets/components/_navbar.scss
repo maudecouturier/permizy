@@ -25,3 +25,16 @@ margin: 5px;
 
   //background-color: white;
 }
+
+.nav-item .far {
+  color: $orange;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.dropdown-toggle::after {
+  content: none;
+
+}
+
