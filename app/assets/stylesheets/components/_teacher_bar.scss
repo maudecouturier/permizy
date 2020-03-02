@@ -50,11 +50,14 @@
 .mapbox-text {
   color: $blue;
 }
+ .mapbox-container {
+  display: flex;
+ }
 
 .mapbox-card {
   background-color: rgba(174,203,211,0.22);
   border-radius: 4px;
   padding: 8px;
-  width: 50%;
+  width: 100%;
   margin: auto;
 }
