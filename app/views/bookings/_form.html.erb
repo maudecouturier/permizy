@@ -1,4 +1,5 @@
 <div class='content-evaluation'>
+
   <h2 id="teacher-bar-title">Choisis ton instructeur</h2>
   <div class='teacher-bar'>
     <% User.teachers.each do |teacher| %>
@@ -12,29 +13,43 @@
   <div id="container-calendar">
     <%= render partial: "slot_calendar" %>
   </div>
-  <div class='mapbox-text'>
-    <h2>Sélectionne un lieu de rencontre</h2>
-    <p class='mt-3' ><strong>La prise en charge se fait à l’auto-école par défaut.</strong>
-    Si tu souhaites être récupéré au lieu de ton choix par ton moniteur, entre l’adresse ci-dessous :</p>
+
+
+  <div>
+    <%= simple_form_for(booking) do |f| %>
+
+      <div>
+          <div>
+            <%= f.simple_fields_for :slot do |p| %>
+              <%= p.association :teacher, collection: User.teachers%>
+              <%= p.input :start %>
+            <% end %>
+          </div>
+          <h2>Sélectionne un lieu de rencontre</h2>
+          <div>
+            <div>
+              <p class='mt-3' ><strong>La prise en charge se fait à l’auto-école par défaut.</strong>
+              Si tu souhaites être récupéré au lieu de ton choix par ton moniteur, entre l’adresse ci-dessous :</p>
+            </div>
+            <div class='mapbox-card'>
+              <%= f.input :address, label: false %>
+              <div id="map"
+                   style="
+                   height: 300px;"
+                   data-marker="<%= @marker.to_json %>"
+                   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class='text-center my-3'>
+        <%= f.button :submit, class: "btn-cardetour js-btn-submit", value: 'Confirmer' %>
+      </div>
+
+    <% end %>
   </div>
-  <%= simple_form_for(booking) do |f| %>
-    <div class='mapbox-card'>
-        <%= f.simple_fields_for :slot do |p| %>
-          <%= p.association :teacher, collection: User.teachers%>
-          <%= p.input :start %>
-        <% end %>
-        <%= f.input :address, label: false %>
-        <div id="map"
-             style="
-             height: 300px;"
-             data-marker="<%= @marker.to_json %>"
-             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-    </div>
-    <div class='text-center', style='margin-top: 32px'>
-      <%= f.button :submit, class: "btn-new-booking js-btn-submit", value: 'Confirmer' %>
-    </div>
-  <% end %>
+
 </div>
 
 

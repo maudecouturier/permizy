@@ -1,23 +1,64 @@
 <h1>Bienvenue <%=current_user.first_name%></h1>
-
 <div class="content-evaluation">
-
+  <h2>Ton niveau</h2>
+  <div class="d-flex justify-content-around evaluation">
+    <div class="d-flex flex-column grid">
+      <h3 class="jauge-title">
+      <i class="fas fa-glasses"></i> Appréhender la route
+      </h3>
+      <div class="jauge">
+        <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+          </path>
+           <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.respect)*50%> <%= 50 - Math.sin(current_user.respect)*50%> L 50 50 Z" fill="<%= current_user.respect_color%>">
+          </path>
+        </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.respect / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
+      </div>
+    </div>
+    <div class="d-flex flex-column align-items-center grid">
+      <h3 class="jauge-title">
+        <i class="far fa-handshake"></i> Partager la route
+      </h3>
+      <div class="jauge">
+        <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+          </path>
+           <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.share)*50%> <%= 50 - Math.sin(current_user.share)*50%> L 50 50 Z" fill="<%= current_user.share_color%>">
+          </path>
+        </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
+      </div>
+    </div>
+    <div class="d-flex flex-column grid">
+      <h3 class="jauge-title">
+        <i class="fas fa-tachometer-alt"></i> Maitriser son véhicule
+      </h3>
+      <div class="jauge">
+       <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+          </path>
+           <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.control)*50%> <%= 50 - Math.sin(current_user.control)*50%> L 50 50 Z" fill="<%= current_user.control_color%>">
+          </path>
+        </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
+      </div>
+    </div>
+  </div>
   <h2 class="mt-3">Tes heures de conduite</h2>
+    <% validated_hours = 0 %>
+    <% booked_hours = 0 %>
+    <% hours_to_do = 20 %>
 
-
-  <% validated_hours = 0 %>
-  <% booked_hours = 0 %>
-  <% hours_to_do = 20 %>
-
-  <% @bookings.each do |booking| %>
-    <% validated_hours += 2 if booking.slot && (booking.slot.start - DateTime.now()) < 0 %>
-  <% end %>
-  <% hours_to_do = hours_to_do - validated_hours %>
-  <% if hours_to_do >= 0 %>
-    <% hours_to_do = hours_to_do %>
-  <% else %>
-    <% hours_to_do = 0 %>
-  <% end %>
+    <% @bookings.each do |booking| %>
+      <% validated_hours += 2 if booking.slot && (booking.slot.start - DateTime.now()) < 0 %>
+    <% end %>
+    <% hours_to_do = hours_to_do - validated_hours %>
+    <% if hours_to_do >= 0 %>
+      <% hours_to_do = hours_to_do %>
+    <% else %>
+      <% hours_to_do = 0 %>
+    <% end %>
   <div class="d-flex flex-column heures">
     <div class="timeline d-flex align-items-end">
       <div class="d-flex-inline" style="width:<%= ((validated_hours.to_f/20)*100).to_i%>%; position:relative">
@@ -36,52 +77,8 @@
       </div>
     </div>
     <div class="ruler d-flex justify-content-between">
-    <p>0h</p>
-    <p>20h</p>
-    </div>
-  </div>
-
-  <h2>Ton niveau</h2>
-
-  <% respect = [] %>
-  <% share = [] %>
-  <% control = [] %>
-  <% @bookings.each do |booking| %>
-    <% respect << booking.respect_rating if !booking.respect_rating.nil? %>
-    <% share << booking.share_rating if !booking.share_rating.nil? %>
-    <% control << booking.control_rating if !booking.control_rating.nil? %>
-  <% end %>
-  <% respect_average = (respect.sum.to_f / respect.count) %>
-  <% share_average = (share.sum.to_f / share.count) %>
-  <% control_average = (control.sum.to_f / control.count) %>
-
-  <% axis_respect = (respect_average*36 - 90).to_i%>
-  <% axis_share = (share_average*36 - 90).to_i%>
-  <% axis_control = (control_average*36 - 90).to_i%>
-  <div class="d-flex justify-content-around evaluation">
-    <div class="d-flex flex-column">
-      <h3 class="jauge-title">
-      Appréhender la route
-      </h3>
-      <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
-        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_respect%>deg)"></div>
-      </div>
-    </div>
-    <div class="d-flex flex-column">
-      <h3 class="jauge-title">
-        Partager la route
-      </h3>
-      <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
-        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_share%>deg)"></div>
-      </div>
-    </div>
-    <div class="d-flex flex-column">
-      <h3 class="jauge-title">
-        Maitriser son véhicule
-      </h3>
-      <div class="jauge" style="background-image: url('<%= image_path 'jauge.png' %>')">
-        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= axis_control%>deg)"></div>
-      </div>
+      <p>0h</p>
+      <p>20h</p>
     </div>
   </div>
 </div>

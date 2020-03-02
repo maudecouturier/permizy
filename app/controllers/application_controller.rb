@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def set_bookings
     @bookings = current_user ? policy_scope(Booking) : []
   end
+
+  def default_url_options
+  { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end

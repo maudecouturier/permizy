@@ -27,12 +27,56 @@
   </div>
   <div class="row-evaluation">
     <div class="card-evaluation">
-
       <h2>Mon niveau</h2>
       <div class='evaluation-map'>
         <%= render partial: "evaluationmap", locals: {booking: @booking}  %>
       </div>
     </div>
+
+        <div class="d-flex justify-content-around evaluation">
+          <div class="d-flex flex-column">
+            <h3 class="jauge-title">
+            Appréhender la route
+            </h3>
+            <div class="jauge">
+              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+                </path>
+                 <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(@booking.respect)*50%> <%= 50 - Math.sin(@booking.respect)*50%> L 50 50 Z" fill="<%= @booking.respect_color%>">
+                </path>
+              </svg>
+              <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((@booking.respect / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
+            </div>
+          </div>
+          <div class="d-flex flex-column align-items-center">
+            <h3 class="jauge-title">
+              Partager la route
+            </h3>
+            <div class="jauge">
+              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+                </path>
+                 <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(@booking.share)*50%> <%= 50 - Math.sin(@booking.share)*50%> L 50 50 Z" fill="<%= @booking.share_color%>">
+                </path>
+              </svg>
+              <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((@booking.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <h3 class="jauge-title">
+              Maitriser son véhicule
+            </h3>
+            <div class="jauge">
+             <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+                </path>
+                 <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(@booking.control)*50%> <%= 50 - Math.sin(@booking.control)*50%> L 50 50 Z" fill="<%= @booking.control_color%>">
+                </path>
+              </svg>
+              <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((@booking.control / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>
