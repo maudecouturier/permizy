@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
         lng: @booking.longitude
     }
     @booking.address = nil
+    @booking_id = nil
 
     # for planning display
     @teacher = User.teachers.first
@@ -47,7 +48,9 @@ class BookingsController < ApplicationController
       lng: @booking.longitude
     }
     @teacher = @booking.slot.teacher
-    generate_slots(DateTime.now().beginning_of_day)
+    @slot = @booking.slot
+    @booking_id = @booking.id
+    generate_slots(@slot.start.beginning_of_day)
   end
 
   def update
@@ -66,8 +69,13 @@ class BookingsController < ApplicationController
     if params[:refresh] == "next"
       generate_slots(params[:date].to_datetime + 4)
     else
-      generate_slots(params[:date].to_datetime - 4)
+      if (params[:date].to_datetime - 4) < DateTime.now().beginning_of_day
+        generate_slots(DateTime.now().beginning_of_day)
+      else
+        generate_slots(params[:date].to_datetime - 4)
+      end
     end
+    @slot = Booking.find(params[:booking_id]).slot if params[:booking_id]
     render partial: "slot_calendar"
     skip_authorization
   end
@@ -89,7 +97,7 @@ class BookingsController < ApplicationController
   end
 
   def generate_slots(start_date)
-    @booked_slots = @teacher.slots.order(:start).where('start >= ?', start_date)
+    @booked_slots = @teacher.slots.order(:start).where('start >= ?', DateTime.now().beginning_of_day)
 
     @final_slots = []
     starting_date = start_date
