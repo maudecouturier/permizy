@@ -2,7 +2,7 @@
   <h2 id="teacher-bar-title">Choisis ton instructeur</h2>
   <div class='teacher-bar'>
     <% User.teachers.each do |teacher| %>
-      <div class='flex-column text-center column-teacher'>
+      <div class='flex-column text-center column-teacher <%= 'teacher-selected' if @teacher.id == teacher.id %> js-initteacher' data-user-id=<%=teacher.id  %>>
         <%= cl_image_tag(teacher.photo.key, options = {class: 'avatar-large'}) if teacher.photo.attached? %>
         <p><%= teacher.first_name %></p>
       </div>
@@ -19,16 +19,39 @@
   </div>
   <div class='mapbox-card'>
     <%= simple_form_for(booking) do |f| %>
-        <div class=''><%= f.input :address, label: false %></div>
+      <%= f.simple_fields_for :slot do |p| %>
+        <%= p.hidden_field :teacher %>
+        <%= p.input :start %>
+      <% end %>
+      <%= f.input :address, label: false %>
+      <div id="map"
+           style="
+           height: 300px;"
+           data-marker="<%= @marker.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <%= f.button :submit, class: "btn-new-booking mx-auto" %>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+<!--     <%#= simple_form_for(booking) do |f| %>
+        <%#= f.input :teacher %>
+
+        <div class=''><%#= f.input :address, label: false %></div>
         <div id="map"
              style="
              height: 300px;"
              data-marker="<%= @marker.to_json %>"
-             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+             data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
         </div>
   </div>
-        <%= f.button :submit, class: "btn-new-booking mx-auto" %>
-    <% end %>
+        <%#= f.button :submit, class: "btn-new-booking mx-auto" %>
+    <%# end %> -->
 
-</div>
 
