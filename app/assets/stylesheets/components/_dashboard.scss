@@ -99,7 +99,7 @@
   margin: 20px 0;
   align-self: center;
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
   // tout ce qui depasse est caché
   z-index: 0;
 
@@ -122,6 +122,7 @@
   z-index: 1;
 }
 
+
 .curseur {
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -134,4 +135,15 @@
   left: 46px;
   transform-origin: bottom center;
   z-index: 2;
+}
+
+.grid{
+  border-style: solid;
+  padding : 8px;
+  border-width: 1px;
+  width: 210px;
+  border-radius: 5px;
+  border-color: $blue;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
 }
