@@ -42,12 +42,33 @@
       <div class="content-wrapper-home">
         <%= yield %>
       </div>
+
     <% else %>
       <div class="container container-cardetour">
         <div class="row-cardetour">
           <% unless params[:action] == 'home' || devise_controller? %>
             <div class="col-4">
               <%= render 'shared/sidebar', bookings: @bookings %>
+            </div>
+            <div class="btn-chat fixed-bottom">
+              <i class="far fa-comments dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup= "true" aria-expanded="false"></i>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <% if current_user.teacher? %>
+                  <%User.all.each do |user|%>
+                    <%=link_to find_or_create_chatrooms_path(interlocutor: user), class: "dropdown-item d-flex justify-content-between" do%>
+                    <p><%= user.first_name %></p>
+                    <%= cl_image_tag user.photo.key, class: "avatar-chatbox"%>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <%User.teachers.each do |teacher|%>
+                    <%=link_to find_or_create_chatrooms_path(interlocutor: teacher), class: "dropdown-item d-flex justify-content-between" do%>
+                    <p><%= teacher.first_name %></p>
+                    <%= cl_image_tag teacher.photo.key, class: "avatar-chatbox"%>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           <% end %>
           <div class="col-8">
@@ -58,6 +79,5 @@
         </div>
       </div>
     <% end %>
-
   </body>
 </html>
