@@ -139,9 +139,11 @@ coordinate_array = [[-122.48369693756104, 37.83381888486939],
 [-122.49223709106445, 37.83337825839438],
 [-122.49378204345702, 37.83368330777276]]
 
+categories = ['ok', 'nok', 'no_display']
+
 i = 1
 coordinate_array.map do |coordinate|
-  Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id)
+  Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id, incident_category: categories.sample)
   i += 1
 end
 

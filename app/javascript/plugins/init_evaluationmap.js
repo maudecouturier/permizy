@@ -1,6 +1,22 @@
 import mapboxgl from 'mapbox-gl';
 
 const mapElementEval = document.getElementById('map');
+const coordinates = JSON.parse(mapElementEval.dataset.coordinates)
+const markers = JSON.parse(mapElementEval.dataset.markers)
+
+const addMarkersToMap = (map, markers) => {
+  markers.forEach((marker) =>{
+    new mapboxgl.Marker()
+    .setLngLat([ marker.lng, marker.lat ])
+    .addTo(map);
+  });
+};
+
+const fitMapToMarkers = (map, markers) => {
+  const bounds = new mapboxgl.LngLatBounds();
+  markers.forEach(marker=> bounds.extend([ marker.lng, marker.lat ]));
+  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+};
 
 const initEvaluationmap = () => {
   mapboxgl.accessToken = mapElementEval.dataset.mapboxApiKey;
@@ -10,9 +26,10 @@ const initEvaluationmap = () => {
     center: [-122.486052, 37.830348],
     zoom: 15
   });
+  addMarkersToMap(evalMap, markers);
+  fitMapToMarkers(evalMap, markers);
 
-  const coordinates = JSON.parse(mapElementEval.dataset.coordinates)
- evalMap.on('load', function() {
+  evalMap.on('load', function() {
         evalMap.addSource('route', {
             'type': 'geojson',
             'data': {
@@ -39,7 +56,7 @@ const initEvaluationmap = () => {
         });
     });
   };
-// };
+
 
 
 export { initEvaluationmap };
