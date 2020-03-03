@@ -1,6 +1,7 @@
 <div class='content-evaluation'>
 
   <h2 id="teacher-bar-title">Choisis ton instructeur</h2>
+
   <div class='teacher-bar'>
     <% User.teachers.each do |teacher| %>
       <div
@@ -12,6 +13,7 @@
       </div>
     <% end %>
   </div>
+
   <h2 id="teacher-bar-title">Sélectionne un créneau</h2>
   <div id="container-calendar">
     <%= render partial: "slot_calendar" %>
@@ -24,8 +26,8 @@
       <div>
           <div>
             <%= f.simple_fields_for :slot do |p| %>
-              <%= p.association :teacher, collection: User.teachers%>
-              <%= p.input :start %>
+              <%= p.hidden_field :teacher_id, value: @teacher.id %>
+              <%= p.hidden_field :start %>
             <% end %>
           </div>
           <h2>Sélectionne un lieu de rencontre</h2>
