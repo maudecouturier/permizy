@@ -13,8 +13,8 @@ const initTeachers = () => {
           clicked_teacher.classList.replace('teacher-selected', 'teacher-free');
         }
         element.classList.replace('teacher-free','teacher-selected');
+      });
     });
-});
   }
 }
 
