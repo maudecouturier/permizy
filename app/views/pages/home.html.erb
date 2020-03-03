@@ -22,13 +22,13 @@
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
     </div>
   </div>
-    <div class='equipe-banner'>
+    <div>
       <h1>Notre équipe</h1>
-      <div>
+      <div class='equipe-banner'>
         <% User.teachers.each do |teacher| %>
           <div class="flex-column text-center">
             <%= cl_image_tag(teacher.photo.key, options = {class: 'avatar-home'}) if teacher.photo.attached? %>
-          <p><%= teacher.first_name %></p>
+            <p><%= teacher.first_name %></p>
           </div>
         <% end %>
       </div>
