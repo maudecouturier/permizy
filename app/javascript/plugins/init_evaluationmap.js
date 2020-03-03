@@ -6,7 +6,14 @@ const markers = JSON.parse(mapElementEval.dataset.markers)
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) =>{
-    new mapboxgl.Marker()
+    const element = document.createElement('div');
+    if (marker.incident_category === 'nok') {
+      element.className = 'marker-fail';
+    } else {
+      element.className = 'marker-success';
+    }
+
+    new mapboxgl.Marker(element)
     .setLngLat([ marker.lng, marker.lat ])
     .addTo(map);
   });
