@@ -41,6 +41,14 @@ class User < ApplicationRecord
     color(share)
   end
 
+  def current_h
+    hours_done
+  end
+
+  def current_h_percent
+    ((hours_done.to_f/20)*100).to_i
+  end
+
 private
   def axis_rating(rating_class)
     ratings = []
@@ -63,6 +71,14 @@ private
     else
       color = "#139E10"
     end
+  end
+
+  def hours_done
+    validated_h = 0
+    self.bookings.each do |booking|
+      validated_h += 2 if booking.slot && (booking.slot.start - DateTime.now()) < 0
+    end
+    validated_h
   end
 
 end

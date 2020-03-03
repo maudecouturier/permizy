@@ -30,14 +30,22 @@
 }
 
 .home-card-banner {
-  height: 80vh;
-  padding-top: 25vh;
+  height: 150vh;
+  padding: 15vh 0;
   background-color: $blue;
+  margin-bottom: 0;
+}
+
+.home-card-banner h1 {
+  // margin-top: 40px;
+  color: $orange;
+  text-align:center;
+  margin-bottom:20px;
 }
 
 .home-card-container {
   width: 80%;
-  height: 50vh;
+  height: 65vh;
   // background-color: white;
   margin: auto;
   display: flex;
@@ -47,14 +55,23 @@
 
 .equipe-banner {
   width: 80%;
-  // height: 100px;
-  // border-radius: 4px;
-  //overflow: scroll;
+  margin: auto;
   display: flex;
-  justify-content: start;
-  // background-color: rgba(174,203,211,0.22);
-  color: white;
-  padding: 8px;
-  // margin-top: 20px;
+  justify-content: space-around;
+  padding-top:16px;
+  height: 65vh;
 }
 
+.round {
+  border-radius: 50%;
+  background-color: #ECA400;
+  height:60px;
+  width:60px;
+  margin:20px;
+}
+
+.round .fas {
+  color: $blue;
+  font-size:36px;
+  margin-top: 12px;
+}

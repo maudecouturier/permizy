@@ -8,11 +8,12 @@
   background-color: rgba(174,203,211,0.22);
   color: $blue;
   padding: 8px;
-  // margin-top: 20px;
+  //margin-bottom: 20px;
 }
 
 .teacher-bar img {
   margin: 4px 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 #teacher-bar-title {

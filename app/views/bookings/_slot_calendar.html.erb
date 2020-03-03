@@ -2,7 +2,7 @@
 <div class="position-relative">
   <div class="calendar-container" data-first-date=<%= @hash.first[1][0].start.to_date %>>
     <div class="calendar-column_arrow">
-      <button data-path=<%= refresh_calendar_path(:teacher_id => @teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => 'previous', :booking_id => @booking_id) %> class="calendar-btn calendar-arrow">
+      <button data-path=<%= refresh_calendar_path(:teacher_id => @teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => 'previous', :booking_id => @booking_id) %> class="border-0 calendar-btn calendar-arrow">
         <i class="fas fa-chevron-left"></i>
       </button>
     </div>
@@ -19,13 +19,13 @@
             <div class="card-slot-booked">-</div>
           <% else %>
             <% if (@slot && (@slot.start == slot.start)) %>
-              <div class='card-slot-clicked' data-slot-year=<%= slot.start.year %> data-slot-month=<%= slot.start.month %> data-slot-day=<%= slot.start.day %> data-slot-hour=<%= slot.start.strftime('%H') %>>
+              <div class='card-slot-clicked' data-slot=<%= slot.start.to_date %>  data-slot-hour=<%= slot.start.strftime('%H') %>>
                 <%= slot.start.hour %>:00
               </div>
             <% elsif slot.booked %>
                 <div class="card-slot-booked">-</div>
             <% else %>
-              <div class='card-slot-free' data-slot-year=<%= slot.start.year %> data-slot-month=<%= slot.start.month %> data-slot-day=<%= slot.start.day %> data-slot-hour=<%= slot.start.strftime('%H') %>>
+              <div class='card-slot-free' data-slot=<%= slot.start.to_date %>  data-slot-hour=<%= slot.start.strftime('%H') %>>
                 <%= slot.start.hour %>:00
               </div>
             <% end %>
@@ -35,7 +35,7 @@
     <% end %>
 
     <div class="calendar-column_arrow">
-      <button data-path=<%= refresh_calendar_path(:teacher_id => @teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => 'next', :booking_id => @booking_id) %> class="calendar-btn calendar-arrow">
+      <button data-path=<%= refresh_calendar_path(:teacher_id => @teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => 'next', :booking_id => @booking_id) %> class="border-0 calendar-btn calendar-arrow">
         <i class="fas fa-chevron-right"></i>
       </button>
     </div>

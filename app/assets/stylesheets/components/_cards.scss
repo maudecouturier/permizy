@@ -90,17 +90,52 @@
 }
 
 .card-home-page {
-  width: 30%;
+  width: 35%;
   height: 100%;
   margin: 0 32px;
   padding: 8px;
   color: $orange;
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
 .card-home-page h1{
   // margin-top: 40px;
   color: $orange;
+}
+
+.card-home-page p{
+  // margin-top: 40px;
+  color: $orange;
+  text-align: justify;
+  justify-self: center;
+  font-size: 18px;
+}
+
+.home-teacher {
+  width: 35%;
+  height: 80%;
+  margin: 0 32px;
+  padding: 8px;
+  color: $orange;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-teacher p{
+  // margin-top: 40px;
+  color: $orange;
+  text-align: justify;
+  justify-self: center;
+  font-size: 18px;
+}
+
+.text-justify {
+  padding-top:10px;
 }

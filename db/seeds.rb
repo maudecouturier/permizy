@@ -1,5 +1,7 @@
 Slot.destroy_all
 Booking.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 User.destroy_all
 Flashcard.destroy_all
 Coordinate.destroy_all

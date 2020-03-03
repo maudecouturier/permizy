@@ -100,7 +100,11 @@ class BookingsController < ApplicationController
     else
       generate_slots(params[:date].to_datetime)
     end
-    @slot = Booking.find(params[:booking_id]).slot if params[:booking_id]
+
+    if params[:booking_id]
+      @booking_id = params[:booking_id]
+      @slot = Booking.find(params[:booking_id]).slot
+    end
     render partial: "slot_calendar"
     skip_authorization
   end

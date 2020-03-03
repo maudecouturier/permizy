@@ -1,31 +1,39 @@
 .heures {
-  margin:30px 0px 55px 0px;
+  margin:30px 0px 45px 0px;
+  background-color: white;
+  border-radius:5px;
 }
 
 .evaluation {
-  margin: 50px 0px 48px 0px;
+  margin: 30px 0px 45px 0px;
 }
 
 .timeline {
   height:150px;
   margin:10px 10px 0px 10px;
-  padding:10px;
+  padding:15px;
+  position:relative;
+  // background-color: $light-blue;
 }
 
 .category {
-  height:60px;
+  height:40px;
   text-align: center;
   font-size: 16px;
   vertical-align: center;
   line-height: 60px;
   color: white;
   font-style: bold;
+  width:100%;
 }
 
 .cat-val {
   background-color: #139E10;
   border-bottom-left-radius:2px;
   border-top-left-radius:2px;
+  height:40px;
+  animation: 2s animjauge ease-out;
+  transform-origin:top left;
 }
 
 .cat-tobook {
@@ -44,13 +52,14 @@
   position:absolute;
   height:90px;
   width:70px;
-  top:-94px;
-  left:-35px;
+  top:0px;
+  margin-left: -45px;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 4px;
   align-items: center;
   justify-content: center;
+  animation: 2s animpastille ease-out;
 }
 
 .pastille-photo {
@@ -70,21 +79,32 @@
   line-height:20px;
 }
 
+@keyframes animjauge {
+  from { transform: scaleX(0);}
+  to { transform: scaleX(1);}
+}
+
+@keyframes animpastille {
+  from { transform: translateX(-1000px);}
+  to {transform: translateX(0px);}
+}
+
+
 .arrivee {
-  font-size: 40px;
+  font-size: 30px;
   position:absolute;
   height:75px;
-  top:-54px;
-  right:-30px;
+  top: 58px;
+  right: -5px;
   color: #51646A;
 }
 
 .depart {
-  font-size: 40px;
+  font-size: 30px;
   position:absolute;
   height:75px;
-  top:-48px;
-  left:-20px;
+  top:61px;
+  left:-5px;
   color: #51646A;
 }
 
@@ -102,7 +122,6 @@
   overflow: hidden;
   // tout ce qui depasse est caché
   z-index: 0;
-
 }
 
 .jauge-title {
@@ -137,13 +156,19 @@
   z-index: 2;
 }
 
-.grid{
-  border-style: solid;
+.grid {
   padding : 8px;
   border-width: 1px;
   width: 210px;
   border-radius: 5px;
-  border-color: $blue;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
+  background-color: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.grids {
+  margin-top: 20px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
