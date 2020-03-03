@@ -1,0 +1,47 @@
+// NEW, EDIT BOOKING
+
+.mapbox-text {
+  color: $blue;
+}
+
+.mapbox-card {
+  background-color: rgba(174,203,211,0.22);
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
+  margin: auto;
+}
+
+.mapbox-popup {
+  max-width: 100px;
+}
+
+.mapbox-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  padding: 15px;
+  p {
+    margin: 0;
+  }
+}
+
+
+.marker {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 45px;
+  height: 45px;
+  top: -20px;
+  left: 9px;
+  cursor: pointer;
+
+}
+
+//BOOKING SHOW (REVIEW)
+
+.evaluation-map {
+  background-color: black;
+}
+
+
+

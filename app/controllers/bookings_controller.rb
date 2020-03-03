@@ -4,11 +4,15 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
     authorize @bookings
-
   end
 
   def show
     authorize @booking
+    # @booking.geocode
+    # @marker = {
+    #     lat: @booking.latitude,
+    #     lng: @booking.longitude
+    # }
   end
 
   def new
@@ -20,7 +24,7 @@ class BookingsController < ApplicationController
         lat: @booking.latitude,
         lng: @booking.longitude
     }
-    
+
     @booking_id = nil
     # @booking.address = nil
 
@@ -69,14 +73,20 @@ class BookingsController < ApplicationController
     @teacher = User.find(params[:teacher_id])
     if params[:refresh] == "next"
       generate_slots(params[:date].to_datetime + 4)
-    else
+    elsif params[:refresh] == "previous"
       if (params[:date].to_datetime - 4) < DateTime.now().beginning_of_day
         generate_slots(DateTime.now().beginning_of_day)
       else
         generate_slots(params[:date].to_datetime - 4)
       end
+    else
+      generate_slots(params[:date].to_datetime)
     end
-    @slot = Booking.find(params[:booking_id]).slot if params[:booking_id]
+
+    if params[:booking_id]
+      @booking_id = params[:booking_id]
+      @slot = Booking.find(params[:booking_id]).slot
+    end
     render partial: "slot_calendar"
     skip_authorization
   end

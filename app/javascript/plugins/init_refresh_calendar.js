@@ -1,9 +1,15 @@
 const initCalendar = () => {
   const btns = document.querySelectorAll('.calendar-btn');
+  const teacher_btns = document.querySelectorAll('.js-initteacher');
 
   if (btns) {
     recurse(btns);
   }
+
+  if (teacher_btns) {
+    recurse(teacher_btns)
+  }
+
   selectSlot();
 }
 
@@ -11,7 +17,7 @@ const recurse = (elements) => {
   elements.forEach(element => {
     element.addEventListener('click', (e) => {
       event.preventDefault()
-      const url = element.href
+      const url = element.dataset.path
 
       fetch(url).then((response) => {
         return response.text()
@@ -22,13 +28,18 @@ const recurse = (elements) => {
         const btns = document.querySelectorAll('.calendar-btn');
         selectSlot();
         recurse(btns)
+        updateTeacherPath()
       })
     })
   })
 }
 
 const selectSlot = () => {
-  const slots = document.querySelectorAll('.card-slot-free');
+  let slots = document.querySelectorAll('.card-slot-free');
+  const booked_slot = document.querySelector('.card-slot-clicked');
+  slots = Array.from(slots)
+
+  if (booked_slot) slots.push(booked_slot)
 
   if (slots) {
     slots.forEach ((slot) => {
@@ -43,18 +54,30 @@ const selectSlot = () => {
         slot.classList.replace('card-slot-free', 'card-slot-clicked');
 
         const date = new Date(slot.dataset.slotYear,slot.dataset.slotMonth,slot.dataset.slotDay, slot.dataset.slotHour);
-
+        console.log(`${slot.dataset.slot} ${slot.dataset.slotHour}:00`)
         //Fill the form
-        document.getElementById('booking_slot_attributes_start_1i').value = slot.dataset.slotYear;
-        document.getElementById('booking_slot_attributes_start_2i').value = slot.dataset.slotMonth;
-        document.getElementById('booking_slot_attributes_start_3i').value = slot.dataset.slotDay;
-        document.getElementById('booking_slot_attributes_start_4i').value = slot.dataset.slotHour;
-        document.getElementById('booking_slot_attributes_start_5i').value = '00';
+        document.getElementById('booking_slot_attributes_start').value = `${slot.dataset.slot} ${slot.dataset.slotHour}:00`
+        // document.getElementById('booking_slot_attributes_start_1i').value = slot.dataset.slotYear;
+        // document.getElementById('booking_slot_attributes_start_2i').value = slot.dataset.slotMonth;
+        // document.getElementById('booking_slot_attributes_start_3i').value = slot.dataset.slotDay;
+        // document.getElementById('booking_slot_attributes_start_4i').value = slot.dataset.slotHour;
+        // document.getElementById('booking_slot_attributes_start_5i').value = '00';
 
       })
     })
   }
+}
 
+const updateTeacherPath = () => {
+  const teacher_btns = document.querySelectorAll('.js-initteacher');
+  const firstDate = document.querySelector('.calendar-container').dataset.firstDate
+
+  teacher_btns.forEach(element => {
+    let path = element.dataset.path
+    const teacher_id = new URL(path, location).search.split('teacher_id=')[1]
+    path = `/refresh_calendar?date=${firstDate}&teacher_id=${teacher_id}`
+    element.setAttribute('data-path', path)
+  })
 }
 
 export { initCalendar }

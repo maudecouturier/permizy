@@ -17,14 +17,20 @@
                 <%= cl_image_tag booking.slot.teacher.photo.key, class: "avatar-large"%>
               </div>
               <div class="col-9 mt-3">
-                <h3 class="card-title"> <%= I18n.l(booking.slot.start, format: :date, locale: :fr).capitalize %></h3>
+                <h3 class="card-title mb-1"> <%= I18n.l(booking.slot.start, format: :date, locale: :fr).capitalize %></h3>
                 <h3 class="card-title"> avec <%= booking.slot.teacher.first_name%></h3>
               </div>
             </div>
             <div class="card-body">
-              <p class="text-justify text-truncate"><%=booking.review_evaluation%></p>
-              <%= link_to booking_path(booking), class: "btn-outline btn-card-cardetour" do%>
-                VOIR LE DÉTAIL
+              <p class="text-justify text-truncate"><%= booking.review_evaluation %></p>
+              <% if booking.review_evaluation.nil? %>
+                <%= link_to '#', class: "btn-outline btn-card-cardetour btn-text-no-review" do%>
+                  EN ATTENTE D'ÉVALUATION
+                <% end %>
+              <% else %>
+                <%= link_to booking_path(booking), class: "btn-outline btn-card-cardetour" do%>
+                  VOIR LE DÉTAIL
+                <% end %>
               <% end %>
             </div>
           </div>
@@ -34,8 +40,9 @@
   </div>
 
   <div class="card-cours">
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between text-align-center">
       <h2 class="card-title">Tes cours à venir</h2>
+      <%= link_to '+', new_booking_path, class: "btn-plus", style: 'font-size: 18px' %>
     </div>
 
     <div class="card-scroll-futur">
