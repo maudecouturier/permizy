@@ -30,7 +30,7 @@
     <!-- petit logo sur l'onglet en haut à gauche -->
   </head>
 
-  <body>
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <% if params[:action] == "home"%>
       <%=  render 'shared/navbar-home' %>
     <% else %>
