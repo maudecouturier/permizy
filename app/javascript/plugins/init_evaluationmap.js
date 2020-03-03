@@ -38,7 +38,7 @@ const initEvaluationmap = () => {
   const evalMap = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
-    center: [-122.486052, 37.830348],
+    center: [2.3145426, 48.8468932],
     zoom: 15
   });
   addMarkersToMap(evalMap, markers);
