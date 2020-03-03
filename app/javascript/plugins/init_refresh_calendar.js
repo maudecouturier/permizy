@@ -1,9 +1,15 @@
 const initCalendar = () => {
   const btns = document.querySelectorAll('.calendar-btn');
+  const teacher_btns = document.querySelectorAll('.js-initteacher');
 
   if (btns) {
     recurse(btns);
   }
+
+  if (teacher_btns) {
+    recurse(teacher_btns)
+  }
+
   selectSlot();
 }
 
@@ -11,7 +17,7 @@ const recurse = (elements) => {
   elements.forEach(element => {
     element.addEventListener('click', (e) => {
       event.preventDefault()
-      const url = element.href
+      const url = element.dataset.path
 
       fetch(url).then((response) => {
         return response.text()
@@ -22,6 +28,7 @@ const recurse = (elements) => {
         const btns = document.querySelectorAll('.calendar-btn');
         selectSlot();
         recurse(btns)
+        updateTeacherPath()
       })
     })
   })
@@ -54,7 +61,18 @@ const selectSlot = () => {
       })
     })
   }
+}
 
+const updateTeacherPath = () => {
+  const teacher_btns = document.querySelectorAll('.js-initteacher');
+  const firstDate = document.querySelector('.calendar-container').dataset.firstDate
+
+  teacher_btns.forEach(element => {
+    let path = element.dataset.path
+    const teacher_id = new URL(path, location).search.split('teacher_id=')[1]
+    path = `/refresh_calendar?date=${firstDate}&teacher_id=${teacher_id}`
+    element.setAttribute('data-path', path)
+  })
 }
 
 export { initCalendar }
