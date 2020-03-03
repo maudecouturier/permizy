@@ -90,7 +90,7 @@
 }
 
 .card-home-page {
-  width: 30%;
+  width: 35%;
   height: 100%;
   margin: 0 32px;
   padding: 8px;
@@ -103,4 +103,12 @@
 .card-home-page h1{
   // margin-top: 40px;
   color: $orange;
+}
+
+.card-home-page p{
+  // margin-top: 40px;
+  color: $orange;
+  text-align: justify;
+  justify-self: center;
+  font-size: 18px;
 }
