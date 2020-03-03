@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_131547) do
     t.float "latitude"
     t.string "incident_category"
     t.text "student_answer"
-    t.bigint "flashcard_id", null: false
+    t.bigint "flashcard_id"
     t.bigint "booking_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
