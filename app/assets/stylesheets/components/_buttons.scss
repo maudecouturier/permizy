@@ -66,6 +66,29 @@
   margin: auto;
 }
 
+.btn-chat {
+  left: 92%;
+  padding: 5px;
+  margin-bottom: 10px;
+
+}
+
+.btn-chat .far {
+  color: $orange;
+  font-size: 50px;
+  margin-top: 10px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.btn-chat .dropdown-toggle::after {
+  content: none;
+}
+
+.btn-chat p {
+  font-size: 14px;
+}
+
 .btn-plus {
   background-color: $orange;
   color: white;
