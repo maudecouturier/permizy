@@ -28,12 +28,18 @@ import { initMapbox, initAutocomplete } from '../plugins/init_mapbox';
 import { initTeachers } from '../plugins/init_select_teacher';
 import { initCalendar } from '../plugins/init_refresh_calendar';
 import { initSweetalert } from '../plugins/init_sweetalert';
+import { initEvaluationmap } from '../plugins/init_evaluationmap'; ;
 
 
 document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   // initFlatpickr();
-  initMapbox();
+  if (document.getElementById('bookings-show')){
+    initEvaluationmap()
+  };
+  if (document.getElementById('bookings-new') || document.getElementById('bookings-edit')) {
+    initMapbox()
+  };
   initAutocomplete();
   initTeachers();
   initCalendar();

@@ -3,6 +3,9 @@ Booking.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 User.destroy_all
+Flashcard.destroy_all
+Coordinate.destroy_all
+
 
 
 puts 'Creating users'
@@ -115,3 +118,45 @@ future_bookings.each do |book|
   slot.save!
 end
 puts 'Done attributing bookings'
+
+puts 'Creating flashcards'
+vitesse = Flashcard.create!(question: "quelle est la vitesse maximale à laquelle tu peux rouler sur l'autoroute", answer: 'blabla')
+creneau = Flashcard.create!(question: "comment faire un creneau", answer: 'blabla')
+controle = Flashcard.create!(question: "quelles sont les étapes de contrôle pour effectuer un déplacement?", answer: 'blabla')
+puts 'Done creating flashcards'
+
+puts 'Creating coordinates'
+
+coordinate_array = [[-122.48369693756104, 37.83381888486939],
+[-122.48348236083984, 37.83317489144141],
+[-122.48339653015138, 37.83270036637107],
+[-122.48356819152832, 37.832056363179625],
+[-122.48404026031496, 37.83114119107971],
+[-122.48404026031496, 37.83049717427869],
+[-122.48348236083984, 37.829920943955045],
+[-122.48356819152832, 37.82954808664175],
+[-122.48507022857666, 37.82944639795659],
+[-122.48610019683838, 37.82880236636284],
+[-122.48695850372314, 37.82931081282506],
+[-122.48700141906738, 37.83080223556934],
+[-122.48751640319824, 37.83168351665737],
+[-122.48803138732912, 37.832158048267786],
+[-122.48888969421387, 37.83297152392784],
+[-122.48987674713133, 37.83263257682617],
+[-122.49043464660643, 37.832937629287755],
+[-122.49125003814696, 37.832429207817725],
+[-122.49163627624512, 37.832564787218985],
+[-122.49223709106445, 37.83337825839438],
+[-122.49378204345702, 37.83368330777276]]
+
+categories = ['ok', 'creneau', 'controle', 'vitesse', 'no_display']
+
+i = 1
+coordinate_array.map do |coordinate|
+  Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id, incident_category: categories.sample, flashcard_id: Flashcard.all.sample.id)
+  i += 1
+end
+
+puts 'Done creating coordinates'
+
+
