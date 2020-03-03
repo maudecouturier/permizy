@@ -34,7 +34,7 @@ import { initEvaluationmap } from '../plugins/init_evaluationmap'; ;
 document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   // initFlatpickr();
-  if (document.getElementById('bookings-show')) {
+  if (document.getElementById('bookings-show')){
     initEvaluationmap()
   };
   if (document.getElementById('bookings-new') || document.getElementById('bookings-edit')) {

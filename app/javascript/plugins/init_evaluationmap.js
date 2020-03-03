@@ -7,10 +7,11 @@ const markers = JSON.parse(mapElementEval.dataset.markers)
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) =>{
     const element = document.createElement('div');
-    if (marker.incident_category === 'nok') {
-      element.className = 'marker-fail';
-    } else {
+    if (marker.incident_category === 'ok') {
       element.className = 'marker-success';
+      // element.setAttribute('id', 'marker-success')
+    } else {
+      element.className = 'marker-fail';
     }
 
     new mapboxgl.Marker(element)
@@ -18,6 +19,13 @@ const addMarkersToMap = (map, markers) => {
     .addTo(map);
   });
 };
+
+const displayFlashcard = (map, markers) => {
+  const failMarkers = document.querySelectorAll('.marker-fail')
+  failMarkers.addEventListener('click', (event) => {
+    // ADD EVENT
+  });
+}
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
@@ -35,6 +43,7 @@ const initEvaluationmap = () => {
   });
   addMarkersToMap(evalMap, markers);
   fitMapToMarkers(evalMap, markers);
+  // displayFlashcard
 
   evalMap.on('load', function() {
         evalMap.addSource('route', {
@@ -63,6 +72,7 @@ const initEvaluationmap = () => {
         });
     });
   };
+
 
 
 

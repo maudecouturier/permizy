@@ -2,35 +2,6 @@
 
 <div class="content-evaluation">
   <div class="row-evaluation">
-    <div class='evaluation-map' id='eval_map'>
-      <%= render partial: "evaluationmap", locals: {booking: @booking}  %>
-    </div>
-  </div>
-  <div class="row-evaluation">
-    <div class="card-evaluation">
-      <h2>Le contenu du cours</h2>
-      <div class="card-evaluation-content">
-      <p><%= @booking.review_content %></p>
-      </div>
-    </div>
-  </div>
-  <div class="row-evaluation">
-    <div class="card-evaluation">
-      <h2>Bilan des manoeuvres</h2>
-      <div class="card-evaluation-content">
-      <p><%= @booking.review_evaluation%></p>
-      </div>
-    </div>
-  </div>
-  <div class="row-evaluation">
-    <div class="card-evaluation">
-      <h2>Points à travailler</h2>
-      <div class="card-evaluation-content">
-      <p><%= @booking.review_to_improve%></p>
-      </div>
-    </div>
-  </div>
-  <div class="row-evaluation">
     <h2>Mon niveau</h2>
     <div class="d-flex justify-content-around evaluation">
       <div class="d-flex flex-column">
@@ -76,8 +47,43 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="row-evaluation">
+    <div class="card-evaluation">
+      <h2>Le contenu du cours</h2>
+      <div class="card-evaluation-content">
+      <p><%= @booking.review_content %></p>
+      </div>
+    </div>
+  </div>
+  <div class="row-evaluation">
+    <div class="card-evaluation">
+      <h2>Bilan des manoeuvres</h2>
+      <div class="card-evaluation-content">
+      <p><%= @booking.review_evaluation%></p>
+      </div>
+    </div>
+  </div>
+  <div class="row-evaluation">
+    <div class="card-evaluation">
+      <h2>Points à travailler</h2>
+      <div class="card-evaluation-content">
+      <p><%= @booking.review_to_improve%></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-evaluation">
+    <div class='evaluation-map col-9' id='eval_map'>
+      <%= render partial: "evaluationmap", locals: {booking: @booking}  %>
+    </div>
+    <div class="evaluationmap-sidebar col-3", style="background-color: red">
 
     </div>
+  </div>
+
+
   </div>
 </div>
 

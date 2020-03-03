@@ -1,6 +1,9 @@
 Slot.destroy_all
 Booking.destroy_all
 User.destroy_all
+Flashcard.destroy_all
+Coordinate.destroy_all
+
 
 
 puts 'Creating users'
@@ -114,6 +117,11 @@ future_bookings.each do |book|
 end
 puts 'Done attributing bookings'
 
+puts 'Creating flashcards'
+vitesse = Flashcard.create!(question: "quelle est la vitesse maximale à laquelle tu peux rouler sur l'autoroute", answer: 'blabla')
+creneau = Flashcard.create!(question: "comment faire un creneau", answer: 'blabla')
+controle = Flashcard.create!(question: "quelles sont les étapes de contrôle pour effectuer un déplacement?", answer: 'blabla')
+puts 'Done creating flashcards'
 
 puts 'Creating coordinates'
 
@@ -139,13 +147,14 @@ coordinate_array = [[-122.48369693756104, 37.83381888486939],
 [-122.49223709106445, 37.83337825839438],
 [-122.49378204345702, 37.83368330777276]]
 
-categories = ['ok', 'nok', 'no_display']
+categories = ['ok', 'creneau', 'controle', 'vitesse', 'no_display']
 
 i = 1
 coordinate_array.map do |coordinate|
-  Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id, incident_category: categories.sample)
+  Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id, incident_category: categories.sample, flashcard_id: Flashcard.all.sample.id)
   i += 1
 end
 
 puts 'Done creating coordinates'
+
 
