@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
   has_one :slot, dependent: :destroy
   has_one :teacher, through: :slot, as: :teacher
   belongs_to :student, class_name: 'User', foreign_key: 'student_id'
+  has_many :coordinates, dependent: :destroy
 
   accepts_nested_attributes_for :slot
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_141708) do
+ActiveRecord::Schema.define(version: 2020_03_03_131547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,27 @@ ActiveRecord::Schema.define(version: 2020_03_02_141708) do
     t.index ["teacher_id"], name: "index_chatrooms_on_teacher_id"
   end
 
+  create_table "coordinates", force: :cascade do |t|
+    t.integer "order"
+    t.float "longitude"
+    t.float "latitude"
+    t.string "incident_category"
+    t.text "student_answer"
+    t.bigint "flashcard_id", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_coordinates_on_booking_id"
+    t.index ["flashcard_id"], name: "index_coordinates_on_flashcard_id"
+  end
+
+  create_table "flashcards", force: :cascade do |t|
+    t.text "question"
+    t.text "answer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
@@ -102,6 +123,8 @@ ActiveRecord::Schema.define(version: 2020_03_02_141708) do
   add_foreign_key "bookings", "users", column: "student_id"
   add_foreign_key "chatrooms", "users", column: "student_id"
   add_foreign_key "chatrooms", "users", column: "teacher_id"
+  add_foreign_key "coordinates", "bookings"
+  add_foreign_key "coordinates", "flashcards"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "slots", "bookings"
