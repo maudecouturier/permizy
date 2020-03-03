@@ -1,4 +1,4 @@
 meta_product_name: "Car de tour"
 meta_title: "Car de tour - La nouvelle auto-école"
 meta_description: "Car de tour est une auto-école qui facilite la vie et l'apprentissage des élèves "
-meta_image: "home_banner3.png" # should exist in `app/assets/images/`
+meta_image: "meta_banner.png" # should exist in `app/assets/images/`
