@@ -50,13 +50,13 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById('chat')) {
     initScroll();
   }
+  initSweetalert('#sweet-alert-demo', {
+    title: "Félicitations !",
+    text: "Ton cours est confirmé",
+    icon: "success"
+  });
+
+  myChart();
 
 });
 
-initSweetalert('#sweet-alert-demo', {
-  title: "Félicitations !",
-  text: "Ton cours est confirmé",
-  icon: "success"
-});
-
-myChart();
