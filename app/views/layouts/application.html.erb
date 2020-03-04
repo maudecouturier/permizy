@@ -52,7 +52,7 @@
               <%= render 'shared/sidebar', bookings: @bookings %>
             </div>
             <div class="btn-chat fixed-bottom">
-              <i class="far fa-comments dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup= "true" aria-expanded="false"></i>
+              <%= image_tag "message.png", class: "dropdown-toggle", id: "messageDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <% if current_user.teacher? %>
                   <%User.all.each do |user|%>
