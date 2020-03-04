@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     end
     resources :messages, only: :create
   end
+
+  resources :coordinates, only: %i(update)
 end

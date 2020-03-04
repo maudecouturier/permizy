@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
 
   def show
     authorize @booking
+    @coordinates = @booking.coordinates
     booking_coordinates = @booking.coordinates.sort_by { |coordinate| coordinate.order}
     @coordinate_array = []
     booking_coordinates.each do |coordinate|
@@ -19,6 +20,7 @@ class BookingsController < ApplicationController
       if coordinate.incident_category != 'no_display'
         @markers <<
         {
+          coordinate_id: coordinate.id,
           incident_category: coordinate.incident_category,
           lng: coordinate.longitude,
           lat: coordinate.latitude

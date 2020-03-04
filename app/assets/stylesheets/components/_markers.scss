@@ -1,16 +1,27 @@
 .marker-fail {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Cross_red_circle.svg/1200px-Cross_red_circle.svg.png');
+  background-image: url('https://res.cloudinary.com/dkybxjjy2/image/upload/v1583338423/attention-sign_cth0o3.png');
   background-size: contain;
   background-repeat: no-repeat;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
+  // top: -20px;
+  // left: 9px;
+  cursor: pointer;
+}
+
+.marker-fail-large {
+  background-image: url('https://res.cloudinary.com/dkybxjjy2/image/upload/v1583338423/attention-sign_cth0o3.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
   // top: -20px;
   // left: 9px;
   cursor: pointer;
 }
 
 .marker-success {
-  background-image: url('https://www.kindpng.com/picc/m/80-807690_check-mark-well-icon-internet-circle-good-correct.png');
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Check_green_circle.svg/1200px-Check_green_circle.svg.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 25px;

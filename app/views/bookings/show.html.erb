@@ -1,6 +1,7 @@
 <h1>Ton évaluation du <%= I18n.l(@booking.slot.start, format: :date_evaluation, locale: :fr) %></h1>
 
 <div class="content-evaluation">
+
   <div class="row-evaluation">
     <h2>Mon niveau</h2>
     <div class="d-flex justify-content-around evaluation">
@@ -74,12 +75,17 @@
     </div>
   </div>
 
-  <div class="row-evaluation">
-    <div class='evaluation-map col-9' id='eval_map'>
+  <div class="row-evaluation flex-column">
+    <h2>Parcours</h2>
+    <div class='evaluation-map' id='eval_map'>
       <%= render partial: "evaluationmap", locals: {booking: @booking}  %>
     </div>
-    <div class="evaluationmap-sidebar col-3", style="background-color: red">
-
+    <div class="evaluationmap-flashcard">
+      <% if @booking.coordinates.count > 0 %>
+        <div class="flashcards">
+          <%= render "flashcard", coordinates: @booking.coordinates  %>
+        </div>
+      <% end %>
     </div>
   </div>
 
