@@ -1,75 +1,76 @@
 <h1 style="margin-left:15px">Bienvenue <%=current_user.first_name%></h1>
 <div class="content-dashboard">
-  <div class="d-flex flex-column evaluation">
-    <div class="d-flex justify-content-around grids">
-      <div class="d-flex flex-column grid">
-        <h3 class="jauge-title">
-        <i class="fas fa-glasses"></i> Appréhender la route
-        </h3>
-        <div class="jauge">
-          <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
-            </path>
-             <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.respect)*50%> <%= 50 - Math.sin(current_user.respect)*50%> L 50 50 Z" fill="#24418C">
-            </path>
-          </svg>
-          <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.respect / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
-        </div>
-      </div>
-      <div class="d-flex flex-column grid">
-        <h3 class="jauge-title">
-          <i class="fas fa-handshake"></i> Partager la route
-        </h3>
-        <div class="jauge">
-          <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
-            </path>
-             <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.share)*50%> <%= 50 - Math.sin(current_user.share)*50%> L 50 50 Z" fill="#47A1BD">
-            </path>
-          </svg>
-          <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
-        </div>
-      </div>
-      <div class="d-flex flex-column grid">
-        <h3 class="jauge-title">
-          <i class="fas fa-tachometer-alt"></i> Maitriser son véhicule
-        </h3>
-        <div class="jauge">
-         <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
-            </path>
-             <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.control)*50%> <%= 50 - Math.sin(current_user.control)*50%> L 50 50 Z" fill="#F86513">
-            </path>
-          </svg>
-          <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="d-flex flex-column heures progression">
-    <h2 class="mt-2">Ma progression</h2>
-    <div class="chart-container align-self-center" style="position: relative; height:18vh; width:35vw">
-      <canvas id="myChart" class="graph" data-respect="<%= current_user.respect_ratings.to_json %>" data-share="<%= current_user.share_ratings.to_json %>"
-        data-control="<%= current_user.control_ratings.to_json %>" data-labels="<%= current_user.ratings_dates.to_json %>">
-      </canvas>
-    </div>
-  </div>
+  <h2 style="margin-left:5px">Mes heures</h2>
   <div class="d-flex flex-column heures">
-    <h2 class="mt-2">Mes heures de conduite</h2>
     <div class="timeline d-flex flex-column">
       <div class="d-flex flex-column pastille" style="background-image: url('<%= image_path 'marker.png' %>'); left:<%= current_user.current_h_percent %>%">
          <%#= image_tag "peach .jpg", :class => "pastille-photo"%>
         <div class="pastille-heure"><%= current_user.current_h %>h</div>
       </div>
-      <i class="fas fa-flag-checkered arrivee"></i>
-      <i class="fas fa-car-side depart"></i>
+     <!--  <i class="fas fa-flag-checkered arrivee"></i> -->
+     <!--  <i class="fas fa-car-side depart"></i> -->
       <div class="category cat-tobook">
         <div class="cat-val" style="width:<%= current_user.current_h_percent %>%;">
+        </div>
       </div>
     </div>
     <div class="ruler d-flex justify-content-between">
       <p>0h</p>
       <p>20h</p>
+    </div>
+  </div>
+  <h2 style="margin-left:5px">Mon niveau</h2>
+  <div class="d-flex justify-content-around evaluation">
+    <div class="d-flex flex-column grid">
+      <div class="jauge">
+        <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+          </path>
+           <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.respect)*50%> <%= 50 - Math.sin(current_user.respect)*50%> L 50 50 Z" fill="#24418C">
+          </path>
+        </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.respect / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
+      </div>
+      <h3 class="jauge-title">
+      <i class="fas fa-glasses"></i> Appréhender la route
+      </h3>
+    </div>
+    <div class="d-flex flex-column grid">
+      <div class="jauge">
+        <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+          </path>
+           <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.share)*50%> <%= 50 - Math.sin(current_user.share)*50%> L 50 50 Z" fill="#47A1BD">
+          </path>
+        </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
+      </div>
+      <h3 class="jauge-title">
+        <i class="fas fa-handshake"></i> Partager la route
+      </h3>
+    </div>
+    <div class="d-flex flex-column grid">
+      <div class="jauge">
+       <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
+          </path>
+           <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.control)*50%> <%= 50 - Math.sin(current_user.control)*50%> L 50 50 Z" fill="#F86513">
+          </path>
+        </svg>
+        <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
+      </div>
+      <h3 class="jauge-title">
+        <i class="fas fa-tachometer-alt"></i> Maitriser son véhicule
+      </h3>
+    </div>
+
+  </div>
+  <h2 style="margin-left:5px">Ma progression</h2>
+  <div class="d-flex flex-column progression">
+    <div class="chart-container align-self-center" style="position: relative; height:80px; width:550px">
+      <canvas id="myChart" class="graph" data-respect="<%= current_user.respect_ratings.to_json %>" data-share="<%= current_user.share_ratings.to_json %>"
+        data-control="<%= current_user.control_ratings.to_json %>" data-labels="<%= current_user.ratings_dates.to_json %>">
+      </canvas>
     </div>
   </div>
 </div>
