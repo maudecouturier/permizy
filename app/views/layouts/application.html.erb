@@ -31,13 +31,13 @@
   </head>
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
-    <% if params[:action] == "home"%>
+    <% if params[:action] == "home" || devise_controller?%>
       <%=  render 'shared/navbar-home' %>
     <% end %>
 
     <%= render 'shared/flashes' %>
 
-    <% if params[:action] == "home" %>
+    <% if params[:action] == "home" || devise_controller? %>
       <div class="content-wrapper-home">
         <%= yield %>
       </div>
@@ -70,8 +70,8 @@
               </div>
             </div>
           <% end %>
-          <div class="col-8 cardetour-content flex-column">
-           <div class="row justify-content-end">
+          <div class="col-8 cardetour-content">
+           <div class="row justify-content-end" id="cardetour-nav">
             <%= render 'shared/navbar'%>
            </div>
             <div class="row content">

@@ -1,7 +1,7 @@
 .navbar-cardetour {
   justify-content: space-between;
   box-shadow: none;
-  background-color: transparent;
+  background-color: #EDF3F5;
   position: sticky;
 }
 
@@ -39,5 +39,12 @@ margin: 5px;
 .dropdown-toggle::after {
   content: none;
 
+}
+
+#cardetour-nav {
+  position: sticky;
+  top: 0;
+  background-color: #EDF3F5;
+  z-index: 1;
 }
 

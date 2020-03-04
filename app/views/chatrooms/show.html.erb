@@ -1,4 +1,6 @@
+<div class= "chat-messages">
 <h1>Ma discussion avec <%= @chatroom.teacher.first_name %></h1>
+
 
 <% if !@chatroom.messages.nil?  %>
   <div class="content-evaluation chat" id="chat">
@@ -30,10 +32,10 @@
   </div>
 <% end %>
 <!-- Chat Box-->
-<div class="my-2 bg-white">
-  <%= simple_form_for [ @chatroom, @message ], html: {class: "form-inline d-flex"} do |f| %>
-    <%= f.input :content, label: false, placeholder: "Mon Message", class: "form-control rounded-0 border-0 py-4 bg-white font-italic"%>
-    <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
-  <% end %>
+    <%= simple_form_for [ @chatroom, @message ], html: {class: "form-inline d-flex"} do |f| %>
+      <%= f.input :content, label: false, placeholder: "Mon Message", class: "form-control rounded-0 border-0 py-4 bg-white font-italic"%>
+      <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+    <% end %>
+
 </div>
 

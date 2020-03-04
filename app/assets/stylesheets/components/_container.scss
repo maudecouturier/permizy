@@ -3,12 +3,13 @@
 }
 
 .cardetour-content {
-  display: flex;
+  display: flex-column;
   margin-top: 20px;
 }
 
 .cardetour-sidebar {
   padding-left: 0;
+  height: 100vh;
 }
 
 .row .cardetour {
@@ -21,3 +22,4 @@
   margin-top: 20px;
 
 }
+
