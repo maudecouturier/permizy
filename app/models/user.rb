@@ -29,6 +29,26 @@ class User < ApplicationRecord
     axis_rating("share_rating")
   end
 
+  def respect_ratings
+    ratings("respect_rating")
+  end
+
+  def control_ratings
+    ratings("control_rating")
+  end
+
+  def share_ratings
+    ratings("share_rating")
+  end
+
+  def ratings_dates
+    dates = []
+    self.bookings.each do |booking|
+      dates << booking.slot.start unless booking.respect_rating.nil?
+    end
+    dates.sort
+  end
+
   def respect_color
     color(respect)
   end
@@ -61,6 +81,14 @@ private
       rating_average = ratings.sum.to_f / ratings.count
     end
     axis_rating = (rating_average*(Math::PI / 5))
+  end
+
+  def ratings(rating_class)
+    ratings = []
+    self.bookings.each do |booking|
+      ratings << booking[rating_class] unless booking[rating_class].nil?
+    end
+    ratings
   end
 
   def color(angle)
