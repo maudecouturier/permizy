@@ -1,3 +1,5 @@
+require 'open-uri'
+
 Slot.destroy_all
 Booking.destroy_all
 Message.destroy_all
@@ -9,9 +11,13 @@ Coordinate.destroy_all
 
 
 puts 'Creating users'
+edouard = User.create(first_name: 'Edouard', teacher: true, email: 'edouard@gmail.com', password: '123456')
+damien = User.create(first_name: 'Damien', teacher: true, email: 'damien@gmail.com', password: '123456')
 julien = User.create(first_name: 'Julien', teacher: true, email: 'julien@gmail.com', password: '123456')
 thomas = User.create(first_name: 'Thomas', teacher: true, email: 'thomas@gmail.com', password: '123456')
 cecile = User.create(first_name: 'Cecile', teacher: true, email: 'cecile@gmail.com', password: '123456')
+louis = User.create(first_name: 'Louis', teacher: true, email: 'louis@gmail.com', password: '123456')
+
 peach = User.create(first_name: 'Peach', teacher: false, email: 'peach@gmail.com', password: '123456')
 luigi = User.create(first_name: 'Luigi', teacher: false, email: 'luigi@gmail.com', password: '123456')
 puts 'Done creating users'
@@ -23,10 +29,22 @@ file_thomas = URI.open("https://avatars3.githubusercontent.com/u/16384238?v=4")
 thomas.photo.attach(io: file_thomas, filename: 'thomas.jpg')
 file_cecile = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1539599254/janttrofl6xagki5zk6g.jpg")
 cecile.photo.attach(io: file_cecile, filename: 'cecile.jpg')
+
+file_edouard = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/u51ojdkeciv4pr6lqzy5.jpg")
+edouard.photo.attach(io: file_edouard, filename: 'edouard.jpg')
+puts '1'
+file_damien = URI.open("https://avatars0.githubusercontent.com/u/37899667?s=460&v=4")
+damien.photo.attach(io: file_damien, filename: 'damien.jpg')
+puts '2'
+file_louis = URI.open("https://fr.web.img6.acsta.net/pictures/15/11/23/10/22/340988.jpg")
+louis.photo.attach(io: file_louis, filename: 'louis.jpg')
+puts '3'
+
 file_peach = URI.open("https://f0.pngfuel.com/png/807/610/princess-pitch-png-clip-art.png")
 peach.photo.attach(io: file_peach, filename: 'peach.jpg')
 file_luigi = URI.open("https://static.wikia.nocookie.net/8f7a639f-6db3-4a43-a32b-5a680133b02b")
 luigi.photo.attach(io: file_luigi, filename: 'luigi.jpg')
+
 puts 'Done attaching photos'
 
 
@@ -121,65 +139,99 @@ puts 'Done attributing bookings'
 
 puts 'Creating flashcards'
 vitesse = Flashcard.create!(question: "quelle est la vitesse maximale à laquelle tu peux rouler sur l'autoroute", answer: 'blabla')
-creneau = Flashcard.create!(question: "comment faire un creneau", answer: 'blabla')
-controle = Flashcard.create!(question: "quelles sont les étapes de contrôle pour effectuer un déplacement?", answer: 'blabla')
+manoeuvre = Flashcard.create!(question: "comment faire un creneau", answer: 'blabla')
+partage = Flashcard.create!(question: "quelles sont les étapes de contrôle pour effectuer un déplacement?", answer: 'blabla')
+espace = Flashcard.create!(question: "quelles sont les étapes de contrôle pour effectuer un déplacement?", answer: 'blabla')
 puts 'Done creating flashcards'
 
 puts 'Creating coordinates'
 
-coordinate_paris = [[2.3184065, 48.8455102],
-[2.3159171, 48.852388],
-[2.3252442, 48.8540064],
-[2.3312068, 48.8685336],
-[2.330041, 48.8803426],
-[2.3005712, 48.8840183],
-[2.281109, 48.878875],
-[2.396322, 48.889769],
-[2.408545, 48.877939],
-[2.391410, 48.827204],
-[2.360062, 48.816196],
-[2.356206, 48.831020],
-[2.355275, 48.831817],
-[2.341614, 48.834781],
-[2.341552, 48.826565],
-[2.314262, 48.831858],
-[2.297967, 48.836807],
-[2.310854, 48.845399]
-]
+# coordinate_paris = [[2.3184065, 48.8455102],
+# [2.3159171, 48.852388],
+# [2.3252442, 48.8540064],
+# [2.3312068, 48.8685336],
+# [2.330041, 48.8803426],
+# [2.3005712, 48.8840183],
+# [2.281109, 48.878875],
+# [2.396322, 48.889769],
+# [2.408545, 48.877939],
+# [2.391410, 48.827204],
+# [2.360062, 48.816196],
+# [2.356206, 48.831020],
+# [2.355275, 48.831817],
+# [2.341614, 48.834781],
+# [2.341552, 48.826565],
+# [2.314262, 48.831858],
+# [2.297967, 48.836807],
+# [2.310854, 48.845399]
+# ]
 
-# coordinate_paris2 = coordinate_paris.map do |coordinate|
-# [coordinate_paris[1],coordinate_paris[0]]
-# end
+trajet_paris = [[2.324615, 48.843578],
+[2.329615, 48.841954],
+[2.325602, 48.855891],
+[2.319637, 48.862216],
+[2.320259, 48.864178],
+[2.336778, 48.859368],
+[2.342536, 48.8585591],
+[2.360842, 48.852181],
+[2.361443, 48.8497275],
+[2.388441, 48.828488],
+[2.390434, 48.826913],
+[2.401436, 48.829695],
+[2.410685, 48.834576],
+[2.415309, 48.851576],
+[2.413954, 48.854304],
+[2.413236, 48.870984],
+[2.407416, 48.879426],
+[2.398805, 48.884092],
+[2.392666, 48.899556],
+[2.371219, 48.900657],
+[2.359021, 48.900971],
+[2.322585, 48.900552],
+[2.297391, 48.889649],
+[2.280489, 48.877748],
+[2.295194, 48.874278],
+[2.309975, 48.869052],
+[2.319808, 48.865916],
+[2.319353, 48.865001],
+[2.319418, 48.864710],
+[2.320276, 48.864428],
+[2.318989, 48.862641],
+[2.313452, 48.862842],
+[2.312962, 48.858852],
+[2.305990, 48.854676],
+[2.314054, 48.849210],
+[2.315407, 48.846459]]
 
-# coordinate_array = [[-122.48369693756104, 37.83381888486939],
-# [-122.48348236083984, 37.83317489144141],
-# [-122.48339653015138, 37.83270036637107],
-# [-122.48356819152832, 37.832056363179625],
-# [-122.48404026031496, 37.83114119107971],
-# [-122.48404026031496, 37.83049717427869],
-# [-122.48348236083984, 37.829920943955045],
-# [-122.48356819152832, 37.82954808664175],
-# [-122.48507022857666, 37.82944639795659],
-# [-122.48610019683838, 37.82880236636284],
-# [-122.48695850372314, 37.82931081282506],
-# [-122.48700141906738, 37.83080223556934],
-# [-122.48751640319824, 37.83168351665737],
-# [-122.48803138732912, 37.832158048267786],
-# [-122.48888969421387, 37.83297152392784],
-# [-122.48987674713133, 37.83263257682617],
-# [-122.49043464660643, 37.832937629287755],
-# [-122.49125003814696, 37.832429207817725],
-# [-122.49163627624512, 37.832564787218985],
-# [-122.49223709106445, 37.83337825839438],
-# [-122.49378204345702, 37.83368330777276]]
-
-categories = ['ok', 'creneau', 'controle', 'vitesse', 'no_display']
+categories = ['ok', 'Manoeuvre', 'Vitesse', 'Partage de la chaussée', 'Maintien des espaces de sécurité' 'no_display']
 
 i = 1
-coordinate_paris.map do |coordinate|
-  Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id, incident_category: categories.sample, flashcard_id: Flashcard.all.sample.id)
+trajet_paris.map do |coordinate|
+  Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
   i += 1
 end
+
+puts 'Attributing incident categories'
+Coordinate.all[3].incident_category = 'ok'
+Coordinate.all[5].incident_category = 'ok'
+Coordinate.all[7].incident_category = 'ok'
+Coordinate.all[-6].incident_category = 'ok'
+Coordinate.all[-7].incident_category = 'ok'
+Coordinate.all[-1].incident_category = 'Manoeuvre'
+Coordinate.all[14].incident_category = 'Vitesse'
+Coordinate.all[17].incident_category = 'Partage de la chaussée'
+Coordinate.all[-4].incident_category = 'Maintien des espaces de sécurité'
+puts 'done attributing incident categories'
+
+puts 'attributing flashcards'
+Coordinate.all[-1].flashcard_id = manoeuvre.id
+Coordinate.all[14].flashcard_id = vitesse.id
+Coordinate.all[17].flashcard_id = partage.id
+Coordinate.all[-4].flashcard_id = espace.id
+puts 'done attributing flashcards'
+
+
+
 
 puts 'Done creating coordinates'
 
