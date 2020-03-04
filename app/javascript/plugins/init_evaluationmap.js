@@ -1,8 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 
-const mapElementEval = document.getElementById('map');
-const coordinates = JSON.parse(mapElementEval.dataset.coordinates)
-const markers = JSON.parse(mapElementEval.dataset.markers)
+
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) =>{
@@ -34,6 +32,10 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const initEvaluationmap = () => {
+  const mapElementEval = document.getElementById('map');
+  const coordinates = JSON.parse(mapElementEval.dataset.coordinates);
+  const markers = JSON.parse(mapElementEval.dataset.markers);
+
   mapboxgl.accessToken = mapElementEval.dataset.mapboxApiKey;
   const evalMap = new mapboxgl.Map({
     container: 'map',
