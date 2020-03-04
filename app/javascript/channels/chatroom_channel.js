@@ -15,7 +15,7 @@ if (messagesContainer) {
       messagesContainer.insertAdjacentHTML('beforeend', data);
     }
   });
-  scrollToBottom(messagesContainer)
+  // scrollToBottom(messagesContainer)
   // consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
   //   received(data) {
   //     console.log(data); // called when data is broadcast in the cable
