@@ -1,14 +1,16 @@
 .navbar-cardetour {
   justify-content: space-between;
-  background: $blue;
+  box-shadow: none;
+  background-color: transparent;
+  position: sticky;
 }
 
 .navbar-cardetour .navbar-collapse {
-  flex-grow: 0;
+  flex-grow: none;
 }
 
-.navbar-cardetour .navbar-brand img {
-  width: 100px;
+.navbar-brand img {
+  width: 200px;
 }
 
 .navbar-brand {

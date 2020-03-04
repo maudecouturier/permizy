@@ -1,9 +1,14 @@
 <div class="sidebar">
   <div class="card-cours">
-    <div class="d-flex justify-content-between">
-    <h2 class="card-title">Tes cours passés</h2>
+    <div class="d-flex justify-content-center">
+      <%= link_to dashboard_path, class: "navbar-brand" do %>
+      <%= image_tag "logo.png" %>
+      <% end %>
     </div>
 
+        <div>
+        <h2 class="card-title">Tes cours passés</h2>
+        </div>
     <div class="card-scroll-passe">
       <% bookings.to_a.delete_if { |b| b.slot.nil? } %>
 

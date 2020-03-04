@@ -1,14 +1,14 @@
 .container-cardetour {
-  margin: 5px;
+  margin-left: 0;
 }
 
-.col-8 .cardetour {
+.cardetour-content {
   display: flex;
-  margin-top: 36px;
+  margin-top: 20px;
 }
 
-.col-4 .cardetour {
-  display: flex;
+.cardetour-sidebar {
+  padding-left: 0;
 }
 
 .row .cardetour {
