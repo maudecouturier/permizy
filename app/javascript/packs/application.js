@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   };
   if (document.getElementById('bookings-new') || document.getElementById('bookings-edit')) {
     initMapbox()
-    initDisplayMap();
+    // initDisplayMap();
   };
   initAutocomplete();
   initTeachers();
