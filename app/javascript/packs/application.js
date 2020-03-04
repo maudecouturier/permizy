@@ -33,22 +33,25 @@ import { initDisplayMap } from '../plugins/init_display_map';
 
 
 document.addEventListener('turbolinks:load', () => {
-  loadDynamicBannerText();
-  // initFlatpickr();
+  if (document.getElementById('pages-home')) {
+    loadDynamicBannerText();
+  };
+
   if (document.getElementById('bookings-show')) {
-    initEvaluationmap()
+    initEvaluationmap();
   };
+
   if (document.getElementById('bookings-new') || document.getElementById('bookings-edit')) {
-    initMapbox()
+    initMapbox();
     initDisplayMap();
+    initTeachers();
+    initCalendar();
+    initAutocomplete();
+    initSweetalert('#sweet-alert-demo', {
+      title: "Félicitations !",
+      text: "Ton cours est confirmé",
+      icon: "success"
+    });
   };
-  initAutocomplete();
-  initTeachers();
-  initCalendar();
 });
 
-initSweetalert('#sweet-alert-demo', {
-  title: "Félicitations !",
-  text: "Ton cours est confirmé",
-  icon: "success"
-});
