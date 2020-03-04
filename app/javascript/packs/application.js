@@ -31,7 +31,7 @@ import { initSweetalert } from '../plugins/init_sweetalert';
 import { initEvaluationmap } from '../plugins/init_evaluationmap';
 import { initDisplayMap } from '../plugins/init_display_map';
 import { myChart } from '../plugins/charts';
-
+import { initScroll } from '../plugins/init_scroll';
 
 document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
@@ -46,6 +46,11 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initTeachers();
   initCalendar();
+
+  if (document.getElementById('chat')) {
+    initScroll();
+  }
+
 });
 
 initSweetalert('#sweet-alert-demo', {

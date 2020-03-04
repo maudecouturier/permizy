@@ -62,6 +62,10 @@
   border: none;
 }
 
+#new_message .form-group {
+  flex-grow: 1;
+}
+
 .chat {
   height : 300px;
   overflow : scroll;

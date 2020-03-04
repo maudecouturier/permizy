@@ -1,9 +1,9 @@
 <div class="message-container">
-  <div class="media w-50 mb-3"><%= cl_image_tag message.user.photo.key, alt: "user", width: 50, class: "rounded-circle"%>
+  <div class="media w-50 mb-3" id="<%= message.id %>"><%= cl_image_tag message.user.photo.key, alt: "user", width: 50, class: "rounded-circle" %>
     <div class="media-body">
       <p class="small text-muted"><%= I18n.l(message.created_at, format: :date, locale: :fr).capitalize %><%= message.created_at.strftime("%H:%M")%></p>
       <div class="bg-light-blue rounded py-2 px-3 mb-2">
-        <p class="text-small mb-0 text-white"><%= message.content %></p>
+        <p class="text-small mb-0"><%= message.content %></p>
       </div>
     </div>
   </div>
