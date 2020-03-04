@@ -1,0 +1,3 @@
+
+document.querySelector('.flashcards').innerHTML = "<%= j render 'bookings/flashcard', coordinates: @coordinate.booking.coordinates %>"
+document.querySelector("#flashcard<%= @coordinate.id %>").classList.replace('js-flashcard-hidden', 'js-flashcard-displayed');

@@ -1,0 +1,29 @@
+    <% coordinates.each do |coordinate| %>
+      <div class='js-flashcard-hidden' id='flashcard<%= coordinate.id %>'>
+        <div>
+          <p></p>
+          <strong><%= coordinate.flashcard.question %></strong>
+        </div>
+        <% if coordinate.student_answer.present? %>
+          <p></p>
+          <p><strong>Réponse:  </strong><%= coordinate.flashcard.answer %></p>
+          <p><strong>Ta réponse:  </strong><%= coordinate.student_answer %></p>
+        <% else %>
+          <div>
+            <%= simple_form_for coordinate, remote: true do |f| %>
+              <p></p>
+              <%= f.input :student_answer, label: false, placeholder: 'Entre ta réponse ici...' %>
+              <%= f.button :submit, class: 'btn btn-flashcard text-right justify-content-end', value: 'Réponse' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+
+
+
+
+
+
+
