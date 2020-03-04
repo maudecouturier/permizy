@@ -2,10 +2,18 @@
   margin: 5px;
 }
 
-.row-cardetour {
+.col-8 .cardetour {
   display: flex;
   margin-top: 36px;
+}
+
+.col-4 .cardetour {
+  display: flex;
+}
+
+.row .cardetour {
   position: relative;
+  margin: none;
 }
 
 .row-evaluation {
