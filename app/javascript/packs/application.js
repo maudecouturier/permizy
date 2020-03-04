@@ -30,6 +30,7 @@ import { initCalendar } from '../plugins/init_refresh_calendar';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { initEvaluationmap } from '../plugins/init_evaluationmap';
 import { initDisplayMap } from '../plugins/init_display_map';
+import { myChart } from '../plugins/charts';
 import { initScroll } from '../plugins/init_scroll';
 
 document.addEventListener('turbolinks:load', () => {
@@ -57,3 +58,5 @@ initSweetalert('#sweet-alert-demo', {
   text: "Ton cours est confirmé",
   icon: "success"
 });
+
+myChart();
