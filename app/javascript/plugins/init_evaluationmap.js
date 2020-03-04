@@ -10,12 +10,12 @@ const initEvaluationmap = () => {
     const evalMap = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10',
-      center: [-122.486052, 37.830348],
+      center: [2.3159171, 48.852388],
       zoom: 15
     });
     addMarkersToMap(evalMap, markers);
     fitMapToMarkers(evalMap, markers);
-    // displayFlashcard
+    // displayFlashcard(markers);
 
     evalMap.on('load', function() {
       evalMap.addSource('route', {
@@ -51,23 +51,45 @@ const addMarkersToMap = (map, markers) => {
     const element = document.createElement('div');
     if (marker.incident_category === 'ok') {
       element.className = 'marker-success';
+      element.id = marker.coordinate_id
       // element.setAttribute('id', 'marker-success')
     } else {
       element.className = 'marker-fail';
+      element.id = marker.coordinate_id
     }
 
     new mapboxgl.Marker(element)
     .setLngLat([ marker.lng, marker.lat ])
+    // .setAttribute('id', `${marker.coordinate_id}`)
     .addTo(map);
   });
+  displayFlashcard(markers);
 };
 
-const displayFlashcard = (map, markers) => {
-  const failMarkers = document.querySelectorAll('.marker-fail')
-  failMarkers.addEventListener('click', (event) => {
-    // ADD EVENT
-  });
-}
+  const displayFlashcard = (markers) => {
+    // const failMarkers = document.querySelectorAll('.marker-fail')
+    markers.forEach((marker) => {
+      const element = document.getElementById(`${marker.coordinate_id}`)
+      element.addEventListener('click', (event) => {
+        const flashcard = document.getElementById(`flashcard${marker.coordinate_id}`)
+        const displayed_card = document.querySelector('.js-flashcard-displayed')
+        const large_marker = document.querySelector('.marker-fail-large')
+        if (large_marker) {
+          large_marker.classList.replace('marker-fail-large', 'marker-fail')
+        }
+        if (displayed_card) {
+          displayed_card.classList.replace('js-flashcard-displayed', 'js-flashcard-hidden')
+        }
+        if (marker.incident_category != 'ok') {
+          element.classList.replace('marker-fail', 'marker-fail-large')
+          flashcard.classList.replace('js-flashcard-hidden', 'js-flashcard-displayed')
+        }
+        const mapElementEval = document.getElementById('map');
+        mapElementEval.scrollIntoView();
+      });
+    });
+  }
+
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
