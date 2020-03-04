@@ -1,14 +1,16 @@
 .navbar-cardetour {
   justify-content: space-between;
-  background: $blue;
+  box-shadow: none;
+  background-color: #EDF3F5;
+  position: sticky;
 }
 
 .navbar-cardetour .navbar-collapse {
-  flex-grow: 0;
+  flex-grow: none;
 }
 
-.navbar-cardetour .navbar-brand img {
-  width: 100px;
+.navbar-brand img {
+  width: 200px;
 }
 
 .navbar-brand {
@@ -37,5 +39,12 @@ margin: 5px;
 .dropdown-toggle::after {
   content: none;
 
+}
+
+#cardetour-nav {
+  position: sticky;
+  top: 0;
+  background-color: #EDF3F5;
+  z-index: 1;
 }
 

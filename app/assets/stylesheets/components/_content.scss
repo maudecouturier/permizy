@@ -24,3 +24,8 @@
 .content-evaluation h2{
   font-weight: bold;
 }
+
+.content .chat-messages {
+  display: flex;
+  flex-direction: column;
+}
