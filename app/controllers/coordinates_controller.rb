@@ -3,6 +3,9 @@ class CoordinatesController < ApplicationController
     @coordinate = Coordinate.find(params[:id])
     authorize @coordinate
     @coordinate.update(student_answer:  params[:coordinate][:student_answer])
-    redirect_to booking_path(@coordinate.booking)
+
+    respond_to do |format|
+      format.js
+    end
   end
 end

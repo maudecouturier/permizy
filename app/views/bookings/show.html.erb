@@ -82,7 +82,7 @@
 
       <% if @booking.coordinates.count > 0 %>
         <div class="flashcards">
-          <%= render partial: "flashcard", locals: {booking: @booking}  %>
+          <%= render "flashcard", coordinates: @booking.coordinates  %>
         </div>
       <% end %>
 

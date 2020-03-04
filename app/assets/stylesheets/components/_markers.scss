@@ -9,6 +9,17 @@
   cursor: pointer;
 }
 
+.marker-fail-large {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Cross_red_circle.svg/1200px-Cross_red_circle.svg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 35px;
+  // top: -20px;
+  // left: 9px;
+  cursor: pointer;
+}
+
 .marker-success {
   background-image: url('https://www.kindpng.com/picc/m/80-807690_check-mark-well-icon-internet-circle-good-correct.png');
   background-size: contain;
