@@ -71,23 +71,23 @@ const addMarkersToMap = (map, markers) => {
     // const failMarkers = document.querySelectorAll('.marker-fail')
     markers.forEach((marker) => {
       const element = document.getElementById(`${marker.coordinate_id}`)
-      // if (marker.incident_category != 'ok'){
-        element.addEventListener('click', (event) => {
-          const flashcard = document.getElementById(`flashcard${marker.coordinate_id}`)
-          const displayed_card = document.querySelector('.js-flashcard-displayed')
-          const large_marker = document.querySelector('.marker-fail-large')
-          if (large_marker) {
-            large_marker.classList.replace('marker-fail-large', 'marker-fail')
-          }
-          if (displayed_card) {
-            displayed_card.classList.replace('js-flashcard-displayed', 'js-flashcard-hidden')
-          }
-          if (marker.incident_category != 'ok') {
-            element.classList.replace('marker-fail', 'marker-fail-large')
-            flashcard.classList.replace('js-flashcard-hidden', 'js-flashcard-displayed')
-          }
-        });
-      // }
+      element.addEventListener('click', (event) => {
+        const flashcard = document.getElementById(`flashcard${marker.coordinate_id}`)
+        const displayed_card = document.querySelector('.js-flashcard-displayed')
+        const large_marker = document.querySelector('.marker-fail-large')
+        if (large_marker) {
+          large_marker.classList.replace('marker-fail-large', 'marker-fail')
+        }
+        if (displayed_card) {
+          displayed_card.classList.replace('js-flashcard-displayed', 'js-flashcard-hidden')
+        }
+        if (marker.incident_category != 'ok') {
+          element.classList.replace('marker-fail', 'marker-fail-large')
+          flashcard.classList.replace('js-flashcard-hidden', 'js-flashcard-displayed')
+        }
+        const mapElementEval = document.getElementById('map');
+        mapElementEval.scrollIntoView();
+      });
     });
   }
 
