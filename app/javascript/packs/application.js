@@ -28,17 +28,19 @@ import { initMapbox, initAutocomplete } from '../plugins/init_mapbox';
 import { initTeachers } from '../plugins/init_select_teacher';
 import { initCalendar } from '../plugins/init_refresh_calendar';
 import { initSweetalert } from '../plugins/init_sweetalert';
-import { initEvaluationmap } from '../plugins/init_evaluationmap'; ;
+import { initEvaluationmap } from '../plugins/init_evaluationmap';
+import { initDisplayMap } from '../plugins/init_display_map';
 
 
 document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   // initFlatpickr();
-  if (document.getElementById('bookings-show')){
+  if (document.getElementById('bookings-show')) {
     initEvaluationmap()
   };
   if (document.getElementById('bookings-new') || document.getElementById('bookings-edit')) {
     initMapbox()
+    initDisplayMap();
   };
   initAutocomplete();
   initTeachers();
