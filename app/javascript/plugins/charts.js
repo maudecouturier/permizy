@@ -7,7 +7,7 @@ moment().format();
 
 const myChart = () => {
   const ctx = document.getElementById('myChart');
-  if (document.getElementById('myChart')) {
+  if (ctx) {
     const respect = JSON.parse(ctx.dataset.respect)
     const share = JSON.parse(ctx.dataset.share)
     const control = JSON.parse(ctx.dataset.control)
