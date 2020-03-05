@@ -56,14 +56,14 @@
                   <%User.all.each do |user|%>
                     <%=link_to find_or_create_chatrooms_path(interlocutor: user), class: "dropdown-item d-flex justify-content-between" do%>
                     <p><%= user.first_name %></p>
-                    <%= cl_image_tag user.photo.key, class: "avatar-chatbox"%>
+                    <%= cl_image_tag user.photo.key, class: "avatar-chatbox" if user.photo.attached? %>
                     <% end %>
                   <% end %>
                 <% else %>
                   <%User.teachers.each do |teacher|%>
                     <%=link_to find_or_create_chatrooms_path(interlocutor: teacher), class: "dropdown-item d-flex justify-content-between" do%>
                     <p><%= teacher.first_name %></p>
-                    <%= cl_image_tag teacher.photo.key, class: "avatar-chatbox"%>
+                    <%= cl_image_tag teacher.photo.key, class: "avatar-chatbox" if teacher.photo.attached?%>
                     <% end %>
                   <% end %>
                 <% end %>

@@ -35,16 +35,8 @@
   <h1>Notre équipe</h1>
   <div class='equipe-banner d-flex-inline'>
     <% User.teachers.each do |teacher| %>
-      <div class="home-teacher">
-        <div class="d-flex justify-content-around w-100 py-1">
-          <%= cl_image_tag(teacher.photo.key, options = {class: 'avatar-home'}) if teacher.photo.attached? %>
-          <div class="text-justify">
-          <strong><%= teacher.first_name %> </strong><br>
-          Age: 30 ans <br>
-          Expérience: 5 ans
-          </div>
-        </div>
-        <p>“Thank you Mario! But our Princess is in another castle!” - Toad</p>
+      <div class="home-teacher d-flex justify-content-around w-100 py-1">
+        <%= cl_image_tag(teacher.photo.key, options = {class: 'avatar-home'}) if teacher.photo.attached? %>
       </div>
     <% end %>
   </div>
