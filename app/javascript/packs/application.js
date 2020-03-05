@@ -48,11 +48,22 @@ document.addEventListener('turbolinks:load', () => {
     initTeachers();
     initCalendar();
     initAutocomplete();
-    initSweetalert('#sweet-alert-demo', {
-      title: "Félicitations !",
-      text: "Ton cours est confirmé",
-      icon: "success"
-    });
+
+    if (document.querySelector('.js-btn-new')) {
+      initSweetalert('.js-btn-new input', {
+        title: "Félicitations !",
+        text: "Ton cours est confirmé",
+        icon: "success"
+      });
+    }
+
+    if (document.querySelector('.js-btn-edit')) {
+      initSweetalert('.js-btn-edit input', {
+        title: "Félicitations !",
+        text: "Ta modification a bien été prise en compte",
+        icon: "success"
+      });
+    }
   };
   if (document.getElementById('chat')) {
     initScroll();

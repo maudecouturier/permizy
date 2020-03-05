@@ -53,7 +53,7 @@
           </div>
       </div>
 
-      <div class='text-center my-3'>
+      <div class="text-center my-3 <%= params[:action] == 'new' ? 'js-btn-new' : 'js-btn-edit' %>">
         <%= f.button :submit, class: "btn-cardetour js-btn-submit", value: 'Confirmer' %>
       </div>
 
