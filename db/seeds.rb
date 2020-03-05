@@ -16,7 +16,7 @@ puts 'Creating users'
   damien = User.create(first_name: 'Damien', teacher: true, email: 'damien@gmail.com', password: '123456')
   julien = User.create(first_name: 'Julien', teacher: true, email: 'julien@gmail.com', password: '123456')
   thomas = User.create(first_name: 'Thomas', teacher: true, email: 'thomas@gmail.com', password: '123456')
-  cecile = User.create(first_name: 'Cecile', teacher: true, email: 'cecile@gmail.com', password: '123456')
+  cecile = User.create(first_name: 'Cécile', teacher: true, email: 'cecile@gmail.com', password: '123456')
   # louis = User.create(first_name: 'Louis', teacher: true, email: 'louis@gmail.com', password: '123456')
   # STUDENTS
   peach = User.create(first_name: 'Peach', teacher: false, email: 'peach@gmail.com', password: '123456')
@@ -49,57 +49,57 @@ puts 'Done attaching photos'
 
 puts 'Creating past bookings'
 booking1 = Booking.create!(student: peach,
-  review_evaluation: 'Premier cours satisfaisant, le démarrage est assimilé ainsi que la gestion de la vitesse. Attention à bien anticiper le freinage en regardant au loin',
-  review_content: 'Démarrage turbo, accélération en ligne droite, freinage d\'urgence, évitement',
-  review_to_improve: 'Porter le regard plus loin pour mieux anticiper.',
+  review_evaluation: 'Communication avec les autres usagers correcte. Attention aux espaces de sécurité.',
+  review_content: 'Attention à bien adapter sa vitesse à l\'environnement extérieur. Trop de stop-and-go, la conduite n\'est pas fluide.',
+  review_to_improve: 'Maitrise très insuffisante du point de patinage.',
   respect_rating: 2,
   share_rating: 3,
   control_rating: 0)
 booking2 = Booking.create!(student: peach,
-  review_evaluation: 'Premier contact avec les bananes avec un peu d\'appréhension, ce n\'est qu\'un fruit !',
-  review_content: 'Démarrage turbo, dérapage turbo, lancer de bananes, évitement de banane',
-  review_to_improve: 'Maniement des armes basiques, en particulier des bananes.',
-  respect_rating: 3,
-  share_rating: 3,
-  control_rating: 2)
-booking3 = Booking.create!(student: peach,
-  review_evaluation: 'Le lancer de carapace verte n\'est pas encore maitrisé, c\'est mieux sur le freinage, continue comme ça.' ,
-  review_content: 'Marche arrière, lancer de carapace verte, lancer arrière, freinage d\'urgence',
-  review_to_improve: 'Anticipation des trajectoires pour lancer des carapaces.',
+  review_evaluation: 'Aucun distance de sécurité, il faut absolument faire plus attention.' ,
+  review_content: 'Deux stops ratés. Ce n\'est pas admissible.',
+  review_to_improve: 'Bonne maitrise du véhicule et des commandes.',
   respect_rating: 1,
   share_rating: 1,
   control_rating: 3)
+booking3 = Booking.create!(student: peach,
+  review_evaluation: 'Communication avec les autres usagers correcte. Attention aux espaces de sécurité.',
+  review_content: 'Attention à bien adapter sa vitesse à l\'environnement extérieur. Trop de stop-and-go, la conduite n\'est pas fluide.',
+  review_to_improve: 'Amélioration de la maitrise du point de patinage.',
+  respect_rating: 2,
+  share_rating: 3,
+  control_rating: 2)
 booking4 = Booking.create!(student: peach,
-  review_evaluation: 'Il faut être plus concentrée lorsque tu as l\'étoile et augmenter les distances de sécurité. Le dérapage frein à main n\'est pas encore bien réalisé',
-  review_content: 'Conduite avec étoile, virage à gauche, virage à droite, dérapage frein à main',
-  review_to_improve: 'Conduite à haute vitesse, et dérapage frein à main.',
+  review_evaluation: 'Distances de sécurité maitrisées. Attention à ne pas oublier le clignotant dans les ronds-points.',
+  review_content: 'Maitrise des priorités à droite et bonne insertion sur les ronds-points. C\'est beaucoup mieux, bravo!',
+  review_to_improve: 'Bonne maitrise du véhicule. On peut encore travailler le point de patinage.',
   respect_rating: 4,
   share_rating: 4,
   control_rating: 3)
 booking5 = Booking.create!(student: peach,
-  review_evaluation: 'Cours dédié à l\'utilisation des armes, il faut être plus agressive sur la route. Attention à tes propres carapaces vertes :)',
-  review_content: 'Dépose faux bonus, choix de bonus rapide, lancer de carapace rouge, lancer de banane',
-  review_to_improve: 'Maniement des armes plus évoluées, et partage de la route.',
+  review_evaluation: 'Distances de sécurité maitrisées. Attention à ne pas oublier le clignotant dans les ronds-points.',
+  review_content: 'Maitrise des priorités à droite et bonne insertion sur les ronds-points. C\'est beaucoup mieux, bravo!',
+  review_to_improve: 'Bonne maitrise du véhicule. On peut encore travailler le point de patinage.',
   respect_rating: 4,
   share_rating: 4,
   control_rating: 3)
 booking6 = Booking.create!(student: peach,
-  review_evaluation: 'Cours dans le désert de Kalimari, il faut bien penser à dégonfler tes pneus. La carapace bleue doit être utulisée à bon escient.',
-  review_content: 'Lancer de caparace bleue, conduite sur sable, conduite avec étoile, dérapage turbo',
-  review_to_improve: 'Refaire un cours de conduite dans le désert pour bien assimiler.',
+  review_evaluation: 'Distances de sécurité encore insuffisantes. Attention à ne pas oublier le clignotant dans les ronds-points.',
+  review_content: 'Maitrise des priorités à droite et bonne insertion sur les ronds-points. C\'est beaucoup mieux, bravo!',
+  review_to_improve: 'Bonne maitrise du véhicule. On peut encore travailler le point de patinage.',
   respect_rating: 4,
-  share_rating: 4,
+  share_rating: 3,
   control_rating: 4)
 
 puts 'Creating bookings to come'
 
   # booking10 = Booking.create!(student: peach)
 
-  luigi_bookings = []
-  40.times do |i|
-    booking = Booking.create!(student: luigi)
-    luigi_bookings << booking
-  end
+ # luigi_bookings = []
+ #  20.times do |i|
+ #    booking = Booking.create!(student: luigi)
+ #    luigi_bookings << booking
+ #  end
 puts 'Done creating bookings'
 
 
@@ -168,10 +168,11 @@ slot_booking = Slot.create!(teacher: edouard, start: slot, end: slot + 2.hours)
 booking5.slot = slot_booking
 booking5.save!
 
-
-
-# DERNIER COURS TO DISPLAY IN THE CARD
-booking6.slot = Slot.past[-24]
+# DERNIER COURS TO DISPLAY IN THE CARD BOOKING 6
+starting_date = DateTime.now() - 2
+slot = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 18)
+slot_booking = Slot.create!(teacher: edouard, start: slot, end: slot + 2.hours)
+booking6.slot = slot_booking
 booking6.save!
 
 # PEACH FUTURE BOOKING
@@ -184,12 +185,12 @@ booking9.save!
 
 
 # SLOTS QUI SONT DEJA PRIS DANS LA SEMAINE
-luigi_bookings.each do |booking|
-  slot_future = Slot.future.sample
-  slot_future.teacher = User.teachers.sample
-  booking.slot = slot_future
-  booking.save!
-end
+# luigi_bookings.each do |booking|
+#   slot_future = Slot.future.sample
+#   slot_future.teacher = User.teachers.sample
+#   booking.slot = slot_future
+#   booking.save!
+# end
 
 
 # starting_date = DateTime.now() + 1
