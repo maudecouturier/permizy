@@ -19,7 +19,7 @@
   margin-left: 0;
   margin-top: 10px;
   margin-bottom: 40px;
-  padding: 5px;
+  padding: 5px 0px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -31,15 +31,20 @@
 }
 
 
-.card-booking{
+.card-booking {
   line-height: 15px;
   position: relative;
   margin-bottom: 5px;
   background-color: none;
+  border-radius: 5px;
 }
 
 .card-booking .card-title {
   font-weight: bold !important;
+}
+
+.card-booking .address {
+  font-size: 14px;
 }
 
 .card-cours-passes{

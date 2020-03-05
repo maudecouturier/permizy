@@ -3,14 +3,14 @@
 
 
 <% if !@chatroom.messages.nil?  %>
-  <div class="content-evaluation chat" id="chat">
+  <div class="chat" id="chat">
     <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
         <% if message.user==current_user %>
   <!-- Sender Message-->
           <div class="media w-50 ml-auto mb-3" id="<%= message.id %>">
             <div class="media-body ml-3">
-              <p class="small text-muted"><%= I18n.l(message.created_at, format: :date, locale: :fr).capitalize %> <%= message.created_at.strftime("%H:%M")%></p>
+              <p class="small text-muted" style="margin-bottom: 5px;"><%= I18n.l(message.created_at, format: :date, locale: :fr).capitalize %> <%= message.created_at.strftime("%H:%M")%></p>
               <div class="bg-warning rounded py-2 px-3 mb-2">
                 <p class="text-white mb-0"><%= message.content %></p>
               </div>
@@ -20,7 +20,7 @@
  <!-- Reciever Message-->
           <div class="media w-50 mb-3" id="<%= message.id %>"><%= cl_image_tag @chatroom.teacher.photo.key, alt: "user", width: 50, class: "rounded-circle"%>
             <div class="media-body">
-              <p class="small text-muted"><%= I18n.l(message.created_at, format: :date, locale: :fr).capitalize %> <%= message.created_at.strftime("%H:%M")%></p>
+              <p class="small text-muted" style="margin-bottom: 5px;"><%= I18n.l(message.created_at, format: :date, locale: :fr).capitalize %> <%= message.created_at.strftime("%H:%M")%></p>
               <div class="bg-light-blue rounded py-2 px-3 mb-2">
                 <p class="text-small mb-0 text-small"><%= message.content %></p>
               </div>
