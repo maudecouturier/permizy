@@ -138,33 +138,23 @@ end
 puts 'Done attributing bookings'
 
 puts 'Creating flashcards'
-vitesse = Flashcard.create!(question: "quelle est la vitesse maximale à laquelle tu peux rouler sur l'autoroute", answer: 'blabla')
-manoeuvre = Flashcard.create!(question: "comment faire un creneau", answer: 'blabla')
-partage = Flashcard.create!(question: "quelles sont les étapes de contrôle pour effectuer un déplacement?", answer: 'blabla')
-espace = Flashcard.create!(question: "quelles sont les étapes de contrôle pour effectuer un déplacement?", answer: 'blabla')
+secours = Flashcard.create!(question: "Hors autoroute ou endroit dangereux, en cas de panne ou d’accident, où doit être placé le triangle de pré-signalisation ?",
+  answer: "Le triangle de pré-signalisation doit être placé à une distance d’environ 30 m de la panne ou de l’accident, ou avant un virage, ou un sommet de côte.")
+
+manoeuvre = Flashcard.create!(question: "Listez les 4 grandes étapes nécessaires à la réussite d'un créneau.", answer: "Étape 1 : Mettez votre clignotant et placez-vous
+\n Étape 2 : Reculez et braquez
+\n Étape 3 : Contre-braquez
+\n Étape 4 : Finissez votre créneau en centrant votre véhicule")
+partage = Flashcard.create!(question: "Sur quelle voie doit-on circuler et quels sont les espaces de sécurités à respecter ?", answer: "Même quand plusieurs voies empruntent la même direction, chaque conducteur devra circuler sur la voie qui se trouve la plus à droite.
+\n L’usager doit impérativement veiller à laisser une distance de sécurité minimum sur les côtés qui varie entre 1 et 1,5 m s’il circule en agglomération ou en dehors.")
+espace = Flashcard.create!(question: "En quelles circonstances doivent être maintenus les espaces de sécurité ? ", answer: "En toutes circonstances, le candidat maintient des intervalles de sécurité suffisante autour de son véhicule.
+\n Il est capable de moduler la distance de sécurité en fonction de sa vitesse et des conditions de circulation.
+\n Il augmente cet intervalle lorsque la signalisation, les conditions climatiques ou la situation l'exigent.
+\n Il s'assure de ne jamais heurter ou accrocher les obstacles fixes ou mobiles et tient particulièrement compte des usagers vulnérables.")
+
 puts 'Done creating flashcards'
 
 puts 'Creating coordinates'
-
-# coordinate_paris = [[2.3184065, 48.8455102],
-# [2.3159171, 48.852388],
-# [2.3252442, 48.8540064],
-# [2.3312068, 48.8685336],
-# [2.330041, 48.8803426],
-# [2.3005712, 48.8840183],
-# [2.281109, 48.878875],
-# [2.396322, 48.889769],
-# [2.408545, 48.877939],
-# [2.391410, 48.827204],
-# [2.360062, 48.816196],
-# [2.356206, 48.831020],
-# [2.355275, 48.831817],
-# [2.341614, 48.834781],
-# [2.341552, 48.826565],
-# [2.314262, 48.831858],
-# [2.297967, 48.836807],
-# [2.310854, 48.845399]
-# ]
 
 trajet_paris = [[2.324615, 48.843578],
 [2.329615, 48.841954],
@@ -202,8 +192,9 @@ trajet_paris = [[2.324615, 48.843578],
 [2.305990, 48.854676],
 [2.314054, 48.849210],
 [2.315407, 48.846459]]
+puts 'Done creating coordinates'
 
-categories = ['ok', 'Manoeuvre', 'Vitesse', 'Partage de la chaussée', 'Maintien des espaces de sécurité' 'no_display']
+categories = ['ok', 'Manoeuvre', '1e Secours', 'Partage de la chaussée', 'Maintien des espaces de sécurité' 'no_display']
 
 i = 1
 trajet_paris.map do |coordinate|
@@ -218,14 +209,14 @@ Coordinate.all[7].incident_category = 'ok'
 Coordinate.all[-6].incident_category = 'ok'
 Coordinate.all[-7].incident_category = 'ok'
 Coordinate.all[-1].incident_category = 'Manoeuvre'
-Coordinate.all[14].incident_category = 'Vitesse'
+Coordinate.all[14].incident_category = '1e Secours'
 Coordinate.all[17].incident_category = 'Partage de la chaussée'
 Coordinate.all[-4].incident_category = 'Maintien des espaces de sécurité'
 puts 'done attributing incident categories'
 
 puts 'attributing flashcards'
 Coordinate.all[-1].flashcard_id = manoeuvre.id
-Coordinate.all[14].flashcard_id = vitesse.id
+Coordinate.all[14].flashcard_id = secours.id
 Coordinate.all[17].flashcard_id = partage.id
 Coordinate.all[-4].flashcard_id = espace.id
 puts 'done attributing flashcards'
@@ -233,6 +224,24 @@ puts 'done attributing flashcards'
 
 
 
-puts 'Done creating coordinates'
 
 
+# coordinate_paris = [[2.3184065, 48.8455102],
+# [2.3159171, 48.852388],
+# [2.3252442, 48.8540064],
+# [2.3312068, 48.8685336],
+# [2.330041, 48.8803426],
+# [2.3005712, 48.8840183],
+# [2.281109, 48.878875],
+# [2.396322, 48.889769],
+# [2.408545, 48.877939],
+# [2.391410, 48.827204],
+# [2.360062, 48.816196],
+# [2.356206, 48.831020],
+# [2.355275, 48.831817],
+# [2.341614, 48.834781],
+# [2.341552, 48.826565],
+# [2.314262, 48.831858],
+# [2.297967, 48.836807],
+# [2.310854, 48.845399]
+# ]

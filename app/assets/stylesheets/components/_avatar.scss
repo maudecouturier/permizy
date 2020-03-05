@@ -2,23 +2,27 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  filter: sepia(1);
 }
 .avatar-large {
   width: 56px;
   height: 56px;
   border-radius: 50%;
+  filter: sepia(1);
 }
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+  filter: sepia(1);
 }
 .avatar-square {
   width: 40px;
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+  filter: sepia(1);
 }
 
 .avatar-home {
@@ -36,4 +40,5 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
+    filter: sepia(1);
 }

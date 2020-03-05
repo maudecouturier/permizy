@@ -133,7 +133,7 @@
 .jauge {
   height:50px;
   width: 100px;
-  margin: 20px 0;
+  margin: 10px 0;
   align-self: center;
   position: relative;
   overflow: hidden;
@@ -142,7 +142,7 @@
 }
 
 .jauge-title {
-  text-align: center;
+  text-align: start;
 }
 
 .jauge::after {
