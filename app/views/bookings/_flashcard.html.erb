@@ -1,18 +1,19 @@
     <% coordinates.each do |coordinate| %>
-      <div class='mt-3 flashcard js-flashcard-hidden' id='flashcard<%= coordinate.id %>'>
+      <div class='mt-3 flashcard-card js-flashcard-hidden' id='flashcard<%= coordinate.id %>'>
         <div>
-          <strong>Question: <%= coordinate.flashcard.question %></strong>
+          <strong><i class="fas fa-question-circle" style='font-size: 30px; color: #ECA53E'></i>  <%= coordinate.flashcard.question.capitalize %></strong>
         </div>
         <% if coordinate.student_answer.present? %>
-          <p></p>
-          <p><strong>Réponse:  </strong><%= coordinate.flashcard.answer %></p>
-          <p><strong>Ta réponse:  </strong><%= coordinate.student_answer %></p>
+          <div style='font-size: 18px; background-color: #EDF3F5; padding: 10px; color: #264060; margin-top: 10px'>
+            <p><i><%= coordinate.student_answer %></i></p>
+            <i class="fas fa-angle-double-right" style='font-size: 20px; color: #ECA53E'></i> <%= coordinate.flashcard.answer %>
+          </div>
         <% else %>
           <div>
             <%= simple_form_for coordinate, remote: true do |f| %>
               <p></p>
               <%= f.input :student_answer, label: false, placeholder: 'Entre ta réponse ici...' %>
-              <%= f.button :submit, class: 'btn btn-flashcard', value: 'Réponse' %>
+              <%= f.button :submit, class: 'btn btn-flashcard', value: 'Afficher la réponse' %>
             <% end %>
           </div>
         <% end %>

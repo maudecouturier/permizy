@@ -1,5 +1,39 @@
-.flashcard {
-  background-color: #F0EEEE;
-  color: black;
+.evaluationmap-flashcard {
+  // height: 235px;
+  overflow: hidden;
+  position: relative;
+  transition: height .7s ease;
+}
+
+.flashcard-card {
+  background-color: #264060;
+  color: white;
   padding: 20px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 20px;
+  //font-weight: bold;
+}
+
+.js-flashcard-hidden {
+  position: absolute;
+  top: -270px;
+  transition: top .7s ease;
+}
+
+.js-flashcard-displayed {
+  position: absolute;
+  top: 0;
+  transition: all .7s ease;
+}
+
+.btn-flashcard{
+  background-color: #7e9abd !important;
+  color: white;
+  font-family: Comfortaa;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 10px 20px;
+  margin: 0;
+  width: 100%;
 }
