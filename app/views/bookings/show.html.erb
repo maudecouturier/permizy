@@ -14,7 +14,7 @@
             <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
               <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
               </path>
-               <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(@booking.respect)*50%> <%= 50 - Math.sin(@booking.respect)*50%> L 50 50 Z" fill="<%= @booking.respect_color%>">
+               <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(@booking.respect)*50%> <%= 50 - Math.sin(@booking.respect)*50%> L 50 50 Z" fill="#24418C">
               </path>
             </svg>
             <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((@booking.respect / (Math::PI / 5)) * 36 - 90 ) %>deg)">
@@ -39,7 +39,7 @@
             <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
               <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
               </path>
-               <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(@booking.share)*50%> <%= 50 - Math.sin(@booking.share)*50%> L 50 50 Z" fill="<%= @booking.share_color%>">
+               <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(@booking.share)*50%> <%= 50 - Math.sin(@booking.share)*50%> L 50 50 Z" fill="#47A1BD">
               </path>
             </svg>
             <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((@booking.share / (Math::PI / 5)) * 36 - 90 ) %>deg)">
@@ -63,7 +63,7 @@
             <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
               <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
               </path>
-              <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(@booking.control)*50%> <%= 50 - Math.sin(@booking.control)*50%> L 50 50 Z" fill="<%= @booking.control_color%>">
+              <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(@booking.control)*50%> <%= 50 - Math.sin(@booking.control)*50%> L 50 50 Z" fill="#F86513">
               </path>
             </svg>
             <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((@booking.control / (Math::PI / 5)) * 36 - 90 ) %>deg)">
