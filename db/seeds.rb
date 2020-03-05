@@ -265,38 +265,203 @@ categories = ['ok', 'Manoeuvre', '1e Secours', 'Partage de la chaussée', 'Maint
   i = 1
   trajet_paris.map do |coordinate|
     Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking2.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking3.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking4.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking5.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking6.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
     i += 1
   end
+
+
 puts 'Done creating coordinates with defined circuit'
 
 puts 'Attributing incident categories to coordinates'
-  c3 = Coordinate.all[3]
+
+
+# BOOKING 1
+  c3 = booking1.coordinates[3]
   c3.incident_category = 'ok'
   c3.save
-  c5 = Coordinate.all[5]
+  c5 = booking1.coordinates[5]
   c5.incident_category = 'ok'
   c5.save
-  c7 = Coordinate.all[7]
+  c7 = booking1.coordinates[7]
   c7.incident_category = 'ok'
   c7.save
-  c_6 = Coordinate.all[-6]
+  c_6 = booking1.coordinates[-6]
   c_6.incident_category = 'ok'
   c_6.save
-  c_7 = Coordinate.all[-7]
+  c_7 = booking1.coordinates[-7]
   c_7.incident_category = 'ok'
   c_7.save
-  c_1 = Coordinate.all[-1]
+  c_1 = booking1.coordinates[-1]
   c_1.incident_category = 'Manoeuvre'
   c_1.save
-  c14 = Coordinate.all[14]
+  c14 = booking1.coordinates[14]
   c14.incident_category = '1e Secours'
   c14.save
-  c17 = Coordinate.all[17]
+  c17 = booking1.coordinates[17]
   c17.incident_category = 'Partage de la chaussée'
   c17.save
-  c_4 = Coordinate.all[-4]
+  c_4 = booking1.coordinates[-4]
   c_4.incident_category = 'Maintien des espaces de sécurité'
   c_4.save
+
+# BOOKING 2
+  c2_3 = booking2.coordinates[3]
+  c2_3.incident_category = 'ok'
+  c2_3.save
+  c2_5 = booking2.coordinates[5]
+  c2_5.incident_category = 'ok'
+  c2_5.save
+  c2_7 = booking2.coordinates[7]
+  c2_7.incident_category = 'ok'
+  c2_7.save
+  c2__6 = booking2.coordinates[-6]
+  c2__6.incident_category = 'ok'
+  c2__6.save
+  c2__7 = booking2.coordinates[-7]
+  c2__7.incident_category = 'ok'
+  c2__7.save
+  c2__1 = booking2.coordinates[-1]
+  c2__1.incident_category = 'Manoeuvre'
+  c2__1.save
+  c2_14 = booking2.coordinates[14]
+  c2_14.incident_category = '1e Secours'
+  c2_14.save
+  c2_17 = booking2.coordinates[17]
+  c2_17.incident_category = 'Partage de la chaussée'
+  c2_17.save
+  c2__4 = booking2.coordinates[-4]
+  c2__4.incident_category = 'Maintien des espaces de sécurité'
+  c2__4.save
+
+  # BOOKING 3
+
+  c_3_3 = booking3.coordinates[3]
+  c_3_3.incident_category = 'ok'
+  c_3_3.save
+  c_3_5 = booking3.coordinates[5]
+  c_3_5.incident_category = 'ok'
+  c_3_5.save
+  c_3_7 = booking3.coordinates[7]
+  c_3_7.incident_category = 'ok'
+  c_3_7.save
+  c_3__6 = booking3.coordinates[-6]
+  c_3__6.incident_category = 'ok'
+  c_3__6.save
+  c_3__7 = booking3.coordinates[-7]
+  c_3__7.incident_category = 'ok'
+  c_3__7.save
+  c_3__1 = booking3.coordinates[-1]
+  c_3__1.incident_category = 'Manoeuvre'
+  c_3__1.save
+  c_3_14 = booking3.coordinates[14]
+  c_3_14.incident_category = '1e Secours'
+  c_3_14.save
+  c_3_17 = booking3.coordinates[17]
+  c_3_17.incident_category = 'Partage de la chaussée'
+  c_3_17.save
+  c_3__4 = booking3.coordinates[-4]
+  c_3__4.incident_category = 'Maintien des espaces de sécurité'
+  c_3__4.save
+
+  # BOOKING 4
+
+  c4_3 = booking4.coordinates[3]
+  c4_3.incident_category = 'ok'
+  c4_3.save
+  c4_5 = booking4.coordinates[5]
+  c4_5.incident_category = 'ok'
+  c4_5.save
+  c4_7 = booking4.coordinates[7]
+  c4_7.incident_category = 'ok'
+  c4_7.save
+  c4__6 = booking4.coordinates[-6]
+  c4__6.incident_category = 'ok'
+  c4__6.save
+  c4__7 = booking4.coordinates[-7]
+  c4__7.incident_category = 'ok'
+  c4__7.save
+  c4__1 = booking4.coordinates[-1]
+  c4__1.incident_category = 'Manoeuvre'
+  c4__1.save
+  c4_14 = booking4.coordinates[14]
+  c4_14.incident_category = '1e Secours'
+  c4_14.save
+  c4_17 = booking4.coordinates[17]
+  c4_17.incident_category = 'Partage de la chaussée'
+  c4_17.save
+  c4__4 = booking4.coordinates[-4]
+  c4__4.incident_category = 'Maintien des espaces de sécurité'
+  c4__4.save
+
+    # BOOKING 5
+
+  c5_3 = booking5.coordinates[3]
+  c5_3.incident_category = 'ok'
+  c5_3.save
+  c5_5 = booking5.coordinates[5]
+  c5_5.incident_category = 'ok'
+  c5_5.save
+  c5_7 = booking5.coordinates[7]
+  c5_7.incident_category = 'ok'
+  c5_7.save
+  c5__6 = booking5.coordinates[-6]
+  c5__6.incident_category = 'ok'
+  c5__6.save
+  c5__7 = booking5.coordinates[-7]
+  c5__7.incident_category = 'ok'
+  c5__7.save
+  c5__1 = booking5.coordinates[-1]
+  c5__1.incident_category = 'Manoeuvre'
+  c5__1.save
+  c5_14 = booking5.coordinates[14]
+  c5_14.incident_category = '1e Secours'
+  c5_14.save
+  c5_17 = booking5.coordinates[17]
+  c5_17.incident_category = 'Partage de la chaussée'
+  c5_17.save
+  c5__4 = booking5.coordinates[-4]
+  c5__4.incident_category = 'Maintien des espaces de sécurité'
+  c5__4.save
+
+      # BOOKING 6
+
+  c6_3 = booking6.coordinates[3]
+  c6_3.incident_category = 'ok'
+  c6_3.save
+  c6_5 = booking6.coordinates[5]
+  c6_5.incident_category = 'ok'
+  c6_5.save
+  c6_7 = booking6.coordinates[7]
+  c6_7.incident_category = 'ok'
+  c6_7.save
+  c6__6 = booking6.coordinates[-6]
+  c6__6.incident_category = 'ok'
+  c6__6.save
+  c6__7 = booking6.coordinates[-7]
+  c6__7.incident_category = 'ok'
+  c6__7.save
+  c6__1 = booking6.coordinates[-1]
+  c6__1.incident_category = 'Manoeuvre'
+  c6__1.save
+  c6_14 = booking6.coordinates[14]
+  c6_14.incident_category = '1e Secours'
+  c6_14.save
+  c6_17 = booking6.coordinates[17]
+  c6_17.incident_category = 'Partage de la chaussée'
+  c6_17.save
+  c6__4 = booking6.coordinates[-4]
+  c6__4.incident_category = 'Maintien des espaces de sécurité'
+  c6__4.save
+
+
+
+
+
+
 puts 'Aone attributing incident categories to coordinates'
 
 puts 'Attributing flashcards'
