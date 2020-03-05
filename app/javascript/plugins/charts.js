@@ -4,9 +4,10 @@ moment().format();
 // chart.js n'est pas un fichier .js c'est une extension suite à l'installation de Chart.js
 
 
-const ctx = document.getElementById('myChart');
+
 const myChart = () => {
-  if (document.getElementById('myChart')) {
+  const ctx = document.getElementById('myChart');
+  if (ctx) {
     const respect = JSON.parse(ctx.dataset.respect)
     const share = JSON.parse(ctx.dataset.share)
     const control = JSON.parse(ctx.dataset.control)

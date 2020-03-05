@@ -2,10 +2,11 @@ import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import places from 'places.js';
 
-const mapElement = document.getElementById('map');
+
 // document.getElementById('booking_address').value = ''
 
 const buildMap = () => {
+  const mapElement = document.getElementById('map');
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
@@ -22,7 +23,7 @@ const addMarkerToMap = (map, marker) => {
 const fitMapToMarker = (map, marker) => {
   const bounds = new mapboxgl.LngLatBounds();
   bounds.extend([ marker.lng, marker.lat ]);
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+  map.fitBounds(bounds, { maxZoom: 15, duration: 0 });
 };
 
 const initAutocomplete = () => {
@@ -40,6 +41,7 @@ const initAutocomplete = () => {
 };
 
 const initMapbox = () => {
+  const mapElement = document.getElementById('map');
   if (mapElement) {
     const map = buildMap();
     const marker = JSON.parse(mapElement.dataset.marker);

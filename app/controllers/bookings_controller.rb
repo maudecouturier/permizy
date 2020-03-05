@@ -50,7 +50,8 @@ class BookingsController < ApplicationController
     # @booking.address = nil
 
     # for planning display
-    @teacher = User.teachers.first
+    @teachers = User.teachers.sort_by { |teacher| teacher.id }
+    @teacher = @teachers.first
     generate_slots(DateTime.now().beginning_of_day)
   end
 

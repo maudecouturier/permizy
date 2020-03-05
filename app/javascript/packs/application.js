@@ -57,6 +57,8 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById('chat')) {
     initScroll();
   }
-  myChart();
+  if (document.getElementById('myChart')) {
+   myChart();
+  }
 });
 
