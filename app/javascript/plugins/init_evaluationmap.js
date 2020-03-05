@@ -4,17 +4,21 @@ const initEvaluationmap = () => {
   const mapElementEval = document.getElementById('map');
   if (mapElementEval) {
     const coordinates = JSON.parse(mapElementEval.dataset.coordinates)
+    console.log(coordinates)
     const markers = JSON.parse(mapElementEval.dataset.markers)
+    console.log(markers);
 
     mapboxgl.accessToken = mapElementEval.dataset.mapboxApiKey;
     const evalMap = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10',
-      center: [2.3159171, 48.852388],
-      zoom: 15
+      center: [2.346798, 48.860819],
+      zoom: 11
     });
-    addMarkersToMap(evalMap, markers);
-    fitMapToMarkers(evalMap, markers);
+    if (markers.length > 0) {
+      addMarkersToMap(evalMap, markers);
+      fitMapToMarkers(evalMap, markers);
+    }
     // displayFlashcard(markers);
 
     evalMap.on('load', function() {
@@ -100,8 +104,10 @@ const addMarkersToMap = (map, markers) => {
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker=> bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+  markers.forEach((marker) => {
+    bounds.extend([ marker.lng, marker.lat ])
+  });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 11 });
 };
 
 export { initEvaluationmap };
