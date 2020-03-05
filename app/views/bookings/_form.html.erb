@@ -3,7 +3,7 @@
   <h2 id="teacher-bar-title">Choisis ton moniteur</h2>
 
   <div class='teacher-bar mt-3 mb-5'>
-    <% @teachers.each do |teacher| %>
+    <% teachers.each do |teacher| %>
       <div
         class='flex-column text-center column-teacher <%= @teacher.id == teacher.id ? 'teacher-selected' : 'teacher-free' %> js-initteacher'
         data-user-id=<%=teacher.id  %>
@@ -31,8 +31,8 @@
       <div>
           <div>
             <%= f.simple_fields_for :slot do |p| %>
-              <%= p.hidden_field :teacher_id, value: @teacher.id %>
-              <%= p.hidden_field :start %>
+              <%= p.hidden_field :teacher_id, value: teacher.id, input_html: { class: '', required: true }%>
+              <%= p.hidden_field :start, input_html: { class: '', required: true } %>
             <% end %>
           </div>
           <h2 class="mt-4 mb-4">Sélectionne un lieu de rencontre</h2>

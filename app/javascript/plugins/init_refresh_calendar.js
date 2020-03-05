@@ -61,9 +61,8 @@ const selectSlot = () => {
         //next_btn.classList.remove('hidden');
 
         //Fill the form
-        document.getElementById('booking_slot_attributes_start').value = `${slot.dataset.slot} ${slot.dataset.slotHour}:00`
-
-
+        const bookingSlot = document.getElementById('booking_slot_attributes_start')
+        bookingSlot.value = `${slot.dataset.slot} ${slot.dataset.slotHour}:00`
       })
     })
   }

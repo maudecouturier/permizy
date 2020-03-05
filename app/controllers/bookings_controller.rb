@@ -65,7 +65,11 @@ class BookingsController < ApplicationController
       sleep 1
       redirect_to dashboard_path
     else
-      render :new
+      redirect_to new_booking_path
+      # @teachers = User.teachers.sort_by { |teacher| teacher.id }
+      # @teacher = @teachers.first
+      # generate_slots(DateTime.now().beginning_of_day)
+      # render :new
     end
   end
 
