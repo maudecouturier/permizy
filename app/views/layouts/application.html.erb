@@ -69,7 +69,14 @@
                 <% end %>
               </div>
             </div>
-          <% end %>
+            <div class = "nav-item dropdown fixed-top btn-avatar">
+
+              <%= image_tag "peach .jpg", class: " avatar dropdown-toggle mt-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Tableau de bord", dashboard_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </div>
           <div class="col-8 cardetour-content">
            <div class="row justify-content-end" id="cardetour-nav">
             <%= render 'shared/navbar'%>
@@ -79,6 +86,7 @@
             </div>
           </div>
         </div>
+       <% end %>
       </div>
     <% end %>
   </body>

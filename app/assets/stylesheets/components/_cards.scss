@@ -3,13 +3,13 @@
 .card-cours {
   margin-right: 5px;
   margin-left: 0;
-  margin-top: 40px;
+  margin-top: 10px;
   margin-bottom: 40px;
   padding: 5px;
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #EDF3F5;
+  background-color: white;
   border-radius: 5px;
 
 }
@@ -17,7 +17,7 @@
 .card-cours-f {
   margin-right: 5px;
   margin-left: 0;
-  margin-top: 40px;
+  margin-top: 10px;
   margin-bottom: 40px;
   padding: 5px;
   display: flex;
@@ -98,9 +98,11 @@
 }
 
 .card-evaluation-content {
-  background-color: #F0EEEE;
-  padding: 10px;
-  height: 80px;
+  background-color: #EDF3F5;
+  padding: 15px;
+  height: 90px;
+  width: 100%;
+  color: #264060;
 }
 
 .card-evaluation-content p{

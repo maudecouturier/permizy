@@ -1,8 +1,7 @@
 .navbar-cardetour {
   justify-content: space-between;
   box-shadow: none;
-  background-color: #EDF3F5;
-  position: sticky;
+  background-color: transparent;
 }
 
 .navbar-cardetour .navbar-collapse {
@@ -42,9 +41,8 @@ margin: 5px;
 }
 
 #cardetour-nav {
-  position: sticky;
   top: 0;
-  background-color: #EDF3F5;
+  background-color: transparent;
   z-index: 1;
 }
 
