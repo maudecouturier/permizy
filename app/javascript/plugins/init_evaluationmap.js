@@ -91,7 +91,7 @@ const addMarkersToMap = (map, markers) => {
         if (marker.incident_category != 'ok') {
           element.classList.replace('marker-fail', 'marker-fail-large')
           flashcard.classList.replace('js-flashcard-hidden', 'js-flashcard-displayed')
-          flashcardContainer.style.height = "240px";
+          flashcardContainer.style.height = "280px";
         } else {
           flashcardContainer.style.height = "0px";
         }

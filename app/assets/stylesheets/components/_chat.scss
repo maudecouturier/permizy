@@ -1,3 +1,6 @@
+.chat-messages {
+  width:80%;
+}
 .chat ::-webkit-scrollbar {
   width: 5px;
 }
@@ -21,7 +24,7 @@
 
 .chat .messages-box,
 .chat-box {
-  height: 510px;
+  height: 710px;
   overflow-y: scroll;
 }
 
@@ -73,8 +76,14 @@
 }
 
 .chat {
-  height : 300px;
+  height : 400px;
   overflow : scroll;
   margin: 5px 0px;
+  background-color: white;
+  padding:16px;
 
+}
+
+.rounded {
+  border-radius:5px;
 }
