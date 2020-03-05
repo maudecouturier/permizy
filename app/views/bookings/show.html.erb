@@ -1,20 +1,15 @@
-<h1>Ton évaluation du <%= I18n.l(@booking.slot.start, format: :date_evaluation, locale: :fr) %></h1>
+<h1 style="margin-left:15px">Mon évaluation du <%= I18n.l(@booking.slot.start, format: :date_evaluation, locale: :fr) %></h1>
 
 <div class="content-evaluation">
 
-
-  
- 
-    
   <div class="">
-    <h2 class="mb-4">Mon niveau</h2>
+    <h2 class="mb-2 mt-2">Mon niveau</h2>
 
-    <div class="">
+    <div class="heures pt-4">
       <!-- SECTION 1 -->
-      <h3 class="jauge-title mb-0">Appréhender la route</h3>
-      <div class="d-flex align-items-end mb-3">
+      <div class="d-flex align-items-center mb-3">
       <!-- JAUGE 1 -->
-        <div class="d-flex flex-column col-3">
+        <div class="d-flex flex-column col-3 px-0">
           <div class="jauge">
             <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
               <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
@@ -25,21 +20,21 @@
             <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((@booking.respect / (Math::PI / 5)) * 36 - 90 ) %>deg)">
             </div>
           </div>
-
+          <h3 class="jauge-title my-1">Appréhender la route</h3>
         </div>
         <!-- TEXT BOX 1 -->
-        <div class="row-evaluation col-9">
+        <div class="row-evaluation col-9 mt-0 pr-0">
           <div class="card-evaluation-content">
             <p><%= @booking.review_content %></p>
           </div>
         </div>
+
       </div>
 
       <!-- SECTION 2 -->
-      <h3 class="jauge-title mb-0">Partager la route</h3>
-      <div class="d-flex align-items-end mb-3">
+      <div class="d-flex align-items-center mb-3">
       <!-- JAUGE 2 -->
-        <div class="d-flex flex-column col-3">
+        <div class="d-flex flex-column col-3 px-0">
           <div class="jauge">
             <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
               <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
@@ -50,9 +45,10 @@
             <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((@booking.share / (Math::PI / 5)) * 36 - 90 ) %>deg)">
             </div>
           </div>
+          <h3 class="jauge-title my-1">Partager la route</h3>
         </div>
         <!-- TEXT BOX 2 -->
-        <div class="row-evaluation col-9">
+        <div class="row-evaluation col-9 mt-0 pr-0">
           <div class="card-evaluation-content">
             <p><%= @booking.review_evaluation%></p>
           </div>
@@ -60,10 +56,9 @@
       </div>
 
       <!-- SECTION 3 -->
-      <h3 class="jauge-title mb-0">Maitriser son véhicule</h3>
-      <div class="d-flex align-items-end mb-3">
+      <div class="d-flex align-items-center mb-3">
       <!-- JAUGE 3 -->
-        <div class="d-flex flex-column col-3">
+        <div class="d-flex flex-column col-3 px-0">
           <div class="jauge">
             <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
               <path d="M 0 50 A 50 50, 0, 1, 1 100 50 Z" fill="lightgrey">
@@ -74,14 +69,14 @@
             <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((@booking.control / (Math::PI / 5)) * 36 - 90 ) %>deg)">
             </div>
           </div>
+          <h3 class="jauge-title my-1">Maitriser son véhicule</h3>
         </div>
       <!-- TEXT BOX 3 -->
-        <div class="row-evaluation col-9">
+        <div class="row-evaluation col-9 mt-0 pr-0">
           <div class="card-evaluation-content">
             <p><%= @booking.review_to_improve%></p>
           </div>
         </div>
-
       </div>
 
     </div>
@@ -91,16 +86,18 @@
 
 
   <div class="row-evaluation flex-column">
-    <h2>Le parcours</h2>
-    <div class='evaluation-map' id='eval_map'>
-      <%= render partial: "evaluationmap", locals: {booking: @booking}  %>
-    </div>
-    <div class="evaluationmap-flashcard">
-      <% if @booking.coordinates.count > 0 %>
-        <div class="flashcard">
-          <%= render "flashcard", coordinates: @booking.coordinates  %>
-        </div>
-      <% end %>
+    <h2 class="mt-0 mb-2">Mon parcours</h2>
+    <div class="heures">
+      <div class='evaluation-map' id='eval_map'>
+        <%= render partial: "evaluationmap", locals: {booking: @booking}  %>
+      </div>
+      <div class="evaluationmap-flashcard">
+        <% if @booking.coordinates.count > 0 %>
+          <div class="flashcard">
+            <%= render "flashcard", coordinates: @booking.coordinates  %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
