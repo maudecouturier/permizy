@@ -62,6 +62,7 @@ class BookingsController < ApplicationController
     @booking.student = @student
     @booking.address = '16 villa Gaudelet 75011 Paris' if @booking.address == ""
     if @booking.save
+      sleep 1
       redirect_to dashboard_path
     else
       render :new
@@ -74,6 +75,7 @@ class BookingsController < ApplicationController
       lat: @booking.latitude,
       lng: @booking.longitude
     }
+    @teachers = User.teachers.sort_by { |teacher| teacher.id }
     @teacher = @booking.slot.teacher
     @slot = @booking.slot
     @booking_id = @booking.id
@@ -85,6 +87,7 @@ class BookingsController < ApplicationController
     @booking.slot.end = @booking.slot.start + 2.hours
     authorize @booking
     if @booking.save
+      sleep 1
       redirect_to dashboard_path
     else
       render :edit
