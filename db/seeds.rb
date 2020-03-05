@@ -458,10 +458,6 @@ puts 'Attributing incident categories to coordinates'
   c6__4.save
 
 
-
-
-
-
 puts 'Aone attributing incident categories to coordinates'
 
 puts 'Attributing flashcards'

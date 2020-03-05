@@ -3,7 +3,7 @@
   <h2 id="teacher-bar-title">Choisis ton moniteur</h2>
 
   <div class='teacher-bar mt-3 mb-5'>
-    <% User.teachers.each do |teacher| %>
+    <% @teachers.each do |teacher| %>
       <div
         class='flex-column text-center column-teacher <%= @teacher.id == teacher.id ? 'teacher-selected' : 'teacher-free' %> js-initteacher'
         data-user-id=<%=teacher.id  %>
