@@ -1,11 +1,29 @@
 //sidebar
 
 .card-cours {
-  margin-bottom: 15px;
+  margin-right: 5px;
+  margin-left: 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding: 5px;
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: #EDF3F5;
+  border-radius: 5px;
+
+}
+
+.card-cours-f {
+  margin-right: 5px;
+  margin-left: 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .card-cours h2{
@@ -14,10 +32,10 @@
 
 
 .card-booking{
-  height: 125px;
   line-height: 15px;
   position: relative;
   margin-bottom: 5px;
+  background-color: none;
 }
 
 .card-booking .card-title {
@@ -50,6 +68,11 @@
   font-size: 14px;
 }
 
+.card-body li {
+  color: $blue;
+  font-size: 14px;
+}
+
 .card-avatar {
   position: absolute;
   left: 82.28%;
@@ -77,7 +100,7 @@
 .card-evaluation-content {
   background-color: #F0EEEE;
   padding: 10px;
-  height: 60px;
+  height: 80px;
 }
 
 .card-evaluation-content p{

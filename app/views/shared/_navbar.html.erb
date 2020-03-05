@@ -1,19 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-cardetour">
-  <%= link_to dashboard_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
-    <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to new_booking_path, class: "btn btn-warning btn-cardetour", data: { turbolinks: false }  do %>
-          <i class="fas fa-plus mr-2"></i>Nouvelle réservation
+          <i class="fas fa-plus mr-2"></i>RESERVER UN COURS
           <% end %>
         </li>
         <li class="nav-item dropdown">

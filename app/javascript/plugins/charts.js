@@ -22,6 +22,7 @@ const myChart = () => {
               data: respect,
               backgroundColor: '#24418C',
               borderColor: '#24418C',
+              borderWidth: 5,
               fill: false
           },
           {
@@ -29,6 +30,7 @@ const myChart = () => {
               data: share,
               backgroundColor: '#47A1BD',
               borderColor: '#47A1BD',
+              borderWidth: 5,
               fill: false
           },
           {
@@ -36,6 +38,7 @@ const myChart = () => {
               data: control,
               backgroundColor: '#F86513',
               borderColor: '#F86513',
+              borderWidth: 5,
               fill: false
           }]
       },
@@ -67,6 +70,7 @@ const myChart = () => {
               }],
               xAxes: [{
                   display: true,
+                  position: 'top',
                   scaleLabel: {
                     display: false,
                   },

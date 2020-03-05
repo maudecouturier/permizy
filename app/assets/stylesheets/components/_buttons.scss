@@ -36,6 +36,20 @@
   padding: 10px 30px;
 }
 
+#btn-evaluation {
+  color: white;
+  text-align: center;
+  background-color: $orange;
+  border-radius: 200px;
+  padding: 5px;
+  margin: 5px;
+}
+
+#btn-evaluation a{
+  color: white;
+  font-size: 13px;
+}
+
 .btn-text-no-review {
   color: $blue !important;
   cursor: auto !important;
@@ -74,8 +88,8 @@
 }
 
 #messageDropdown {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
 }
 
 .btn-chat .dropdown-toggle::after {
