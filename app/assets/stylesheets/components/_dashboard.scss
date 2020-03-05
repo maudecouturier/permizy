@@ -1,20 +1,25 @@
 .heures {
-  margin:15px 5px 15px 5px;
+  margin:10px 5px 20px 5px;
   padding: 16px;
   background-color: white;
   border-radius:5px;
 }
 
 .progression {
-  height: 300px;
+  height: 250px;
+  margin:10px 5px;
+  background-color: white;
+  border-radius:5px;
+  // padding: 8px;
+  overflow:hidden;
 }
 
 .evaluation {
-  margin: 0px;
+  margin:10px 0px 20px 0px;
 }
 
 .timeline {
-  height:70px;
+  height:40px;
   margin: 25px 10px 0px 10px;
   padding:15px 15px 0px 15px;
   position:relative;
@@ -24,7 +29,7 @@
 }
 
 .category {
-  height:35px;
+  height:25px;
   text-align: center;
   font-size: 16px;
   vertical-align: center;
@@ -32,15 +37,15 @@
   color: white;
   font-style: bold;
   width:90%;
-  border-bottom-left-radius:2px;
-  border-top-left-radius:2px;
+  border-bottom-left-radius:5px;
+  border-top-left-radius:5px;
 }
 
 .cat-val {
-  background-color: #139E10;
-  border-bottom-left-radius:2px;
-  border-top-left-radius:2px;
-  height:35px;
+  background-color: $orange;
+  border-bottom-left-radius:5px;
+  border-top-left-radius:5px;
+  height:25px;
   animation: 2s animjauge ease-out;
   transform-origin:top left;
 }
@@ -50,8 +55,8 @@
   border-top-right-radius:2px;
   background: repeating-linear-gradient(
     116deg,
-    #139E10,
-    #139E10 2px,
+    $orange,
+    $orange 2px,
     white 2px,
     white 4px
   );
@@ -103,26 +108,28 @@
 }
 
 
-.arrivee {
-  font-size: 30px;
-  position:absolute;
-  height:75px;
-  top: -20px;
-  right: 20px;
-  color: #51646A;
-}
+// .arrivee {
+//   font-size: 30px;
+//   position:absolute;
+//   height:75px;
+//   top: -20px;
+//   right: 20px;
+//   color: #51646A;
+// }
 
-.depart {
-  font-size: 30px;
-  position:absolute;
-  height:75px;
-  top:-18px;
-  left:20px;
-  color: #51646A;
-}
+// .depart {
+//   font-size: 30px;
+//   position:absolute;
+//   height:75px;
+//   top:-18px;
+//   left:20px;
+//   color: #51646A;
+// }
 
 .ruler {
-  width:90%;
+  width:85%;
+  align-self: center;
+  color: $blue;
 }
 
 .ruler p {
@@ -143,6 +150,8 @@
 
 .jauge-title {
   text-align: center;
+  text-transform: uppercase;
+  font-size:12px;
 }
 
 .jauge::after {
@@ -172,6 +181,10 @@
   z-index: 2;
 }
 
+// .content-dashboard {
+//   box-shadow: 0 0 8px rgba(0,0,0,0.2);
+// }
+
 .grid {
   padding : 8px;
   border-width: 1px;
@@ -182,9 +195,7 @@
 }
 
 .grids {
-  margin-top: 10px;
-  margin-left: 0;
-  margin-right: 0;
+  margin:10px 0px;
 }
 
 .graph {
