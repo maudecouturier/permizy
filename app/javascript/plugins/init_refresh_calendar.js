@@ -35,14 +35,14 @@ const recurse = (elements) => {
 }
 
 const selectSlot = () => {
-  const next_btn = document.querySelector('.js-next-btn');
+  //const next_btn = document.querySelector('.js-next-btn');
   let slots = document.querySelectorAll('.card-slot-free');
   const booked_slot = document.querySelector('.card-slot-clicked');
   slots = Array.from(slots)
 
   if (booked_slot) {
     slots.push(booked_slot);
-    next_btn.classList.remove('hidden');
+    //next_btn.classList.remove('hidden');
   }
 
   if (slots) {
@@ -58,7 +58,7 @@ const selectSlot = () => {
         slot.classList.replace('card-slot-free', 'card-slot-clicked');
 
         // Display the next button
-        next_btn.classList.remove('hidden');
+        //next_btn.classList.remove('hidden');
 
         //Fill the form
         document.getElementById('booking_slot_attributes_start').value = `${slot.dataset.slot} ${slot.dataset.slotHour}:00`

@@ -1,7 +1,6 @@
 .sidebar{
-  background-color: none;
-  height: 100%;
-  padding : 10px;
+  background-color: $blue;
+  padding : 10px 20px;
 }
 
 .sidebar h5 {
@@ -12,6 +11,10 @@
 
 .sidebar h4{
   color: $blue;
+}
+
+.sidebar h2{
+  color: white !important;
 }
 
 .sidebar p{

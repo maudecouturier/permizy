@@ -34,29 +34,29 @@ import { myChart } from '../plugins/charts';
 import { initScroll } from '../plugins/init_scroll';
 
 document.addEventListener('turbolinks:load', () => {
-  loadDynamicBannerText();
-  // initFlatpickr();
-  if (document.getElementById('bookings-show')) {
-    initEvaluationmap()
+  if (document.getElementById('pages-home')) {
+    loadDynamicBannerText();
   };
-  if (document.getElementById('bookings-new') || document.getElementById('bookings-edit')) {
-    initMapbox()
-    initDisplayMap();
-  };
-  initAutocomplete();
-  initTeachers();
-  initCalendar();
 
+  if (document.getElementById('bookings-show')) {
+    initEvaluationmap();
+  };
+
+  if (document.getElementById('bookings-new') || document.getElementById('bookings-edit')) {
+    initMapbox();
+    initDisplayMap();
+    initTeachers();
+    initCalendar();
+    initAutocomplete();
+    initSweetalert('#sweet-alert-demo', {
+      title: "Félicitations !",
+      text: "Ton cours est confirmé",
+      icon: "success"
+    });
+  };
   if (document.getElementById('chat')) {
     initScroll();
   }
-
+  myChart();
 });
 
-initSweetalert('#sweet-alert-demo', {
-  title: "Félicitations !",
-  text: "Ton cours est confirmé",
-  icon: "success"
-});
-
-myChart();
