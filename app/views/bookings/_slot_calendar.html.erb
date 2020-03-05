@@ -15,7 +15,7 @@
         </div>
 
         <% value.each do |slot| %>
-          <% if slot.start < DateTime.now() %>
+          <% if slot.start < DateTime.now() + 2.hour %>
             <div class="card-slot-booked">-</div>
           <% else %>
             <% if (@slot && (@slot.start == slot.start)) %>
