@@ -1,11 +1,20 @@
 .container-cardetour {
-  margin: 5px;
+  margin-left: 0;
 }
 
-.row-cardetour {
-  display: flex;
-  margin-top: 36px;
+.cardetour-content {
+  display: flex-column;
+  margin-top: 20px;
+}
+
+.cardetour-sidebar {
+  padding-left: 0;
+  height: 100vh;
+}
+
+.row .cardetour {
   position: relative;
+  margin: none;
 }
 
 .row-evaluation {
@@ -13,3 +22,4 @@
   margin-top: 20px;
 
 }
+

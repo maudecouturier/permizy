@@ -31,24 +31,22 @@
   </head>
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
-    <% if params[:action] == "home"%>
+    <% if params[:action] == "home" || devise_controller?%>
       <%=  render 'shared/navbar-home' %>
-    <% else %>
-      <%= render 'shared/navbar'%>
     <% end %>
 
     <%= render 'shared/flashes' %>
 
-    <% if params[:action] == "home" %>
+    <% if params[:action] == "home" || devise_controller? %>
       <div class="content-wrapper-home">
         <%= yield %>
       </div>
 
     <% else %>
       <div class="container container-cardetour">
-        <div class="row-cardetour">
+        <div class="row cardetour">
           <% unless params[:action] == 'home' || devise_controller? %>
-            <div class="col-4">
+            <div class="col-4 cardetour-sidebar">
               <%= render 'shared/sidebar', bookings: @bookings %>
             </div>
             <div class="btn-chat fixed-bottom">
@@ -58,22 +56,25 @@
                   <%User.all.each do |user|%>
                     <%=link_to find_or_create_chatrooms_path(interlocutor: user), class: "dropdown-item d-flex justify-content-between" do%>
                     <p><%= user.first_name %></p>
-                    <%= cl_image_tag user.photo.key, class: "avatar-chatbox"%>
+                    <%= cl_image_tag user.photo.key, class: "avatar-chatbox" if user.photo.attached? %>
                     <% end %>
                   <% end %>
                 <% else %>
                   <%User.teachers.each do |teacher|%>
                     <%=link_to find_or_create_chatrooms_path(interlocutor: teacher), class: "dropdown-item d-flex justify-content-between" do%>
                     <p><%= teacher.first_name %></p>
-                    <%= cl_image_tag teacher.photo.key, class: "avatar-chatbox"%>
+                    <%= cl_image_tag teacher.photo.key, class: "avatar-chatbox" if teacher.photo.attached?%>
                     <% end %>
                   <% end %>
                 <% end %>
               </div>
             </div>
           <% end %>
-          <div class="col-8">
-            <div class="content">
+          <div class="col-8 cardetour-content">
+           <div class="row justify-content-end" id="cardetour-nav">
+            <%= render 'shared/navbar'%>
+           </div>
+            <div class="row content">
               <%= yield %>
             </div>
           </div>
