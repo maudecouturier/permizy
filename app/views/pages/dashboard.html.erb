@@ -62,7 +62,7 @@
              <path d="M 0 50 A 50 50, 0, 0, 1 <%= 50 - Math.cos(current_user.control)*50%> <%= 50 - Math.sin(current_user.control)*50%> L 50 50 Z" fill="#F86513">
             </path>
           </svg>
-          <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.share / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
+          <div class="curseur"style="background-image: url('<%= image_path 'curseur.png' %>'); transform: rotate(<%= ((current_user.control / (Math::PI / 5)) * 36 - 90 ) %>deg)"></div>
         </div>
         <h3 class="jauge-title">Maitriser son véhicule</h3>
       </div>

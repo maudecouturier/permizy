@@ -15,29 +15,34 @@
         <i class="fas fa-child"></i>
       </div>
       <h1>Simplicité</h1>
-      <p>Avec Car de Tour, vous réservez vos heures de conduite avec vos professeurs préférés en un clic. <br> Et on vient vous chercher ! 👨🏻‍✈️ </p>
+      <p>Avec Car de Tour, vous réservez vos heures de conduite avec vos professeurs préférés en un clic. <br> Et on vient vous chercher ! </p>
     </div>
     <div class='card-home-page'>
       <div class="round">
         <i class="fas fa-graduation-cap"></i>
       </div>
       <h1>Pédagogie</h1>
-      <p>Pour vous aider à comprendre vos erreurs - et vos forces! 💪🏻, chaque leçon Car de Tour fait l'objet d'un évaluation détaillée. </p>
+      <p>Pour vous aider à comprendre vos erreurs - et vos forces! A chaque leçon Car de Tour fait l'objet d'une évaluation détaillée. </p>
     </div>
     <div class='card-home-page'>
       <div class="round">
         <i class="fas fa-users"></i>
       </div>
       <h1>Suivi</h1>
-      <p>Votre réussite est notre seul objectif. Vous pouvez échanger 💬 avec vos professeurs sur l'évolution de votre apprentissage.</p>
+      <p>Votre réussite est notre seul objectif. Vous pouvez échanger avec vos professeurs sur l'évolution de votre apprentissage.</p>
     </div>
   </div>
   <h1>Notre équipe</h1>
-  <div class='equipe-banner d-flex-inline'>
+  <div class='equipe-banner d-flex justify-content-around'>
     <% User.teachers.each do |teacher| %>
-      <div class="home-teacher d-flex justify-content-between w-100 py-1">
         <%= cl_image_tag(teacher.photo.key, options = {class: 'avatar-home'}) if teacher.photo.attached? %>
-      </div>
     <% end %>
   </div>
+</div>
+
+<div class="footer-home">
+  <h1>Rejoins nous pour commencer tes cours !</h1>
+  <% if user_signed_in? %>
+    <%= link_to "DÉMARRER", dashboard_path, class: "btn btn-warning btn-cardetour btn-home"%>
+  <% end %>
 </div>
