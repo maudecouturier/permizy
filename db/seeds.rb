@@ -105,19 +105,26 @@ puts 'Done creating bookings'
 
 puts 'Creating random slots'
 # 6 slots per day starting at 8am starting at j-5 for 30 days, for each teacher
-User.teachers.each do |teacher|
-  starting_date = DateTime.now() - 5
-  day = DateTime.new(starting_date.year, starting_date.month, starting_date.day)
-  30.times do
-      time = 8
-      6.times do
-        start_time = DateTime.new(day.year, day.month, day.day, time)
-        end_time = start_time + 2.hours
-        Slot.create!(teacher: teacher, start: start_time, end: end_time)
-        time = time + 2
-      end
-    day += 1
-  end
+#User.teachers.each do |teacher|
+#  starting_date = DateTime.now() - 5
+#  day = DateTime.new(starting_date.year, starting_date.month, starting_date.day)
+#  30.times do
+#      time = 8
+#      6.times do
+#        start_time = DateTime.new(day.year, day.month, day.day, time)
+#        end_time = start_time + 2.hours
+#        Slot.create!(teacher: teacher, start: start_time, end: end_time)
+#        time = time + 2
+#      end
+#    day += 1
+#  end
+#end
+
+teachers_array = [edouard, julien, thomas, cecile, damien]
+days_array = (6..25).to_a
+hours_array = [8, 10, 12, 14, 16, 18]
+200.times do
+  Slot.create!(teacher: teachers_array.sample, start: DateTime.new(2020, 3, days_array.sample, hours_array.sample))
 end
 
 puts 'Done creating random slots'
