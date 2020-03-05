@@ -10,6 +10,14 @@
   border-radius: 50%;
   filter: sepia(1);
 }
+
+.border-avatar {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: 5px solid $light-blue;
+}
+
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;
@@ -17,6 +25,7 @@
   border: white 1px solid;
   filter: sepia(1);
 }
+
 .avatar-square {
   width: 40px;
   border-radius: 0px;

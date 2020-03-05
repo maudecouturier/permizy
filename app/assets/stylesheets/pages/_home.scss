@@ -54,10 +54,11 @@
 
 
 .equipe-banner {
-  width: 80%;
+  width: 75%;
   margin: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  overflow: scroll;
   padding-top:16px;
   height: 65vh;
 }

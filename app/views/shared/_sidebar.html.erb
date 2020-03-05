@@ -9,33 +9,34 @@
       <% bookings.to_a.delete_if { |b| b.slot.nil? } %>
 
       <% bookings_sorted = bookings.sort_by { |booking| booking.slot.start } %>
-            <div class="d-flex ">
-              <div class="col-3 mt-2">
-                <%= cl_image_tag bookings_sorted.last.slot.teacher.photo.key, class: "avatar-large"%>
-              </div>
-              <div class="col-9 mt-3">
-                <h3 class="card-title mb-1"> Mon cours avec <%= bookings_sorted.last.slot.teacher.first_name%></h3>
-                <p class="card-title"> 📅 <%= I18n.l(bookings_sorted.last.slot.start, format: :date, locale: :fr).capitalize %></p>
-              </div>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>Appréhender la route</li>
-                <li>Partager la route</li>
-                <li>Maitriser son véhicule</li>
-              </ul>
-            </div>
-            <div id="btn-evaluation">
-              <% if bookings_sorted.last.review_evaluation.nil? %>
-                <%= link_to '#', class: "btn-outline" do%>
-                  EN ATTENTE D'ÉVALUATION
-                <% end %>
-              <% else %>
-                <%= link_to booking_path(booking), class: "btn-outline btn-card-cardetour" do%>
-                  VOIR MON EVALUATION
-                <% end %>
-              <% end %>
-            </div>
+
+        <div class="d-flex ">
+          <div class="col-3 mt-2">
+            <%= cl_image_tag bookings_sorted.last.slot.teacher.photo.key, class: "avatar-large"%>
+          </div>
+          <div class="col-9 mt-3">
+            <h3 class="card-title mb-1"> Mon cours avec <%= bookings_sorted.last.slot.teacher.first_name%></h3>
+            <p class="card-title"> 📅 <%= I18n.l(bookings_sorted.last.slot.start, format: :date, locale: :fr).capitalize %></p>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Appréhender la route</li>
+            <li>Partager la route</li>
+            <li>Maitriser son véhicule</li>
+          </ul>
+        </div>
+        <div id="btn-evaluation">
+          <% if bookings_sorted.last.review_evaluation.nil? %>
+            <%= link_to '#', class: "btn-outline" do%>
+              EN ATTENTE D'ÉVALUATION
+            <% end %>
+          <% else %>
+            <%= link_to booking_path(bookings_sorted.last), class: "btn-outline btn-card-cardetour" do%>
+              VOIR MON EVALUATION
+            <% end %>
+          <% end %>
+        </div>
     </div>
 
 

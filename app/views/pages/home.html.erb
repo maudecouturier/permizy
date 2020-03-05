@@ -35,7 +35,7 @@
   <h1>Notre équipe</h1>
   <div class='equipe-banner d-flex-inline'>
     <% User.teachers.each do |teacher| %>
-      <div class="home-teacher d-flex justify-content-around w-100 py-1">
+      <div class="home-teacher d-flex justify-content-between w-100 py-1">
         <%= cl_image_tag(teacher.photo.key, options = {class: 'avatar-home'}) if teacher.photo.attached? %>
       </div>
     <% end %>

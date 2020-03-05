@@ -25,6 +25,7 @@ class BookingsController < ApplicationController
           lng: coordinate.longitude,
           lat: coordinate.latitude
         }
+
       end
     end
 

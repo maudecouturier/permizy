@@ -8,11 +8,11 @@
   background-color: rgba(174,203,211,0.22);
   color: $blue;
   padding: 8px;
+  overflow: scroll;
   //margin-bottom: 20px;
 }
 
 .teacher-bar img {
-  margin: 4px 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
@@ -23,15 +23,15 @@
 .column-teacher {
   margin: 0 16px;
 
-  .avatar-large {
+  .border-avatar {
     &:hover {
-      border: 2px solid $orange;
+      border: 5px solid $white;
     }
   }
 
   &.teacher-selected {
-    .avatar-large {
-      border: 1px solid $orange;
+    .border-avatar {
+      border: 5px solid $orange;
     }
     p {
       // font-weight: bold;
@@ -40,7 +40,7 @@
   }
 
   &.teacher-free {
-    opacity: 0.5;
+
   }
 
   &:hover {

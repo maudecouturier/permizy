@@ -8,7 +8,9 @@
         class='flex-column text-center column-teacher <%= @teacher.id == teacher.id ? 'teacher-selected' : 'teacher-free' %> js-initteacher'
         data-user-id=<%=teacher.id  %>
         data-path=<%= refresh_calendar_path(:teacher_id => teacher.id, :date => @hash.first[1].first.start.to_date, :refresh => nil, :booking_id => @booking_id) %>>
-        <%= cl_image_tag(teacher.photo.key, options = {class: 'avatar-large'}) if teacher.photo.attached? %>
+        <div class='border-avatar'>
+          <%= cl_image_tag(teacher.photo.key, options = {class: 'avatar-large'}) if teacher.photo.attached? %>
+        </div>
         <p><%= teacher.first_name %></p>
       </div>
     <% end %>
@@ -40,7 +42,7 @@
               Si tu souhaites être récupéré au lieu de ton choix par ton moniteur, entre l’adresse ci-dessous :</p>
             </div>
             <div class='mapbox-card'>
-              <%= f.input :address, label: false %>
+              <%= f.input :address, label: false, input_html: { class: "address-form"} %>
               <div id="map"
                    style="
                    height: 300px;"
