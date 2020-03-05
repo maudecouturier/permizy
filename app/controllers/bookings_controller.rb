@@ -138,7 +138,7 @@ class BookingsController < ApplicationController
     @final_slots = []
     starting_date = start_date
     day = DateTime.new(starting_date.year, starting_date.month, starting_date.day)
-    4.times do
+    5.times do
         time = 8
         6.times do
           start_time = DateTime.new(day.year, day.month, day.day, time)
