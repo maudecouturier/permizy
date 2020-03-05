@@ -74,6 +74,10 @@ const addMarkersToMap = (map, markers) => {
         const flashcard = document.getElementById(`flashcard${marker.coordinate_id}`)
         const displayed_card = document.querySelector('.js-flashcard-displayed')
         const large_marker = document.querySelector('.marker-fail-large')
+        const flashcardContainer = document.querySelector(".evaluationmap-flashcard")
+        // if (marker.incident_category = 'ok') {
+        //   flashcardContainer.style.height = "0px";
+        // } else {
         if (large_marker) {
           large_marker.classList.replace('marker-fail-large', 'marker-fail')
         }
@@ -83,9 +87,12 @@ const addMarkersToMap = (map, markers) => {
         if (marker.incident_category != 'ok') {
           element.classList.replace('marker-fail', 'marker-fail-large')
           flashcard.classList.replace('js-flashcard-hidden', 'js-flashcard-displayed')
+          flashcardContainer.style.height = "260px";
+        } else {
+          flashcardContainer.style.height = "0px";
         }
         const mapElementEval = document.getElementById('map');
-        mapElementEval.scrollIntoView();
+        mapElementEval.scrollIntoView({behavior: "smooth"});
       });
     });
   }

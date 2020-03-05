@@ -97,7 +97,7 @@
     </div>
     <div class="evaluationmap-flashcard">
       <% if @booking.coordinates.count > 0 %>
-        <div>
+        <div class="flashcard">
           <%= render "flashcard", coordinates: @booking.coordinates  %>
         </div>
       <% end %>
