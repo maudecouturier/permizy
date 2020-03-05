@@ -7,6 +7,11 @@
   // top: -20px;
   // left: 9px;
   cursor: pointer;
+  &:hover {
+    width: 40px;
+    height: 40px;
+    transition: width 150ms, height 150ms;
+  }
 }
 
 .marker-fail-large {

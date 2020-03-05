@@ -2,8 +2,8 @@
 
 <div class="content-evaluation">
 
+  <h2>Mon niveau</h2>
   <div class="row-evaluation">
-    <h2>Mon niveau</h2>
     <div class="d-flex justify-content-around evaluation">
       <div class="d-flex flex-column">
         <h3 class="jauge-title">
@@ -76,13 +76,13 @@
   </div>
 
   <div class="row-evaluation flex-column">
-    <h2>Parcours</h2>
+    <h2>Le parcours</h2>
     <div class='evaluation-map' id='eval_map'>
       <%= render partial: "evaluationmap", locals: {booking: @booking}  %>
     </div>
     <div class="evaluationmap-flashcard">
       <% if @booking.coordinates.count > 0 %>
-        <div class="flashcards">
+        <div>
           <%= render "flashcard", coordinates: @booking.coordinates  %>
         </div>
       <% end %>
