@@ -1,5 +1,6 @@
 .container-cardetour {
   margin-left: 0;
+  width: 95%;
 }
 
 .cardetour-content {
@@ -8,10 +9,9 @@
 }
 
 .cardetour-sidebar {
-  padding-left: 0;
-  height: 100vh;
-  position: sticky;
-  top: 0;
+  padding: 0;
+  background-color: $blue;
+
 }
 
 .row .cardetour {

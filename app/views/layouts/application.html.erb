@@ -43,10 +43,10 @@
       </div>
 
     <% else %>
-      <div class="container container-cardetour">
+      <div class="container-fluid container-cardetour">
         <div class="row cardetour">
           <% unless params[:action] == 'home' || devise_controller? %>
-            <div class="col-4 cardetour-sidebar">
+            <div class="col-3 cardetour-sidebar">
               <%= render 'shared/sidebar', bookings: @bookings %>
             </div>
             <div class="btn-chat fixed-bottom">
@@ -77,7 +77,7 @@
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
             </div>
-          <div class="col-8 cardetour-content">
+          <div class="col-9 cardetour-content">
            <div class="row justify-content-end" id="cardetour-nav">
             <%= render 'shared/navbar'%>
            </div>

@@ -1,6 +1,7 @@
 .sidebar{
   background-color: $blue;
   padding : 10px 20px;
+  min-height: 100vh;
 }
 
 .sidebar h5 {
@@ -18,7 +19,7 @@
 }
 
 .sidebar p{
-  color: $blue !important;
+  color: $blue;
 }
 
 
@@ -58,4 +59,29 @@
   left: 23px;
   transform-origin: bottom center;
   z-index: 2;
+}
+
+.note-sidebar {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-family: Comfortaa;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.color-respect {
+  background-color: #24418C;
+}
+
+.color-share {
+  background-color: #47A1BD;
+}
+
+.color-control {
+  background-color: #F86513;
 }
