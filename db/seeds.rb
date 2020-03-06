@@ -219,15 +219,15 @@ booking9.save!
 puts 'Done attributing bookings'
 
 puts 'Creating flashcards'
-  secours = Flashcard.create!(question: "Hors autoroute ou endroit dangereux, en cas de panne ou d’accident, où doit être placé le triangle de pré-signalisation ?",
-    answer: "Le triangle de pré-signalisation doit être placé à une distance d’environ 30 m de la panne ou de l’accident, ou avant un virage, ou un sommet de côte.")
+  route = Flashcard.create!(question: "Que faire au feu jaune ?",
+    answer: "Tout conducteur doit marquer l'arrêt devant un feu de signalisation jaune fixe, sauf si le conducteur ne peut plus arrêter son véhicule dans des conditions de sécurité suffisantes.")
   manoeuvre = Flashcard.create!(question: "Listez les 4 grandes étapes nécessaires à la réussite d'un créneau.", answer: "Étape 1 : Mettez votre clignotant et placez-vous
   \n Étape 2 : Reculez et braquez
   \n Étape 3 : Contre-braquez
   \n Étape 4 : Finissez votre créneau en centrant votre véhicule")
   partage = Flashcard.create!(question: "Sur quelle voie doit-on circuler et quels sont les espaces de sécurités à respecter ?", answer: "Même quand plusieurs voies empruntent la même direction, chaque conducteur devra circuler sur la voie qui se trouve la plus à droite.
   \n L’usager doit impérativement veiller à laisser une distance de sécurité minimum sur les côtés qui varie entre 1 et 1,5 m s’il circule en agglomération ou en dehors.")
-  espace = Flashcard.create!(question: "En quelles circonstances doivent être maintenus les espaces de sécurité ? ", answer: "En toutes circonstances, le candidat maintient des intervalles de sécurité suffisante autour de son véhicule. Il est capable de moduler la distance de sécurité en fonction de sa vitesse et des conditions de circulation. Il augmente cet intervalle lorsque la signalisation, les conditions climatiques ou la situation l'exigent. Il s'assure de ne jamais heurter ou accrocher les obstacles fixes ou mobiles et tient particulièrement compte des usagers vulnérables.")
+  espace = Flashcard.create!(question: "En quelles circonstances doivent être maintenus les espaces de sécurité ? ", answer: "En toutes circonstances, le candidat maintient des intervalles de sécurité suffisante autour de son véhicule.")
 puts 'Done creating flashcards'
 
 puts 'Creating circuit and coordinates'
@@ -269,7 +269,7 @@ trajet_paris = [[2.324615, 48.843578],
 [2.314054, 48.849210],
 [2.315407, 48.846459]]
 
-categories = ['ok', 'Manoeuvre', '1e Secours', 'Partage de la chaussée', 'Maintien des espaces de sécurité' 'no_display']
+categories = ['ok', 'Manoeuvre', 'Route', 'Partage de la chaussée', 'Maintien des espaces de sécurité' 'no_display']
   i = 1
   trajet_paris.map do |coordinate|
     Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
@@ -313,7 +313,7 @@ puts 'Attributing incident categories to coordinates'
   c1__1.incident_category = 'Manoeuvre'
   c1__1.save
   c1_14 = booking4.coordinates[14]
-  c1_14.incident_category = '1e Secours'
+  c1_14.incident_category = 'Route'
   c1_14.save
   c1_17 = booking4.coordinates[17]
   c1_17.incident_category = 'Partage de la chaussée'
@@ -348,7 +348,7 @@ puts 'Attributing incident categories to coordinates'
   c2__1.incident_category = 'Manoeuvre'
   c2__1.save
   c2_14 = booking4.coordinates[14]
-  c2_14.incident_category = '1e Secours'
+  c2_14.incident_category = 'Route'
   c2_14.save
   c2_17 = booking4.coordinates[17]
   c2_17.incident_category = 'Partage de la chaussée'
@@ -384,7 +384,7 @@ puts 'Attributing incident categories to coordinates'
   c3__1.incident_category = 'Manoeuvre'
   c3__1.save
   c3_14 = booking3.coordinates[14]
-  c3_14.incident_category = '1e Secours'
+  c3_14.incident_category = 'Route'
   c3_14.save
   c3_17 = booking3.coordinates[17]
   c3_17.incident_category = 'Partage de la chaussée'
@@ -420,7 +420,7 @@ puts 'Attributing incident categories to coordinates'
   c4__1.incident_category = 'Manoeuvre'
   c4__1.save
   c4_14 = booking4.coordinates[14]
-  c4_14.incident_category = '1e Secours'
+  c4_14.incident_category = 'Route'
   c4_14.save
   c4_17 = booking4.coordinates[17]
   c4_17.incident_category = 'Partage de la chaussée'
@@ -456,7 +456,7 @@ puts 'Attributing incident categories to coordinates'
   c5__1.incident_category = 'Manoeuvre'
   c5__1.save
   c5_14 = booking5.coordinates[14]
-  c5_14.incident_category = '1e Secours'
+  c5_14.incident_category = 'Route'
   c5_14.save
   c5_17 = booking5.coordinates[17]
   c5_17.incident_category = 'Partage de la chaussée'
@@ -492,7 +492,7 @@ puts 'Attributing incident categories to coordinates'
   c6__1.incident_category = 'Manoeuvre'
   c6__1.save
   c6_14 = booking6.coordinates[14]
-  c6_14.incident_category = '1e Secours'
+  c6_14.incident_category = 'Route'
   c6_14.save
   c6_17 = booking6.coordinates[17]
   c6_17.incident_category = 'Partage de la chaussée'
@@ -507,37 +507,37 @@ puts 'Aone attributing incident categories to coordinates'
 puts 'Attributing flashcards'
   # BOOKING 1
   c1__1.flashcard_id = manoeuvre.id
-  c1_14.flashcard_id = secours.id
+  c1_14.flashcard_id = route.id
   c1_17.flashcard_id = partage.id
   c1__4.flashcard_id = espace.id
 
 # BOOKING 2
   c2__1.flashcard_id = manoeuvre.id
-  c2_14.flashcard_id = secours.id
+  c2_14.flashcard_id = route.id
   c2_17.flashcard_id = partage.id
   c2__4.flashcard_id = espace.id
 
 # BOOKING 3
   c3__1.flashcard_id = manoeuvre.id
-  c3_14.flashcard_id = secours.id
+  c3_14.flashcard_id = route.id
   c3_17.flashcard_id = partage.id
   c3__4.flashcard_id = espace.id
 
 # BOOKING 4
   c4__1.flashcard_id = manoeuvre.id
-  c4_14.flashcard_id = secours.id
+  c4_14.flashcard_id = route.id
   c4_17.flashcard_id = partage.id
   c4__4.flashcard_id = espace.id
 
   # BOOKING 5
   c5__1.flashcard_id = manoeuvre.id
-  c5_14.flashcard_id = secours.id
+  c5_14.flashcard_id = route.id
   c5_17.flashcard_id = partage.id
   c5__4.flashcard_id = espace.id
 
   # BOOKING 6
   c6__1.flashcard_id = manoeuvre.id
-  c6_14.flashcard_id = secours.id
+  c6_14.flashcard_id = route.id
   c6_17.flashcard_id = partage.id
   c6__4.flashcard_id = espace.id
 
