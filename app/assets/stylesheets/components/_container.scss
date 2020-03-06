@@ -1,16 +1,22 @@
 .container-cardetour {
   margin-left: 0;
-  width: 95%;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
 }
 
 .cardetour-content {
   display: flex-column;
-  margin-top: 20px;
+  width: 70%;
+  padding: 0 30px;
+
+  //margin-top: 20px;
 }
 
 .cardetour-sidebar {
-  padding: 0;
+  padding: 10px 25px;
   background-color: $blue;
+  width: 30%;
 
 }
 
@@ -24,4 +30,5 @@
   margin-top: 20px;
 
 }
+
 
