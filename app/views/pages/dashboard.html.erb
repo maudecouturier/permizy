@@ -72,11 +72,11 @@
   <div class="d-flex flex-column progression">
     <div style="background-image: url('<%= image_path 'damier.png' %>'); height:20px;"></div>
     <div class="d-flex">
-      <div class="legend d-flex flex-column justify-content-between text-align-center p-1" style="height:280px; width:150px">
-      <p>Prêt pour le permis!  <i class="fas fa-caret-right"></i></p>
+      <div class="legend d-flex flex-column justify-content-between text-align-center p-1" style="height:300px; width:150px">
+      <p style="margin-top: 35px;">Prêt pour le permis!  <i class="fas fa-caret-right"></i></p>
       <p>Débutant  <i class="fas fa-caret-right"></i></p>
       </div>
-      <div class="chart-container" style="margin-top:20px; height:100px; width:620px;">
+      <div class="chart-container" style="position: relative; margin-top:20px;">
         <canvas id="myChart" class="graph" data-respect="<%= current_user.respect_ratings.to_json %>" data-share="<%= current_user.share_ratings.to_json %>"
           data-control="<%= current_user.control_ratings.to_json %>" data-labels="<%= current_user.ratings_dates.to_json %>">
         </canvas>
