@@ -505,39 +505,62 @@ puts 'Attributing flashcards'
   # BOOKING 1
   c1__1.flashcard_id = manoeuvre.id
   c1_14.flashcard_id = route.id
-  c1_17.flashcard_id = partage.id
-  c1__4.flashcard_id = espace.id
+  c1_17.flashcard_id = manoeuvre.id
+  c1__4.flashcard_id = route.id
+  c1__1.save
+  c1_14.save
+  c1_17.save
+  c1__4.save
 
 # BOOKING 2
   c2__1.flashcard_id = manoeuvre.id
   c2_14.flashcard_id = route.id
-  c2_17.flashcard_id = partage.id
-  c2__4.flashcard_id = espace.id
+  c2_17.flashcard_id = manoeuvre.id
+  c2__4.flashcard_id = route.id
+  c2__1.save
+  c2_14.save
+  c2_17.save
+  c2__4.save
 
 # BOOKING 3
   c3__1.flashcard_id = manoeuvre.id
   c3_14.flashcard_id = route.id
-  c3_17.flashcard_id = partage.id
-  c3__4.flashcard_id = espace.id
+  c3_17.flashcard_id = manoeuvre.id
+  c3__4.flashcard_id = route.id
+  c3__1.save
+  c3_14.save
+  c3_17.save
+  c3__4.save
 
 # BOOKING 4
   c4__1.flashcard_id = manoeuvre.id
   c4_14.flashcard_id = route.id
-  c4_17.flashcard_id = partage.id
-  c4__4.flashcard_id = espace.id
+  c4_17.flashcard_id = manoeuvre.id
+  c4__4.flashcard_id = route.id
+  c4__1.save
+  c4_14.save
+  c4_17.save
+  c4__4.save
 
   # BOOKING 5
   c5__1.flashcard_id = manoeuvre.id
   c5_14.flashcard_id = route.id
-  c5_17.flashcard_id = partage.id
-  c5__4.flashcard_id = espace.id
+  c5_17.flashcard_id = manoeuvre.id
+  c5__4.flashcard_id = route.id
+  c5__1.save
+  c5_14.save
+  c5_17.save
+  c5__4.save
 
   # BOOKING 6
   c6__1.flashcard_id = manoeuvre.id
   c6_14.flashcard_id = route.id
-  c6_17.flashcard_id = partage.id
-  c6__4.flashcard_id = espace.id
-
+  c6_17.flashcard_id = manoeuvre.id
+  c6__4.flashcard_id = route.id
+  c6__1.save
+  c6_14.save
+  c6_17.save
+  c6__4.save
 
 
 
