@@ -1,3 +1,15 @@
+.chart-container {
+  width: 480px;
+  height: 300px;
+
+  canvas {
+    width: 480px;
+    height: 300px;
+  }
+}
+
+
+
 .heures {
   margin:20px 5px 40px 5px;
   padding: 16px;
@@ -7,7 +19,7 @@
 
 .progression {
   height: 400px;
-  margin:20px 5px;
+  margin: 20px 5px;
   background-color: white;
   border-radius:5px;
   // padding: 8px;
@@ -179,5 +191,5 @@
 }
 
 .legend {
-  margin: 45px 10px 0px 15px;
+  margin: 25px 10px 0px 15px;
 }

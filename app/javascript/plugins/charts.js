@@ -97,7 +97,10 @@ const myChart = () => {
                     usePointStyle: true,
                 },
                 position: "bottom"
-          }
+          },
+          responsive: true,
+          maintainAspectRatio: false,
+          showScale: false
       }
     });
   }
