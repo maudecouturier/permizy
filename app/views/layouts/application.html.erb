@@ -43,51 +43,55 @@
       </div>
 
     <% else %>
-      <div class="container-fluid container-cardetour">
-        <div class="row cardetour">
+      <div class="container-cardetour">
           <% unless params[:action] == 'home' || devise_controller? %>
-            <div class="col-3 cardetour-sidebar">
+            <!-- SIDEB BAR -->
+            <div class="cardetour-sidebar">
               <%= render 'shared/sidebar', bookings: @bookings %>
             </div>
-            <div class="btn-chat fixed-bottom">
-              <%= image_tag "message.png", class: "dropdown-toggle", id: "messageDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <% if current_user.teacher? %>
-                  <%User.all.each do |user|%>
-                    <%=link_to find_or_create_chatrooms_path(interlocutor: user), class: "dropdown-item d-flex justify-content-between" do%>
-                    <p><%= user.first_name %></p>
-                    <%= cl_image_tag user.photo.key, class: "avatar-chatbox" if user.photo.attached? %>
-                    <% end %>
-                  <% end %>
-                <% else %>
-                  <%User.teachers.each do |teacher|%>
-                    <%=link_to find_or_create_chatrooms_path(interlocutor: teacher), class: "dropdown-item d-flex justify-content-between" do%>
-                    <p><%= teacher.first_name %></p>
-                    <%= cl_image_tag teacher.photo.key, class: "avatar-chatbox" if teacher.photo.attached?%>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </div>
+          <!-- CONTENT -->
+          <div class="cardetour-content">
+            <div class="row justify-content-end" id="cardetour-nav">
+              <%= render 'shared/navbar'%>
             </div>
-            <div class = "nav-item dropdown fixed-top btn-avatar">
 
-              <%= image_tag "peach .jpg", class: " avatar dropdown-toggle mt-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Tableau de bord", dashboard_path, class: "dropdown-item" %>
-              <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              </div>
-            </div>
-          <div class="col-9 cardetour-content">
-           <div class="row justify-content-end" id="cardetour-nav">
-            <%= render 'shared/navbar'%>
-           </div>
             <div class="row content">
               <%= yield %>
             </div>
           </div>
+
         </div>
+        <!-- CHAT -->
+        <div class="btn-chat">
+          <%= image_tag "message.png", class: "dropdown-toggle", id: "messageDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <% if current_user.teacher? %>
+              <%User.all.each do |user|%>
+                <%=link_to find_or_create_chatrooms_path(interlocutor: user), class: "dropdown-item d-flex justify-content-between" do%>
+                <p><%= user.first_name %></p>
+                <%= cl_image_tag user.photo.key, class: "avatar-chatbox" if user.photo.attached? %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <%User.teachers.each do |teacher|%>
+                <%=link_to find_or_create_chatrooms_path(interlocutor: teacher), class: "dropdown-item d-flex justify-content-between" do%>
+                <p><%= teacher.first_name %></p>
+                <%= cl_image_tag teacher.photo.key, class: "avatar-chatbox" if teacher.photo.attached?%>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <!-- AVATAR -->
+        <div class = "nav-item dropdown fixed-top btn-avatar">
+          <%= image_tag "peach .jpg", class: " avatar dropdown-toggle mt-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Tableau de bord", dashboard_path, class: "dropdown-item" %>
+          <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </div>
+
        <% end %>
-      </div>
     <% end %>
   </body>
 </html>
