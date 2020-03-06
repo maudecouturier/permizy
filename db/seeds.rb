@@ -219,14 +219,11 @@ booking9.save!
 puts 'Done attributing bookings'
 
 puts 'Creating flashcards'
-  route = Flashcard.create!(question: "Que faire au feu jaune ?",
-    answer: "Tout conducteur doit marquer l'arrêt devant un feu de signalisation jaune fixe, sauf si le conducteur ne peut plus arrêter son véhicule dans des conditions de sécurité suffisantes.")
-  manoeuvre = Flashcard.create!(question: "Listez les 4 grandes étapes nécessaires à la réussite d'un créneau.", answer: "Étape 1 : Mettez votre clignotant et placez-vous
-  \n Étape 2 : Reculez et braquez
-  \n Étape 3 : Contre-braquez
+  route = Flashcard.create!(question: "Comment adapter ta vitesse lorsque le feu passe au orange ?",
+    answer: "Il faut marquer l'arrêt devant un feu orange en toutes conditions, sauf s'il est impossible de le faire dans des conditions de sécurité suffisantes.")
+  manoeuvre = Flashcard.create!(question: "Listez les 4 grandes étapes nécessaires à la réussite d'un créneau.", answer: "Étape 1 : Mettez votre clignotant et placez-vous, Étape 2 : Reculez et braquez, Étape 3 : Contre-braquez
   \n Étape 4 : Finissez votre créneau en centrant votre véhicule")
-  partage = Flashcard.create!(question: "Sur quelle voie doit-on circuler et quels sont les espaces de sécurités à respecter ?", answer: "Même quand plusieurs voies empruntent la même direction, chaque conducteur devra circuler sur la voie qui se trouve la plus à droite.
-  \n L’usager doit impérativement veiller à laisser une distance de sécurité minimum sur les côtés qui varie entre 1 et 1,5 m s’il circule en agglomération ou en dehors.")
+  partage = Flashcard.create!(question: "Sur quelle voie doit-on circuler ?", answer: "Même quand plusieurs voies empruntent la même direction, chaque conducteur devra circuler sur la voie qui se trouve la plus à droite.")
   espace = Flashcard.create!(question: "En quelles circonstances doivent être maintenus les espaces de sécurité ? ", answer: "En toutes circonstances, le candidat maintient des intervalles de sécurité suffisante autour de son véhicule.")
 puts 'Done creating flashcards'
 
