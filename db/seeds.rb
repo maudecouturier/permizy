@@ -39,7 +39,7 @@ puts 'Attaching photos to users'
   # file_louis = URI.open("https://fr.web.img6.acsta.net/pictures/15/11/23/10/22/340988.jpg")
   # louis.photo.attach(io: file_louis, filename: 'louis.jpg')
   # STUDENTS
-  file_peach = URI.open("https://f0.pngfuel.com/png/807/610/princess-pitch-png-clip-art.png")
+  file_peach = URI.open("https://res.cloudinary.com/dkybxjjy2/image/upload/v1583508433/peach_r0335d.jpg")
   peach.photo.attach(io: file_peach, filename: 'peach.jpg')
   file_luigi = URI.open("https://static.wikia.nocookie.net/8f7a639f-6db3-4a43-a32b-5a680133b02b")
   luigi.photo.attach(io: file_luigi, filename: 'luigi.jpg')
