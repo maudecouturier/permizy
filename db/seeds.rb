@@ -19,7 +19,7 @@ puts 'Creating users'
   cecile = User.create(first_name: 'Cécile', teacher: true, email: 'cecile@gmail.com', password: '123456')
   # louis = User.create(first_name: 'Louis', teacher: true, email: 'louis@gmail.com', password: '123456')
   # STUDENTS
-  peach = User.create(first_name: 'Peach', teacher: false, email: 'peach@gmail.com', password: '123456')
+  peach = User.create(first_name: 'Pauline', teacher: false, email: 'pauline@gmail.com', password: '123456')
   luigi = User.create(first_name: 'Luigi', teacher: false, email: 'luigi@gmail.com', password: '123456')
 puts 'Done creating users'
 
