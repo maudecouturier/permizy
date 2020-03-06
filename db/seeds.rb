@@ -268,12 +268,12 @@ trajet_paris = [[2.324615, 48.843578],
 categories = ['ok', 'Manoeuvre', 'Route', 'Partage de la chaussée', 'Maintien des espaces de sécurité' 'no_display']
   i = 1
   trajet_paris.map do |coordinate|
-    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id, incident_category: 'no_display')
-    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking2.id, incident_category: 'no_display')
-    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking3.id, incident_category: 'no_display')
-    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking4.id, incident_category: 'no_display')
-    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking5.id, incident_category: 'no_display')
-    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking6.id, incident_category: 'no_display')
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking1.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking2.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking3.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking4.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking5.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
+    Coordinate.create!(order: i, longitude: coordinate[0] , latitude:coordinate[1] , booking_id: booking6.id, incident_category: 'no_display', flashcard_id: Flashcard.all.sample.id)
     i += 1
   end
 
@@ -499,7 +499,7 @@ puts 'Attributing incident categories to coordinates'
   c6__4.save
 
 
-puts 'Aone attributing incident categories to coordinates'
+puts 'Done attributing incident categories to coordinates'
 
 puts 'Attributing flashcards'
   # BOOKING 1
