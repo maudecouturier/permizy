@@ -12,8 +12,8 @@ Coordinate.destroy_all
 
 puts 'Creating users'
   # TEACHERS
-  edouard = User.create(first_name: 'Edouard', teacher: true, email: 'edouard@gmail.com', password: '123456')
   damien = User.create(first_name: 'Damien', teacher: true, email: 'damien@gmail.com', password: '123456')
+  michel = User.create(first_name: 'Michel', teacher: true, email: 'michel@gmail.com', password: '123456')
   julien = User.create(first_name: 'Julien', teacher: true, email: 'julien@gmail.com', password: '123456')
   thomas = User.create(first_name: 'Thomas', teacher: true, email: 'thomas@gmail.com', password: '123456')
   cecile = User.create(first_name: 'Cécile', teacher: true, email: 'cecile@gmail.com', password: '123456')
@@ -32,8 +32,8 @@ puts 'Attaching photos to users'
   thomas.photo.attach(io: file_thomas, filename: 'thomas.jpg')
   file_cecile = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1539599254/janttrofl6xagki5zk6g.jpg")
   cecile.photo.attach(io: file_cecile, filename: 'cecile.jpg')
-  file_edouard = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/u51ojdkeciv4pr6lqzy5.jpg")
-  edouard.photo.attach(io: file_edouard, filename: 'edouard.jpg')
+  file_michel = URI.open("https://res.cloudinary.com/dyhryksmj/image/upload/v1583495660/Francois_c6tjal.jpg")
+  michel.photo.attach(io: file_michel, filename: 'michel.jpg')
   file_damien = URI.open("https://avatars0.githubusercontent.com/u/37899667?s=460&v=4")
   damien.photo.attach(io: file_damien, filename: 'damien.jpg')
   # file_louis = URI.open("https://fr.web.img6.acsta.net/pictures/15/11/23/10/22/340988.jpg")
@@ -120,7 +120,7 @@ puts 'Creating random slots'
 #  end
 #end
 
-teachers_array = [edouard, julien, thomas, cecile, damien]
+teachers_array = [michel, julien, thomas, cecile, damien]
 days_array = (6..25).to_a
 hours_array = [8, 10, 12, 14, 16, 18]
 200.times do
@@ -143,49 +143,49 @@ puts 'Attributing slots to bookings'
 # BOOKING 1
 starting_date = DateTime.now() - 60
 slot = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 10)
-slot_booking = Slot.create!(teacher: edouard, start: slot, end: slot + 2.hours)
+slot_booking = Slot.create!(teacher: michel, start: slot, end: slot + 2.hours)
 booking1.slot = slot_booking
 booking1.save!
 
 # BOOKING 2
 starting_date = DateTime.now() - 46
 slot = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 12)
-slot_booking = Slot.create!(teacher: edouard, start: slot, end: slot + 2.hours)
+slot_booking = Slot.create!(teacher: michel, start: slot, end: slot + 2.hours)
 booking2.slot = slot_booking
 booking2.save!
 
 # BOOKING 3
 starting_date = DateTime.now() - 32
 slot = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 18)
-slot_booking = Slot.create!(teacher: edouard, start: slot, end: slot + 2.hours)
+slot_booking = Slot.create!(teacher: michel, start: slot, end: slot + 2.hours)
 booking3.slot = slot_booking
 booking3.save!
 
 # BOOKING 4
 starting_date = DateTime.now() - 16
 slot = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 18)
-slot_booking = Slot.create!(teacher: edouard, start: slot, end: slot + 2.hours)
+slot_booking = Slot.create!(teacher: michel, start: slot, end: slot + 2.hours)
 booking4.slot = slot_booking
 booking4.save!
 
 # BOOKING 5
 starting_date = DateTime.now() - 8
 slot = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 18)
-slot_booking = Slot.create!(teacher: edouard, start: slot, end: slot + 2.hours)
+slot_booking = Slot.create!(teacher: michel, start: slot, end: slot + 2.hours)
 booking5.slot = slot_booking
 booking5.save!
 
 # DERNIER COURS TO DISPLAY IN THE CARD BOOKING 6
 starting_date = DateTime.now() - 2
 slot = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 18)
-slot_booking = Slot.create!(teacher: edouard, start: slot, end: slot + 2.hours)
+slot_booking = Slot.create!(teacher: michel, start: slot, end: slot + 2.hours)
 booking6.slot = slot_booking
 booking6.save!
 
 # PEACH FUTURE BOOKING
 starting_date = DateTime.now() + 30
 slot_future = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 10)
-slot_exam = Slot.create!(teacher: edouard, start: slot_future, end: slot_future + 2.hours)
+slot_exam = Slot.create!(teacher: michel, start: slot_future, end: slot_future + 2.hours)
 booking9 = Booking.create!(student: peach)
 booking9.slot = slot_exam
 booking9.save!
@@ -202,19 +202,19 @@ booking9.save!
 
 # starting_date = DateTime.now() + 1
 # slot_tomorrow1 = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 10)
-# slot1 = Slot.ceate!(teacher: edouard, start: slot_tomorrow1, end: slot_tomorrow1 + 2.hours)
+# slot1 = Slot.ceate!(teacher: michel, start: slot_tomorrow1, end: slot_tomorrow1 + 2.hours)
 
 # starting_date = DateTime.now() + 1
 # slot_tomorrow2 = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 12)
-# slot2 = Slot.ceate!(teacher: edouard, start: slot_tomorrow2, end: slot_tomorrow1 + 2.hours)
+# slot2 = Slot.ceate!(teacher: michel, start: slot_tomorrow2, end: slot_tomorrow1 + 2.hours)
 
 # starting_date = DateTime.now() + 2
 # slot_tomorrow3 = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 14)
-# slot3 = Slot.ceate!(teacher: edouard, start: slot_tomorrow2, end: slot_tomorrow1 + 2.hours)
+# slot3 = Slot.ceate!(teacher: michel, start: slot_tomorrow2, end: slot_tomorrow1 + 2.hours)
 
 # starting_date = DateTime.now() + 2
 # slot_tomorrow3 = DateTime.new(starting_date.year, starting_date.month, starting_date.day, 18)
-# slot3 = Slot.ceate!(teacher: edouard, start: slot_tomorrow2, end: slot_tomorrow1 + 2.hours)
+# slot3 = Slot.ceate!(teacher: michel, start: slot_tomorrow2, end: slot_tomorrow1 + 2.hours)
 
 puts 'Done attributing bookings'
 

@@ -63,6 +63,8 @@ const myChart = () => {
                     beginAtZero: true,
                     fontColor: "#274060",
                     stepSize: 1,
+                    min: 0,
+                    max: 5,
                   },
                   gridLines: {
                     offsetGridLines: false,
@@ -84,7 +86,7 @@ const myChart = () => {
                   },
                   gridLines: {
                     offsetGridLines: false,
-                    display: true
+                    display: true,
                   }
               }]
           },
